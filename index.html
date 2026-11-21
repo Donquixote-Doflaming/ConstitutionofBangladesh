@@ -1,0 +1,3384 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="soft">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>বাংলাদেশের সংবিধান</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700;800&family=Orbitron:wght@600;800;900&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cp-yellow: #fcee0a;
+  --cp-yellow-glow: rgba(252, 238, 10, 0.4);
+  --cp-black: #181816;
+  --cp-dark-panel: #1e1e1b;
+  --cp-card-bg: #1e1e1b;
+  --cp-cyan: #00f0ff;
+  --cp-red: #ff003c;
+  --cp-green: #00ff66;
+  --cp-text: #ffffff;
+  --cp-muted: #7e8b9b;
+  --font-logo: 'Orbitron', sans-serif;
+  --font-heading: 'Teko', sans-serif;
+  --font-subhead: 'Rajdhani', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-bn: 'Noto Sans Bengali', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background-color: var(--cp-black); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--cp-black);
+  color: var(--cp-text);
+  font-family: var(--font-bn);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(252, 238, 10, 0.08) 0%, transparent 40%),
+    linear-gradient(rgba(252, 238, 10, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(252, 238, 10, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px, 24px 24px;
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+.bn { font-family: var(--font-bn); }
+.mono { font-family: var(--font-mono); }
+
+/* Navigation Bar */
+.cp-navbar {
+  background: #181816;
+  border-bottom: 2px solid var(--cp-yellow);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.cp-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.cp-logo {
+  font-family: var(--font-logo);
+  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+  font-weight: 900;
+  color: var(--cp-yellow);
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  font-style: italic;
+  text-shadow: 2px 2px 0px #00f0ff;
+  line-height: 1;
+}
+
+.cp-logo span {
+  color: #fff;
+  font-size: 0.72rem;
+  font-style: normal;
+  display: block;
+  font-family: var(--font-bn);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.cp-nav-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.cp-nav-btn {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--cp-text);
+  background: transparent;
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+  min-height: 40px;
+}
+
+.cp-nav-btn:hover, .cp-nav-btn.active {
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  border-color: var(--cp-yellow);
+}
+
+.cp-buy-btn {
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  font-family: var(--font-subhead);
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 8px 18px;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  box-shadow: 0 0 10px var(--cp-yellow-glow);
+  min-height: 40px;
+}
+
+.cp-buy-btn:hover {
+  background: #fff;
+  color: var(--cp-black);
+}
+
+.mobile-toggle {
+  display: none;
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  border: none;
+  font-family: var(--font-mono);
+  font-weight: bold;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle { display: block; }
+  .cp-nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #181816;
+    border-bottom: 2px solid var(--cp-yellow);
+    flex-direction: column;
+    padding: 16px;
+    align-items: stretch;
+  }
+  .cp-nav-links.open { display: flex; }
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Official Yellow Hero Banner */
+.cp-hero-banner {
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  padding: clamp(20px, 4vw, 32px) clamp(16px, 4vw, 30px);
+  margin-bottom: 24px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  position: relative;
+  border-bottom: 4px solid var(--cp-black);
+  overflow: hidden;
+}
+
+.cp-hero-banner::before {
+  content: "CONSTITUTION";
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  font-family: var(--font-heading);
+  font-size: clamp(4.5rem, 14vw, 10rem);
+  color: rgba(0,0,0,0.06);
+  font-weight: bold;
+  pointer-events: none;
+  line-height: 0.8;
+  white-space: nowrap;
+}
+
+.cp-laurels {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.65rem, 1.8vw, 0.75rem);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a1a00;
+  flex-wrap: wrap;
+}
+
+.cp-laurel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 0 10px;
+}
+
+.cp-laurel-item::before, .cp-laurel-item::after {
+  content: "❯";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cp-black);
+}
+.cp-laurel-item::before { left: -4px; transform: translateY(-50%) rotate(180deg); }
+.cp-laurel-item::after { right: -4px; }
+
+.glitch-title {
+  font-family: var(--font-bn);
+  font-size: clamp(1.9rem, 5.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--cp-black);
+  max-width: 800px;
+  margin-bottom: 14px;
+}
+
+.sub-header {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--cp-black);
+  color: var(--cp-yellow);
+  display: inline-block;
+  padding: 5px 12px;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* Cyberpunk Buttons */
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; outline: none; }
+
+.cyber-btn {
+  font-family: var(--font-subhead);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 20px;
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  border: 2px solid var(--cp-black);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  position: relative;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  touch-action: manipulation;
+}
+
+.cyber-btn:hover {
+  background: var(--cp-black);
+  color: var(--cp-yellow);
+  border-color: var(--cp-yellow);
+  box-shadow: 0 0 15px var(--cp-yellow-glow);
+}
+
+.cyber-btn.outline {
+  background: transparent;
+  color: var(--cp-yellow);
+  border-color: var(--cp-yellow);
+}
+.cyber-btn.outline:hover {
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+}
+
+.cyber-btn.red {
+  background: var(--cp-red);
+  color: #fff;
+  border-color: #fff;
+}
+.cyber-btn.red:hover {
+  background: var(--cp-black);
+  color: var(--cp-red);
+  border-color: var(--cp-red);
+  box-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
+}
+
+.cyber-btn.cyan {
+  background: var(--cp-cyan);
+  color: var(--cp-black);
+  border-color: var(--cp-cyan);
+}
+.cyber-btn.cyan:hover {
+  background: var(--cp-black);
+  color: var(--cp-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+}
+
+/* Grid Card Layout */
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  color: var(--cp-cyan);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tech-tag::before {
+  content: "";
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--cp-cyan);
+}
+
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.grid-card {
+  background: var(--cp-dark-panel);
+  border: 2px solid #22252e;
+  border-top: 4px solid var(--cp-yellow);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  padding: 18px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 135px;
+  touch-action: manipulation;
+}
+
+.grid-card:hover {
+  border-color: var(--cp-yellow);
+  background: var(--cp-yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--cp-yellow-glow);
+}
+
+.grid-card:hover b { color: var(--cp-black); }
+.grid-card:hover span, .grid-card:hover .sub-desc { color: #1a1a1a; }
+.grid-card:hover .item-code { color: rgba(0,0,0,0.65); }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.item-code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cp-cyan);
+  letter-spacing: 1px;
+}
+
+.grid-card b {
+  font-family: var(--font-bn);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.grid-card .sub-desc {
+  font-family: var(--font-bn);
+  font-size: 0.85rem;
+  color: var(--cp-muted);
+}
+
+.grid-card span {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cp-muted);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.grid-card .pg-wrap {
+  width: 100%;
+  height: 4px;
+  background: #111;
+  margin-top: 12px;
+  position: relative;
+}
+
+.grid-card .pg {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--cp-cyan);
+  box-shadow: 0 0 8px var(--cp-cyan);
+}
+
+/* Nav & Top Controls */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.top-title {
+  font-family: var(--font-bn);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 800;
+  color: var(--cp-yellow);
+  line-height: 1.2;
+  text-shadow: 0 0 10px var(--cp-yellow-glow);
+}
+
+.tabs {
+  display: flex;
+  background: #181816;
+  border: 2px solid var(--cp-yellow);
+  padding: 2px;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.tabs button {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  color: var(--cp-muted);
+  transition: all 0.15s ease;
+  min-height: 38px;
+}
+
+.tabs button[aria-selected="true"] {
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+}
+
+/* Stats & Progress Bar */
+.stat-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  font-weight: bold;
+  color: var(--cp-yellow);
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.bar-container {
+  height: 8px;
+  background: #111;
+  border: 1px solid var(--cp-yellow);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.bar-container i {
+  display: block;
+  height: 100%;
+  background: var(--cp-yellow);
+  box-shadow: 0 0 10px var(--cp-yellow);
+  transition: width 0.3s ease;
+}
+
+/* Flashcard Scene */
+.scene {
+  perspective: 1200px;
+  height: clamp(390px, 60vh, 500px);
+  cursor: pointer;
+  margin-bottom: 20px;
+  touch-action: pan-y;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.card.fl { transform: rotateY(180deg); }
+
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--cp-card-bg);
+  border: 3px solid var(--cp-yellow);
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  padding: clamp(20px, 4vw, 36px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+}
+
+.face.front {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #08080a;
+}
+
+.face.back-f {
+  transform: rotateY(180deg);
+  border-color: var(--cp-cyan);
+  text-align: left;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+  background: #08080a;
+}
+
+.card-badge {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cp-cyan);
+  border: 1px solid var(--cp-cyan);
+  padding: 3px 10px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.term-bn {
+  font-family: var(--font-bn);
+  font-size: clamp(1.35rem, 3.8vw, 2.1rem);
+  font-weight: 700;
+  color: var(--cp-yellow);
+  line-height: 1.45;
+  max-width: 820px;
+  text-shadow: 0 0 12px rgba(252, 238, 10, 0.25);
+}
+
+.hint {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  color: var(--cp-black);
+  background: var(--cp-yellow);
+  border: 1px solid var(--cp-yellow);
+  padding: 5px 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 26px;
+  font-weight: bold;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+.back-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #1f2430;
+  padding-bottom: 10px;
+}
+
+.chip {
+  display: inline-block;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.chip.cyan { background: var(--cp-cyan); color: var(--cp-black); }
+.chip.yellow { background: var(--cp-yellow); color: var(--cp-black); }
+
+.ans-body {
+  font-family: var(--font-bn);
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  line-height: 1.65;
+  color: #f2f4f8;
+  width: 100%;
+}
+
+.ans-body ul {
+  padding-left: 20px;
+  margin-top: 6px;
+}
+
+.ans-body li {
+  margin-bottom: 8px;
+}
+
+.ans-body strong {
+  color: var(--cp-yellow);
+}
+
+.ans-body em {
+  color: var(--cp-cyan);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.row-note {
+  width: 100%;
+  font-size: 0.95rem;
+  padding-top: 10px;
+  margin-top: auto;
+  border-top: 1px dashed #252b38;
+  color: var(--cp-muted);
+}
+
+.row-note small {
+  font-family: var(--font-mono);
+  color: var(--cp-cyan);
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
+/* Actions Grid */
+.act {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .act { grid-template-columns: 1fr; }
+}
+
+/* Cyber Box Panels */
+.cyber-box {
+  background: var(--cp-dark-panel);
+  border: 2px solid var(--cp-yellow);
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  padding: clamp(18px, 4vw, 32px);
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.9);
+}
+
+.cyber-box h2 {
+  font-family: var(--font-heading);
+  color: var(--cp-yellow);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+select {
+  font-family: var(--font-bn);
+  background: #181816;
+  color: var(--cp-yellow);
+  border: 2px solid var(--cp-yellow);
+  padding: 12px;
+  margin: 14px 0 20px;
+  width: 100%;
+  max-width: 420px;
+  outline: none;
+  font-size: 1rem;
+  font-weight: bold;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+/* Options */
+.q {
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  color: var(--cp-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.qw {
+  font-family: var(--font-bn);
+  font-size: clamp(1.2rem, 3.5vw, 1.65rem);
+  font-weight: 700;
+  color: var(--cp-yellow);
+  line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+.opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #1e1e1b;
+  border: 2px solid #232836;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-family: var(--font-bn);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  line-height: 1.45;
+  transition: all 0.15s ease;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.opt:hover:not([disabled]) {
+  border-color: var(--cp-yellow);
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+}
+
+.opt.good {
+  border-color: var(--cp-yellow) !important;
+  background: var(--cp-yellow) !important;
+  color: var(--cp-black) !important;
+  font-weight: bold;
+}
+
+.opt.bad {
+  border-color: var(--cp-red) !important;
+  background: var(--cp-red) !important;
+  color: #fff !important;
+}
+
+.miss {
+  text-align: left;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.miss li {
+  padding: 12px 0;
+  border-bottom: 1px solid #1c212d;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.miss li b {
+  color: var(--cp-yellow);
+  font-family: var(--font-bn);
+  font-size: 1.05rem;
+}
+
+.kbd-hints {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cp-muted);
+  flex-wrap: wrap;
+}
+
+.kbd {
+  border: 1px solid var(--cp-yellow);
+  padding: 2px 6px;
+  color: var(--cp-yellow);
+  background: #181816;
+  font-weight: bold;
+}
+
+/* Serial Articles Explorer Styles */
+.art-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.art-search {
+  flex: 1;
+  min-width: 220px;
+  background: #181816;
+  border: 2px solid var(--cp-cyan);
+  color: #fff;
+  padding: 12px 16px;
+  font-family: var(--font-bn);
+  font-size: 1rem;
+  outline: none;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.art-search:focus {
+  border-color: var(--cp-yellow);
+  box-shadow: 0 0 12px var(--cp-yellow-glow);
+}
+
+.part-filter {
+  margin: 0 !important;
+  max-width: 300px !important;
+  border-color: var(--cp-cyan) !important;
+  color: var(--cp-cyan) !important;
+}
+
+.part-section {
+  margin-bottom: 24px;
+  background: var(--cp-dark-panel);
+  border: 1px solid #222632;
+  border-left: 4px solid var(--cp-yellow);
+  padding: 16px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+}
+
+.part-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom: 1px solid #232836;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.part-title {
+  font-family: var(--font-bn);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--cp-yellow);
+}
+
+.part-range {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--cp-cyan);
+  border: 1px solid var(--cp-cyan);
+  padding: 2px 10px;
+}
+
+.art-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 10px;
+}
+
+.art-item {
+  background: #181816;
+  border: 1px solid #1e222d;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+.art-item:hover {
+  border-color: var(--cp-yellow);
+  background: #131620;
+  transform: translateY(-2px);
+}
+
+.art-item.expanded {
+  border-color: var(--cp-cyan);
+  background: #0f131d;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+}
+
+.art-item.sub-art {
+  border-left: 3px solid var(--cp-cyan);
+}
+
+.art-item.repealed {
+  border-left: 3px solid var(--cp-red);
+  opacity: 0.85;
+}
+
+.art-row-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.art-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.art-toggle-icon {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cp-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+
+.art-detail {
+  font-family: var(--font-bn);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #cfd6e3;
+  padding-top: 8px;
+  border-top: 1px dashed #262d3d;
+  display: none;
+}
+
+.art-item.expanded .art-detail,
+.art-list.show-all .art-detail {
+  display: block;
+}
+
+.art-num {
+  font-family: var(--font-bn);
+  font-weight: 800;
+  font-size: 0.95rem;
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  padding: 2px 8px;
+  min-width: 42px;
+  text-align: center;
+  flex-shrink: 0;
+  clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+}
+
+.art-item.repealed .art-num {
+  background: var(--cp-red);
+  color: #fff;
+}
+
+.art-name {
+  font-family: var(--font-bn);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+}
+
+/* ===== Theme options (palette: #1B1B2A #FF007A #00FFB3 #A700FF #FFEA00) ===== */
+.theme-bar{max-width:1100px;margin:0 auto;padding:14px 16px 0;display:flex;align-items:center;justify-content:flex-end;gap:10px;position:relative;z-index:3;font-family:var(--font-mono);font-size:.75rem;letter-spacing:1px;color:var(--cp-muted);text-transform:uppercase}
+html[data-theme]{
+  --cp-black:#1B1B2A; --cp-dark-panel:#222236; --cp-card-bg:#2a2a42;
+  --cp-text:#ffffff; --cp-muted:#a3a3bd;
+  --tint-bg:#171724; --tint-bg-hover:#2a2a42; --tint-bg-open:#26263c; --tint-line:#33334d;
+}
+html[data-theme] body{
+  background-image:radial-gradient(circle at 80% 20%,color-mix(in srgb,var(--cp-yellow) 12%,transparent) 0%,transparent 40%),
+    linear-gradient(color-mix(in srgb,var(--cp-yellow) 5%,transparent) 1px,transparent 1px),
+    linear-gradient(90deg,color-mix(in srgb,var(--cp-yellow) 5%,transparent) 1px,transparent 1px)}
+html[data-theme] .art-search{background:var(--tint-bg);color:#fff}
+html[data-theme] .part-section{border-color:var(--tint-line);border-left-color:var(--cp-yellow)}
+html[data-theme] .part-header{border-bottom-color:var(--tint-line)}
+html[data-theme] .part-range{background:color-mix(in srgb,var(--cp-cyan) 14%,transparent)}
+html[data-theme] .art-item{background:var(--tint-bg);border-color:var(--tint-line)}
+html[data-theme] .art-item:hover{background:var(--tint-bg-hover)}
+html[data-theme] .art-item.expanded{background:var(--tint-bg-open);box-shadow:0 0 15px color-mix(in srgb,var(--cp-cyan) 25%,transparent)}
+html[data-theme] .art-toggle-icon{border-color:color-mix(in srgb,var(--cp-cyan) 45%,transparent)}
+html[data-theme] .art-detail{border-top-color:var(--tint-line);color:#d9d9ea}
+html[data-theme] .art-num,html[data-theme] .cyber-btn{color:var(--on-primary)}
+html[data-theme] .cyber-btn.cyan{color:var(--cp-black)}
+html[data-theme] .art-item.repealed .art-num{color:var(--cp-black)}
+html[data-theme] .cyber-btn:hover{color:var(--cp-yellow)}
+
+.art-detail .art-intro{margin:0 0 6px}
+.art-detail ul.art-pts{margin:6px 0 2px;padding-left:0;list-style:none}
+.art-detail ul.art-pts li{position:relative;padding:5px 0 5px 22px;line-height:1.7}
+.art-detail ul.art-pts li::before{content:"";position:absolute;left:4px;top:.95em;width:7px;height:7px;background:var(--cp-yellow);transform:rotate(45deg)}
+.art-detail ul.art-pts ul.art-pts{margin:4px 0 2px 4px;border-left:1px dashed var(--cp-cyan)}
+.art-detail ul.art-pts ul.art-pts li::before{background:var(--cp-cyan);width:5px;height:5px;border-radius:50%;transform:none}
+
+/* ===== Soft Study theme: warm paper, sage green, soft blue, amber ===== */
+html[data-theme="soft"]{
+  --cp-black:#F4EFE4; --cp-dark-panel:#FBF8F1; --cp-card-bg:#FFFFFF;
+  --cp-text:#34404F; --cp-muted:#6B7685;
+  --cp-yellow:#3F7A67; --cp-yellow-glow:transparent;
+  --cp-cyan:#4F78A8; --cp-red:#B5655F; --cp-green:#3F7A67; --on-primary:#FFFFFF;
+  --tint-bg:#FFFFFF; --tint-bg-hover:#F3F7F4; --tint-bg-open:#F6FAF7; --tint-line:#DDD5C4;
+}
+html[data-theme="soft"] body{background:#F4EFE4;background-image:none;color:#34404F}
+html[data-theme="soft"] .theme-bar{color:#6B7685}
+html[data-theme="soft"] html[data-theme="soft"] html[data-theme="soft"] .top-title{color:#2F5F50;text-shadow:none}
+html[data-theme="soft"] .sub-header{background:#E4EEE8;color:#2F5F50;clip-path:none;border-radius:999px;padding:5px 14px}
+html[data-theme="soft"] .art-search{background:#FFFFFF;color:#34404F;border:2px solid #C9D6CF;border-radius:12px;clip-path:none;font-size:1.02rem}
+html[data-theme="soft"] .art-search:focus{border-color:#3F7A67}
+html[data-theme="soft"] .part-filter{background:#FFFFFF;color:#34404F !important;border:2px solid #C9D6CF !important;border-radius:12px;clip-path:none}
+html[data-theme="soft"] .part-section{background:#FBF8F1;border:1px solid #DDD5C4;border-left:6px solid #3F7A67;border-radius:14px;clip-path:none;box-shadow:0 2px 8px rgba(52,64,79,.06)}
+html[data-theme="soft"] .part-header{border-bottom:1px solid #DDD5C4}
+html[data-theme="soft"] .part-title{color:#2F5F50}
+html[data-theme="soft"] .part-range{background:#E3EAF4;color:#3C5F8A;border-radius:999px;font-weight:700}
+html[data-theme="soft"] .art-item{background:#FFFFFF;border:1px solid #E3DCCB;border-radius:12px;clip-path:none;box-shadow:0 1px 3px rgba(52,64,79,.06)}
+html[data-theme="soft"] .art-item:hover{background:#F3F7F4;border-color:#B9CFC5}
+html[data-theme="soft"] .art-item.expanded{background:#F6FAF7;border-color:#3F7A67;box-shadow:0 3px 12px rgba(63,122,103,.15)}
+html[data-theme="soft"] .art-num{background:#3F7A67;color:#FFFFFF;border-radius:8px;clip-path:none;font-weight:800}
+html[data-theme="soft"] .art-item.sub-art .art-num{background:#C98A3D}
+html[data-theme="soft"] .art-item.repealed .art-num{background:#B5655F;color:#fff;text-decoration:line-through}
+html[data-theme="soft"] .art-item.repealed .art-name{color:#8A6A68;text-decoration:line-through}
+html[data-theme="soft"] .art-name{color:#2B3644;font-weight:700}
+html[data-theme="soft"] .art-toggle-icon{color:#3C5F8A;border:1px solid #B8C9E0;background:#EEF3FA;border-radius:6px}
+html[data-theme="soft"] .art-detail{color:#34404F;font-size:1.02rem;line-height:1.95;border-top:1px dashed #D3C9B4}
+html[data-theme="soft"] .art-detail .art-intro{font-weight:600;color:#2B3644;background:#EEF5F1;border-radius:8px;padding:8px 12px}
+html[data-theme="soft"] .art-detail ul.art-pts li{padding-left:26px}
+html[data-theme="soft"] .art-detail ul.art-pts li::before{background:#3F7A67;border-radius:50%;transform:none;width:9px;height:9px;top:1em}
+html[data-theme="soft"] .art-detail ul.art-pts li:nth-child(3n+2)::before{background:#4F78A8}
+html[data-theme="soft"] .art-detail ul.art-pts li:nth-child(3n)::before{background:#C98A3D}
+html[data-theme="soft"] .art-detail ul.art-pts ul.art-pts{border-left:2px solid #C9D6CF}
+html[data-theme="soft"] .art-detail ul.art-pts ul.art-pts li::before{width:6px;height:6px;background:#8CA89B}
+
+.theme-bar .tb-label{opacity:.55;font-weight:700;transition:opacity .2s}
+.theme-bar .tb-label.on{opacity:1}
+.theme-switch{position:relative;width:52px;height:28px;border-radius:999px;border:2px solid rgba(255,255,255,.4);background:#222;cursor:pointer;padding:0;transition:background .25s,border-color .25s}
+.theme-switch .knob{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fcee0a;transition:transform .25s,background .25s;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+.theme-switch[aria-checked="true"]{background:#CFE3D9;border-color:#3F7A67}
+.theme-switch[aria-checked="true"] .knob{transform:translateX(24px);background:#3F7A67}
+.theme-switch:focus-visible{outline:3px solid #4F78A8;outline-offset:2px}
+
+/* ===== Classic: same soft shapes & reading style as Soft Study, dark colors kept ===== */
+html:not([data-theme]) .top-title{text-shadow:none}
+html:not([data-theme]) .sub-header{clip-path:none;border-radius:999px;padding:5px 14px}
+html:not([data-theme]) .art-search{border-radius:12px;clip-path:none;font-size:1.02rem;background:#141412}
+html:not([data-theme]) .part-filter{border-radius:12px;clip-path:none}
+html:not([data-theme]) .part-section{border-radius:14px;clip-path:none;border-left-width:6px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+html:not([data-theme]) .part-range{border-radius:999px;font-weight:700;padding-left:12px;padding-right:12px}
+html:not([data-theme]) .art-item{border-radius:12px;clip-path:none;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+html:not([data-theme]) .art-item:hover{background:#22221f}
+html:not([data-theme]) .art-item.expanded{background:#1f1f1c;border-color:#fcee0a;box-shadow:0 3px 14px rgba(252,238,10,.12)}
+html:not([data-theme]) .art-num{border-radius:8px;clip-path:none}
+html:not([data-theme]) .art-item.repealed .art-num{text-decoration:line-through}
+html:not([data-theme]) .art-item.repealed .art-name{text-decoration:line-through;opacity:.7}
+html:not([data-theme]) .art-toggle-icon{border-radius:6px}
+html:not([data-theme]) .art-detail{font-size:1.02rem;line-height:1.95}
+html:not([data-theme]) .art-detail .art-intro{font-weight:600;background:rgba(252,238,10,.08);border-radius:8px;padding:8px 12px}
+html:not([data-theme]) .art-detail ul.art-pts li{padding-left:26px}
+html:not([data-theme]) .art-detail ul.art-pts li::before{background:#fcee0a;border-radius:50%;transform:none;width:9px;height:9px;top:1em}
+html:not([data-theme]) .art-detail ul.art-pts li:nth-child(3n+2)::before{background:#00f0ff}
+html:not([data-theme]) .art-detail ul.art-pts li:nth-child(3n)::before{background:#ff6b9a}
+html:not([data-theme]) .art-detail ul.art-pts ul.art-pts{border-left:2px solid rgba(0,240,255,.45)}
+html:not([data-theme]) .art-detail ul.art-pts ul.art-pts li::before{width:6px;height:6px;background:#8a8a7c}
+</style>
+</head>
+<body>
+
+<div class="theme-bar" id="themeBar">
+  <span class="tb-label" data-side="classic">Classic</span>
+  <button type="button" class="theme-switch" id="themeSwitch" role="switch" aria-checked="true" aria-label="Soft Study theme"><span class="knob"></span></button>
+  <span class="tb-label" data-side="soft">Soft Study</span>
+</div>
+<main id="app"></main>
+
+<script>
+(function(){
+var MODULES = [
+  { id: 1, code: "MOD_01 // ORIGIN", title: "পটভূমি ও সংবিধান প্রণয়ন", sub: "১৯৭১-১৯৭২ ইতিহাস ও খসড়া কমিটি" },
+  { id: 2, code: "MOD_02 // CORE", title: "প্রস্তাবনা ও মূলনীতি", sub: "প্রজাতন্ত্র, জাতীয়তাবাদ ও ৪ মূলনীতি" },
+  { id: 3, code: "MOD_03 // RIGHTS", title: "মৌলিক অধিকার ও প্রতিকার", sub: "অনুচ্ছেদ ২৬-৪৭ক ও ১০২ রিট" },
+  { id: 4, code: "MOD_04 // STATE", title: "বিভাগসমূহ ও সংশোধন", sub: "নির্বাহী, আইন, বিচার ও ১৪২ অনুচ্ছেদ" }
+];
+
+var CARDS = [
+  {
+    id: 1, mod: 1, num: "CARD // 01", tag: "ইতিহাস ও প্রবর্তন",
+    q: "বাংলাদেশের সংবিধান কবে গৃহীত হয় এবং কবে থেকে কার্যকর (বলবৎ) হয়?",
+    shortA: "৪ নভেম্বর ১৯৭২ গৃহীত এবং ১৬ ডিসেম্বর ১৯৭২ থেকে কার্যকর।",
+    aHtml: "<ul><li><strong>গৃহীত হয়:</strong> ৪ নভেম্বর, ১৯৭২ (গণপরিষদে)।</li><li><strong>কার্যকর (বলবৎ) হয়:</strong> ১৬ ডিসেম্বর, ১৯৭২ (প্রথম বিজয় দিবসে)।</li><li><strong>স্বাক্ষরদান:</strong> ১৪ ডিসেম্বর, ১৯৭২ (৩৯৯ জন সদস্য স্বাক্ষর করেন)।</li></ul>",
+    note: "অনুচ্ছেদ ১৫৩ অনুযায়ী ১৬ ডিসেম্বর ১৯৭২ তারিখে সংবিধান বলবৎ হয়।"
+  },
+  {
+    id: 2, mod: 1, num: "CARD // 02", tag: "খসড়া প্রণয়ন কমিটি",
+    q: "সংবিধান প্রণয়ন কমিটির সভাপতি ও একমাত্র মহিলা সদস্য কে ছিলেন?",
+    shortA: "সভাপতি ড. কামাল হোসেন এবং একমাত্র মহিলা সদস্য বেগম রাজিয়া বানু।",
+    aHtml: "<ul><li><strong>মোট সদস্য:</strong> ৩৪ জন (১১ এপ্রিল ১৯৭২ গঠিত)।</li><li><strong>সভাপতি:</strong> ড. কামাল হোসেন (তৎকালীন আইনমন্ত্রী)।</li><li><strong>একমাত্র মহিলা সদস্য:</strong> বেগম রাজিয়া বানু।</li><li><strong>একমাত্র বিরোধী দলীয় সদস্য:</strong> সুরঞ্জিত সেনগুপ্ত (ন্যাপ)।</li></ul>",
+    note: "মূল সংবিধানের হস্তলিখিত কপির অঙ্গসজ্জা করেন শিল্পাচার্য জয়নুল আবেদিন এবং লিপিকার ছিলেন আব্দুর রউফ।"
+  },
+  {
+    id: 3, mod: 1, num: "CARD // 03", tag: "কাঠামো ও বিন্যাস",
+    q: "গণপ্রজাতন্ত্রী বাংলাদেশের মূল সংবিধানে কয়টি ভাগ, অনুচ্ছেদ ও তফসিল ছিল?",
+    shortA: "১১টি ভাগ, ১৫৩টি অনুচ্ছেদ এবং ৪টি তফসিল (বর্তমানে ৭টি তফসিল)।",
+    aHtml: "<ul><li><strong>ভাগ (Parts):</strong> ১১টি।</li><li><strong>অনুচ্ছেদ (Articles):</strong> ১৫৩টি (উপ-অনুচ্ছেদসহ বর্তমানে আরও যুক্ত হয়েছে)।</li><li><strong>তফসিল (Schedules):</strong> মূল সংবিধানে ৪টি ছিল; পঞ্চদশ সংশোধনীর পর বর্তমানে <em>৭টি তফসিল</em> রয়েছে।</li></ul>",
+    note: "প্রস্তাবনা (Preamble) সংবিধানের শুরুতে অবস্থিত একটি অবিচ্ছেদ্য অংশ।"
+  },
+  {
+    id: 4, mod: 1, num: "CARD // 04", tag: "অস্থায়ী সংবিধান",
+    q: "‘অস্থায়ী সংবিধান আদেশ, ১৯৭২’ কে এবং কবে জারি করেন?",
+    shortA: "বঙ্গবন্ধু শেখ মুজিবুর রহমান ১১ জানুয়ারি ১৯৭২ সালে জারি করেন।",
+    aHtml: "<ul><li><strong>জারিকারক:</strong> রাষ্ট্রপতি বঙ্গবন্ধু শেখ মুজিবুর রহমান।</li><li><strong>তারিখ:</strong> ১১ জানুয়ারি, ১৯৭২।</li><li><strong>গুরুত্ব:</strong> এর মাধ্যমে রাষ্ট্রপতি শাসিত ব্যবস্থার পরিবর্তে <em>সংসদীয় গণতন্ত্র</em> প্রবর্তন করা হয়।</li></ul>",
+    note: "১২ জানুয়ারি ১৯৭২ বিচারপতি আবু সাঈদ চৌধুরী রাষ্ট্রপতি এবং বঙ্গবন্ধু প্রধানমন্ত্রী হিসেবে শপথ নেন।"
+  },
+  {
+    id: 5, mod: 2, num: "CARD // 05", tag: "অনুচ্ছেদ ৭",
+    q: "সংবিধানের ৭ নং অনুচ্ছেদের মূল বক্তব্য কী?",
+    shortA: "জনগণ সকল ক্ষমতার মালিক এবং সংবিধান প্রজাতন্ত্রের সর্বোচ্চ আইন।",
+    aHtml: "<ul><li><strong>৭(১):</strong> প্রজাতন্ত্রের সকল ক্ষমতার মালিক জনগণ।</li><li><strong>৭(২):</strong> এই সংবিধান প্রজাতন্ত্রের <em>সর্বোচ্চ আইন</em>; অন্য কোনো আইন সংবিধানের সাথে অসামঞ্জস্যপূর্ণ হলে তা বাতিল হবে।</li></ul>",
+    note: "অনুচ্ছেদ ৭ক অনুযায়ী অসাংবিধানিক পন্থায় সংবিধান বাতিল বা স্থগিত করা রাষ্ট্রদ্রোহিতা।"
+  },
+  {
+    id: 6, mod: 2, num: "CARD // 06", tag: "অনুচ্ছেদ ৮",
+    q: "রাষ্ট্র পরিচালনার ৪টি মূলনীতি কী কী এবং এগুলো কি আদালতের মাধ্যমে বলবৎযোগ্য?",
+    shortA: "জাতীয়তাবাদ, সমাজতন্ত্র, গণতন্ত্র ও ধর্মনিরপেক্ষতা; এগুলো আদালতের মাধ্যমে বলবৎযোগ্য নয়।",
+    aHtml: "<ul><li><strong>৪টি মূলনীতি:</strong> ১. জাতীয়তাবাদ, ২. সমাজতন্ত্র, ৩. গণতন্ত্র, ৪. ধর্মনিরপেক্ষতা।</li><li><strong>আইনগত অবস্থান:</strong> দ্বিতীয় ভাগের মূলনীতিসমূহ রাষ্ট্র পরিচালনার দিকনির্দেশনা, তবে <em>আদালতের মাধ্যমে বলবৎযোগ্য নহে</em>।</li></ul>",
+    note: "তৃতীয় ভাগের মৌলিক অধিকার আদালতের মাধ্যমে বলবৎযোগ্য, কিন্তু দ্বিতীয় ভাগের মূলনীতি নয়।"
+  },
+  {
+    id: 7, mod: 2, num: "CARD // 07", tag: "অনুচ্ছেদ ৬ ও ২২",
+    q: "বাংলাদেশের জনগণের জাতিগত ও নাগরিক পরিচয় কী? বিচার বিভাগ পৃথকীকরণ কোন অনুচ্ছেদে?",
+    shortA: "জাতি হিসেবে বাঙালী, নাগরিক হিসেবে বাংলাদেশী; বিচার বিভাগ পৃথকীকরণ ২২ নং অনুচ্ছেদে।",
+    aHtml: "<ul><li><strong>অনুচ্ছেদ ৬(২):</strong> বাংলাদেশের জনগণ জাতি হিসাবে <em>বাঙালী</em> এবং নাগরিকগণ <em>বাংলাদেশী</em> বলিয়া পরিচিত হইবেন।</li><li><strong>অনুচ্ছেদ ২২:</strong> রাষ্ট্রের নির্বাহী অঙ্গসমূহ হইতে বিচার বিভাগের পৃথকীকরণ নিশ্চিত করা।</li></ul>",
+    note: "১ নভেম্বর ২০০৭ তারিখে নির্বাহী বিভাগ থেকে বিচার বিভাগ আনুষ্ঠানিকভাবে পৃথক হয়।"
+  },
+  {
+    id: 8, mod: 2, num: "CARD // 08", tag: "অনুচ্ছেদ ২৫",
+    q: "সংবিধানের ২৫ নং অনুচ্ছেদে বাংলাদেশের পররাষ্ট্রনীতির মূলমন্ত্র কী বর্ণিত হয়েছে?",
+    shortA: "জাতীয় সার্বভৌমত্বের প্রতি শ্রদ্ধা, অভ্যন্তরীণ বিষয়ে হস্তক্ষেপ না করা ও শান্তিপূর্ণ সহাবস্থান।",
+    aHtml: "<ul><li><strong>মূলনীতি:</strong> সকলের সাথে বন্ধুত্ব, কারো সাথে বৈরিতা নয়।</li><li><strong>ভিত্তি:</strong> আন্তর্জাতিক আইনের ও জাতিসংঘ সনদের নীতিসমূহের প্রতি শ্রদ্ধা এবং আন্তর্জাতিক বিরোধের শান্তিপূর্ণ সমাধান।</li></ul>",
+    note: "এটি দ্বিতীয় ভাগের সর্বশেষ অনুচ্ছেদ।"
+  },
+  {
+    id: 9, mod: 3, num: "CARD // 09", tag: "অনুচ্ছেদ ২৭ ও ২৮",
+    q: "আইনের দৃষ্টিতে সমতা এবং বৈষম্য বিলোপ কোন কোন অনুচ্ছেদে রয়েছে?",
+    shortA: "আইনের দৃষ্টিতে সমতা ২৭ নং অনুচ্ছেদে এবং ধর্ম-বর্ণ-লিঙ্গ বৈষম্য নিষিদ্ধ ২৮ নং অনুচ্ছেদে।",
+    aHtml: "<ul><li><strong>অনুচ্ছেদ ২৭:</strong> সকল নাগরিক আইনের দৃষ্টিতে সমান এবং আইনের সমান আশ্রয় লাভের অধিকারী।</li><li><strong>অনুচ্ছেদ ২৮:</strong> ধর্ম, গোষ্ঠী, বর্ণ, নারী-পুরুষভেদ বা জন্মস্থানের কারণে বৈষম্য নিষিদ্ধ।</li><li><strong>অনুচ্ছেদ ২৮(৪):</strong> নারী, শিশু বা অনগ্রসর নাগরিকদের অগ্রগতির জন্য রাষ্ট্র বিশেষ বিধান করতে পারবেন।</li></ul>",
+    note: "মৌলিক অধিকারসমূহ সংবিধানের তৃতীয় ভাগে (অনুচ্ছেদ ২৬ থেকে ৪৭ক) বর্ণিত আছে।"
+  },
+  {
+    id: 10, mod: 3, num: "CARD // 10", tag: "অনুচ্ছেদ ৩২ ও ৩৩",
+    q: "গ্রেফতারকৃত ব্যক্তিকে সর্বোচ্চ কত ঘণ্টার মধ্যে ম্যাজিস্ট্রেটের সামনে হাজির করতে হয়?",
+    shortA: "গ্রেফতারের ২৪ ঘণ্টার মধ্যে নিকটতম ম্যাজিস্ট্রেটের সম্মুখে হাজির করতে হয় (অনুচ্ছেদ ৩৩)।",
+    aHtml: "<ul><li><strong>অনুচ্ছেদ ৩২:</strong> আইনানুযায়ী ব্যতীত জীবন ও ব্যক্তি-স্বাধীনতা থেকে কাউকে বঞ্চিত করা যাবে না।</li><li><strong>অনুচ্ছেদ ৩৩:</strong> গ্রেফতারের কারণ জানানো, পছন্দের আইনজীবীর পরামর্শ এবং <em>২৪ ঘণ্টার মধ্যে</em> (যাতায়াত সময় বাদে) ম্যাজিস্ট্রেটের সামনে হাজির করা বাধ্যতামূলক।</li></ul>",
+    note: "নিবর্তনমূলক আটক আইনের অধীনে গ্রেফতারকৃত ব্যক্তির ক্ষেত্রে এই সাধারণ বিধান প্রযোজ্য নয়।"
+  },
+  {
+    id: 11, mod: 3, num: "CARD // 11", tag: "অনুচ্ছেদ ৩৯",
+    q: "চিন্তা ও বিবেকের স্বাধীনতা, বাক্-স্বাধীনতা এবং সংবাদপত্রের স্বাধীনতা কোন অনুচ্ছেদে?",
+    shortA: "অনুচ্ছেদ ৩৯-এ চিন্তা, বিবেক, বাক্-স্বাধীনতা ও সংবাদপত্রের স্বাধীনতার নিশ্চয়তা দেওয়া হয়েছে।",
+    aHtml: "<ul><li><strong>অনুচ্ছেদ ৩৯(১):</strong> চিন্তা ও বিবেকের স্বাধীনতার নিশ্চয়তা (শর্তহীন)।</li><li><strong>অনুচ্ছেদ ৩৯(২):</strong> যুক্তিসঙ্গত বাধানিষেধ সাপেক্ষে বাক্ ও ভাবপ্রকাশের স্বাধীনতা এবং সংবাদপত্রের স্বাধীনতা।</li></ul>",
+    note: "অনুচ্ছেদ ৩৬-এ চলাফেরার স্বাধীনতা, ৩৭-এ সমাবেশ এবং ৩৮-এ সংগঠনের স্বাধীনতা রয়েছে।"
+  },
+  {
+    id: 12, mod: 3, num: "CARD // 12", tag: "অনুচ্ছেদ ৪৪ ও ১০২",
+    q: "মৌলিক অধিকার লঙ্ঘিত হলে কোন অনুচ্ছেদ অনুযায়ী হাইকোর্টে রিট আবেদন করা যায়?",
+    shortA: "অনুচ্ছেদ ৪৪-এর অধিকার বলে অনুচ্ছেদ ১০২(১) অনুযায়ী হাইকোর্ট বিভাগে রিট করা যায়।",
+    aHtml: "<ul><li><strong>অনুচ্ছেদ ৪৪:</strong> মৌলিক অধিকার বলবৎ করার জন্য হাইকোর্ট বিভাগে মামলা রুজু করার অধিকার।</li><li><strong>অনুচ্ছেদ ১০২:</strong> হাইকোর্ট বিভাগ ৫ প্রকার রিট (Habeas Corpus, Mandamus, Prohibition, Certiorari, Quo Warranto) জারি করতে পারেন।</li></ul>",
+    note: "ড. বি. আর. আম্বেদকরের ভাষায় সাংবিধানিক প্রতিকারের অধিকার হলো 'সংবিধানের হৃদয় ও আত্মা'।"
+  },
+  {
+    id: 13, mod: 4, num: "CARD // 13", tag: "অনুচ্ছেদ ৪৮ ও ৭০",
+    q: "রাষ্ট্রপতি কার পরামর্শ ছাড়াই কোন দুটি নিয়োগ দিতে পারেন? ফ্লোর ক্রসিং নিষিদ্ধ কোন অনুচ্ছেদে?",
+    shortA: "প্রধানমন্ত্রী ও প্রধান বিচারপতি নিয়োগ; ফ্লোর ক্রসিং নিষিদ্ধ ৭০ নং অনুচ্ছেদে।",
+    aHtml: "<ul><li><strong>অনুচ্ছেদ ৪৮(৩):</strong> কেবল <em>প্রধানমন্ত্রী ও প্রধান বিচারপতি</em> নিয়োগ ব্যতীত রাষ্ট্রপতি অন্য সকল কাজে প্রধানমন্ত্রীর পরামর্শ অনুযায়ী কাজ করবেন।</li><li><strong>অনুচ্ছেদ ৭০:</strong> দল থেকে পদত্যাগ বা দলের বিপক্ষে ভোট দিলে সংসদ-সদস্যের আসন শূন্য হবে।</li></ul>",
+    note: "সংসদ অধিবেশনের কোরামের জন্য ন্যূনতম ৬০ জন সদস্যের উপস্থিতি প্রয়োজন (অনুচ্ছেদ ৭৫)।"
+  },
+  {
+    id: 14, mod: 4, num: "CARD // 14", tag: "অনুচ্ছেদ ৭৭, ৯৩ ও ১১৮",
+    q: "ন্যায়পাল, রাষ্ট্রপতির অধ্যাদেশ ও নির্বাচন কমিশন প্রতিষ্ঠা কোন কোন অনুচ্ছেদে?",
+    shortA: "ন্যায়পাল ৭৭, অধ্যাদেশ ৯৩ এবং নির্বাচন কমিশন ১১৮ নং অনুচ্ছেদে।",
+    aHtml: "<ul><li><strong>অনুচ্ছেদ ৭৭:</strong> ন্যায়পাল (Ombudsman) পদ প্রতিষ্ঠার বিধান।</li><li><strong>অনুচ্ছেদ ৯৩:</strong> সংসদ ভেঙে গেলে বা অধিবেশন না থাকলে রাষ্ট্রপতির অধ্যাদেশ প্রণয়ন ক্ষমতা।</li><li><strong>অনুচ্ছেদ ১১৮:</strong> প্রধান নির্বাচন কমিশনার ও অনধিক ৪ জন কমিশনার নিয়ে নির্বাচন কমিশন গঠন (মেয়াদ ৫ বছর)।</li></ul>",
+    note: "সুপ্রীম কোর্টের বিচারকদের অবসরের বয়সসীমা ৬৭ বছর (অনুচ্ছেদ ৯৬)।"
+  },
+  {
+    id: 15, mod: 4, num: "CARD // 15", tag: "অনুচ্ছেদ ১৪১ক ও ১৪২",
+    q: "জরুরি অবস্থা ঘোষণা এবং সংবিধান সংশোধনের পদ্ধতি কোন কোন অনুচ্ছেদে রয়েছে?",
+    shortA: "জরুরি অবস্থা ১৪১ক অনুচ্ছেদে এবং সংবিধান সংশোধন ১৪২ অনুচ্ছেদে (দুই-তৃতীয়াংশ ভোটে)।",
+    aHtml: "<ul><li><strong>অনুচ্ছেদ ১৪১ক:</strong> রাষ্ট্রপতি অনধিক ১২০ দিনের জন্য জরুরি অবস্থা ঘোষণা করতে পারেন (প্রধানমন্ত্রীর প্রতিস্বাক্ষর সাপেক্ষে)।</li><li><strong>অনুচ্ছেদ ১৪২:</strong> সংসদের মোট সদস্য-সংখ্যার অন্যূন <em>দুই-তৃতীয়াংশ ভোটে</em> সংবিধান সংশোধন করা যায়।</li><li><strong>অনুচ্ছেদ ৭খ:</strong> সংবিধানের মৌলিক কাঠামো (Basic Structure) সংশোধন অযোগ্য।</li></ul>",
+    note: "বাংলাদেশের সংবিধান এ পর্যন্ত মোট ১৭ বার সংশোধিত হয়েছে।"
+  }
+];
+
+var PARTS_ARTICLES = [
+ {
+  "part": "প্রথম ভাগ : প্রজাতন্ত্র",
+  "range": "অনুচ্ছেদ ১ — ৭খ",
+  "items": [
+   {
+    "n": "১",
+    "t": "প্রজাতন্ত্র",
+    "d": "বাংলাদেশ একটি এক ও অখণ্ড, স্বাধীন ও সার্বভৌম (নিজের দেশ নিজে চালানোর পূর্ণ ক্ষমতাসম্পন্ন) প্রজাতন্ত্র। এর নাম \"গণপ্রজাতন্ত্রী বাংলাদেশ\"।"
+   },
+   {
+    "n": "২",
+    "t": "প্রজাতন্ত্রের রাষ্ট্রীয় সীমানা",
+    "d": "বাংলাদেশের সীমানার মধ্যে থাকবে:",
+    "pts": [
+     [
+      "১৯৭১ সালের ২৬ মার্চ স্বাধীনতা ঘোষণার ঠিক আগে যে এলাকা নিয়ে পূর্ব পাকিস্তান ছিল, এবং সংবিধান (তৃতীয় সংশোধন) আইন, ১৯৭৪-এ যে এলাকা বাংলাদেশের অংশ বলে লেখা আছে (ওই আইনে যে এলাকা বাদ বলা হয়েছে তা বাদ)",
+      []
+     ],
+     "পরে যেসব এলাকা বাংলাদেশের সীমানায় যুক্ত হতে পারে।"
+    ]
+   },
+   {
+    "n": "২ক",
+    "t": "রাষ্ট্রধর্ম",
+    "sub": true,
+    "d": "দেশের রাষ্ট্রধর্ম ইসলাম। তবে হিন্দু, বৌদ্ধ, খ্রিস্টানসহ অন্য সব ধর্ম পালনে রাষ্ট্র সমান মর্যাদা ও সমান অধিকার নিশ্চিত করবে।"
+   },
+   {
+    "n": "৩",
+    "t": "রাষ্ট্রভাষা",
+    "d": "দেশের রাষ্ট্রভাষা বাংলা।"
+   },
+   {
+    "n": "৪",
+    "t": "জাতীয় সঙ্গীত, পতাকা ও প্রতীক",
+    "d": "জাতীয় প্রতীকগুলো এমন:",
+    "pts": [
+     "জাতীয় সংগীত: \"আমার সোনার বাংলা\" গানের প্রথম দশ লাইন।",
+     "জাতীয় পতাকা: সবুজ জমির ওপর লাল রঙের একটি ভরাট বৃত্ত।",
+     "জাতীয় প্রতীক: দুই পাশে ধানের শীষ, মাঝখানে পানিতে ভাসা জাতীয় ফুল শাপলা, মাথায় পাটগাছের তিনটি জোড়া পাতা, আর দুই পাশে দুটি করে তারা।",
+     "এই তিন বিষয়ে আরও নিয়ম আইন করে ঠিক করা হবে।"
+    ]
+   },
+   {
+    "n": "৪ক",
+    "t": "জাতির পিতার প্রতিকৃতি",
+    "sub": true,
+    "d": "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমানের প্রতিকৃতি (ছবি) রাখতে ও দেখাতে হবে রাষ্ট্রপতি, প্রধানমন্ত্রী, স্পিকার ও প্রধান বিচারপতির দপ্তরে; সব সরকারি ও আধা-সরকারি অফিসে; স্বায়ত্তশাসিত প্রতিষ্ঠানে; সংবিধিবদ্ধ সরকারি সংস্থার প্রধান ও শাখা অফিসে; সরকারি-বেসরকারি শিক্ষাপ্রতিষ্ঠানে; এবং বিদেশে বাংলাদেশের দূতাবাস ও মিশনে।"
+   },
+   {
+    "n": "৫",
+    "t": "রাজধানী",
+    "d": "রাজধানী ও তার সীমানা:",
+    "pts": [
+     "দেশের রাজধানী ঢাকা।",
+     "রাজধানীর সীমানা আইন দিয়ে ঠিক হবে।"
+    ]
+   },
+   {
+    "n": "৬",
+    "t": "নাগরিকত্ব",
+    "d": "নাগরিক ও জাতির পরিচয়:",
+    "pts": [
+     "বাংলাদেশের নাগরিকত্ব কীভাবে পাওয়া যাবে, তা আইন দিয়ে ঠিক ও নিয়ন্ত্রণ করা হবে।",
+     "জাতি হিসেবে এ দেশের মানুষ বাঙালি, আর নাগরিক হিসেবে সবাই বাংলাদেশি নামে পরিচিত হবেন।"
+    ]
+   },
+   {
+    "n": "৭",
+    "t": "সংবিধানের প্রাধান্য",
+    "d": "সংবিধান সবার ওপরে:",
+    "pts": [
+     "দেশের সব ক্ষমতার মালিক জনগণ। জনগণের হয়ে এই ক্ষমতা কেবল সংবিধান মেনে ও সংবিধানের অধীনে ব্যবহার করা যাবে।",
+     "সংবিধান জনগণের ইচ্ছার সর্বোচ্চ প্রকাশ, তাই এটি দেশের সবচেয়ে বড় আইন। অন্য কোনো আইন সংবিধানের সঙ্গে না মিললে যতটুকু না মিলবে, ততটুকু বাতিল হবে।"
+    ]
+   },
+   {
+    "n": "৭ক",
+    "t": "সংবিধান বাতিল, স্থগিতকরণ, ইত্যাদি অপরাধ",
+    "sub": true,
+    "d": "সংবিধান ভাঙা বা বাতিল করার চেষ্টা অপরাধ:",
+    "pts": [
+     [
+      "কেউ গায়ের জোরে বা অন্য কোনো অসাংবিধানিক উপায়ে যদি:",
+      [
+       "সংবিধান বা এর কোনো অনুচ্ছেদ বাতিল, রহিত বা স্থগিত করে, কিংবা তা করার চেষ্টা বা ষড়যন্ত্র করে; অথবা",
+       "সংবিধান বা এর কোনো বিধানের প্রতি নাগরিকের আস্থা ও বিশ্বাস নষ্ট করে, কিংবা তা করার চেষ্টা বা ষড়যন্ত্র করে"
+      ]
+     ],
+     "তাহলে এটি রাষ্ট্রদ্রোহ হবে এবং সে রাষ্ট্রদ্রোহের অপরাধে দোষী হবে।",
+     [
+      "যে ব্যক্তি এমন কাজে সহযোগিতা করে বা উসকানি দেয়, অথবা কাজটিকে অনুমোদন, ক্ষমা, সমর্থন বা অনুসমর্থন করে, তার অপরাধও একই।",
+      []
+     ],
+     "এই অপরাধে দোষী ব্যক্তি অন্য অপরাধের জন্য আইনে যত শাস্তি আছে, তার মধ্যে সবচেয়ে বড় শাস্তি পাবে।"
+    ]
+   },
+   {
+    "n": "৭খ",
+    "t": "সংবিধানের মৌলিক বিধানাবলি সংশোধন অযোগ্য",
+    "sub": true,
+    "d": "সংবিধানের ১৪২ অনুচ্ছেদে (সংশোধনের ক্ষমতা) যা-ই লেখা থাকুক, এই অংশগুলো কোনোভাবেই সংশোধন করা যাবে না (যোগ, বদল, বাতিল—কিছুই না): প্রস্তাবনা, প্রথম ভাগের সব অনুচ্ছেদ, দ্বিতীয় ভাগের সব অনুচ্ছেদ, নবম-ক ভাগের বিধান সাপেক্ষে তৃতীয় ভাগের সব অনুচ্ছেদ, একাদশ ভাগের ১৫০ অনুচ্ছেদ, এবং সংবিধানের অন্যান্য মৌলিক কাঠামোর অনুচ্ছেদ।"
+   }
+  ]
+ },
+ {
+  "part": "দ্বিতীয় ভাগ : রাষ্ট্র পরিচালনার মূলনীতি",
+  "range": "অনুচ্ছেদ ৮ — ২৫",
+  "items": [
+   {
+    "n": "৮",
+    "t": "মূলনীতিসমূহ",
+    "d": "রাষ্ট্র চালানোর মূলনীতি:",
+    "pts": [
+     "জাতীয়তাবাদ, সমাজতন্ত্র, গণতন্ত্র ও ধর্মনিরপেক্ষতা—এই চার নীতি এবং এগুলো থেকে আসা এই ভাগের অন্য নীতিগুলো রাষ্ট্র চালানোর মূলনীতি।",
+     "এই নীতিগুলো দেশ চালানোর মূল সূত্র। আইন বানানোর সময় রাষ্ট্র এগুলো মানবে, সংবিধান ও অন্য আইনের অর্থ বোঝার সময় এগুলো পথ দেখাবে, আর রাষ্ট্র ও নাগরিকের কাজের ভিত্তি হবে। তবে আদালতের মাধ্যমে এগুলো জোর করে চালু করা যাবে না।"
+    ]
+   },
+   {
+    "n": "৯",
+    "t": "জাতীয়তাবাদ",
+    "d": "ভাষা ও সংস্কৃতিতে এক পরিচয়ের বাঙালি জাতি ঐক্যবদ্ধ সংগ্রাম ও মুক্তিযুদ্ধের মাধ্যমে দেশের স্বাধীনতা ও সার্বভৌমত্ব অর্জন করেছে। এই বাঙালি জাতির ঐক্য ও সংহতিই বাঙালি জাতীয়তাবাদের ভিত্তি।"
+   },
+   {
+    "n": "১০",
+    "t": "সমাজতন্ত্র ও শোষণমুক্তি",
+    "d": "মানুষ যেন মানুষকে শোষণ না করে এবং সমাজ হয় ন্যায্য ও সমতার—এটি নিশ্চিত করতে সমাজতান্ত্রিক অর্থনৈতিক ব্যবস্থা গড়ে তোলা হবে।"
+   },
+   {
+    "n": "১১",
+    "t": "গণতন্ত্র ও মানবাধিকার",
+    "d": "দেশ হবে গণতান্ত্রিক। এখানে মৌলিক মানবাধিকার ও স্বাধীনতার নিশ্চয়তা থাকবে, মানুষের মর্যাদা ও মূল্যের প্রতি সম্মান থাকবে, এবং প্রশাসনের সব স্তরে নির্বাচিত প্রতিনিধিদের মাধ্যমে জনগণ কার্যকরভাবে অংশ নেবে।"
+   },
+   {
+    "n": "১২",
+    "t": "ধর্মনিরপেক্ষতা ও ধর্মীয় স্বাধীনতা",
+    "d": "ধর্মনিরপেক্ষতা বাস্তবায়নের জন্য এসব বন্ধ করা হবে:",
+    "pts": [
+     "সব ধরনের সাম্প্রদায়িকতা।",
+     "রাষ্ট্র কর্তৃক কোনো ধর্মকে রাজনৈতিক মর্যাদা দেওয়া।",
+     "রাজনৈতিক উদ্দেশ্যে ধর্মের অপব্যবহার।",
+     "কোনো বিশেষ ধর্ম পালনকারীর প্রতি বৈষম্য বা তার ওপর নিপীড়ন।"
+    ]
+   },
+   {
+    "n": "১৩",
+    "t": "মালিকানার নীতি",
+    "d": "উৎপাদনের যন্ত্র, উৎপাদন ব্যবস্থা ও বণ্টনের (ভাগ করার) পদ্ধতির মালিক বা নিয়ন্ত্রক হবে জনগণ। এ জন্য মালিকানা হবে তিন রকম:",
+    "pts": [
+     "রাষ্ট্রীয় মালিকানা: অর্থনীতির প্রধান প্রধান ক্ষেত্রে সরকারি খাত গড়ে জনগণের পক্ষে রাষ্ট্রের মালিকানা।",
+     "সমবায়ী মালিকানা: আইনে ঠিক করা সীমার মধ্যে সমবায়ের সদস্যদের পক্ষে সমবায়ের মালিকানা।",
+     "ব্যক্তিগত মালিকানা: আইনে ঠিক করা সীমার মধ্যে ব্যক্তির মালিকানা।"
+    ]
+   },
+   {
+    "n": "১৪",
+    "t": "কৃষক ও শ্রমিকের মুক্তি",
+    "d": "কৃষক, শ্রমিক ও সমাজের পিছিয়ে পড়া অংশকে সব ধরনের শোষণ থেকে মুক্ত করা রাষ্ট্রের অন্যতম মৌলিক দায়িত্ব।"
+   },
+   {
+    "n": "১৫",
+    "t": "মৌলিক প্রয়োজনের ব্যবস্থা",
+    "d": "পরিকল্পিতভাবে অর্থনীতি এগিয়ে নিয়ে উৎপাদন বাড়ানো এবং মানুষের জীবনযাত্রার মান বাড়ানো রাষ্ট্রের অন্যতম মৌলিক দায়িত্ব, যাতে নাগরিকরা এসব পান:",
+    "pts": [
+     "অন্ন, বস্ত্র, বাসস্থান, শিক্ষা ও চিকিৎসাসহ বেঁচে থাকার মৌলিক জিনিস।",
+     "কাজের অধিকার: কাজের মান ও পরিমাণ দেখে ন্যায্য মজুরিতে কাজ পাওয়ার নিশ্চয়তা।",
+     "ন্যায্য বিশ্রাম, বিনোদন ও ছুটির অধিকার।",
+     "সামাজিক নিরাপত্তার অধিকার: বেকারত্ব, অসুখ, প্রতিবন্ধিতা, বিধবা হওয়া, মা-বাবা হারানো, বৃদ্ধ বয়স বা এমন কোনো নিজের হাতের বাইরের কারণে অভাবে পড়লে সরকারি সাহায্য পাওয়া।"
+    ]
+   },
+   {
+    "n": "১৬",
+    "t": "গ্রামীণ উন্নয়ন ও কৃষি বিপ্লব",
+    "d": "শহর ও গ্রামের জীবনমানের ফারাক ধীরে ধীরে কমাতে রাষ্ট্র কার্যকর ব্যবস্থা নেবে। এ জন্য কৃষিবিপ্লব, গ্রামে বিদ্যুৎ, কুটির ও অন্যান্য শিল্পের বিকাশ এবং শিক্ষা, যোগাযোগ ও জনস্বাস্থ্যের উন্নয়নের মাধ্যমে গ্রামের আমূল বদল ঘটানো হবে।"
+   },
+   {
+    "n": "১৭",
+    "t": "অবৈতনিক ও বাধ্যতামূলক শিক্ষা",
+    "d": "রাষ্ট্র কার্যকর ব্যবস্থা নেবে যাতে:",
+    "pts": [
+     "সবার জন্য একই ধরনের গণমুখী ও সর্বজনীন শিক্ষাব্যবস্থা চালু হয়, এবং আইনে ঠিক করা স্তর পর্যন্ত সব ছেলেমেয়ে বিনা খরচে ও বাধ্যতামূলকভাবে শিক্ষা পায়।",
+     "শিক্ষা সমাজের প্রয়োজনের সঙ্গে মেলে এবং সেই প্রয়োজন মেটাতে প্রশিক্ষিত ও সদিচ্ছাসম্পন্ন নাগরিক তৈরি হয়।",
+     "আইনে ঠিক করা সময়ের মধ্যে নিরক্ষরতা দূর হয়।"
+    ]
+   },
+   {
+    "n": "১৮",
+    "t": "জনস্বাস্থ্য ও নৈতিকতা",
+    "d": "জনস্বাস্থ্য ও নৈতিকতা:",
+    "pts": [
+     "মানুষের পুষ্টি ও জনস্বাস্থ্য ভালো করাকে রাষ্ট্র প্রাথমিক কর্তব্য মনে করবে। চিকিৎসার প্রয়োজন বা আইনে ঠিক করা অন্য প্রয়োজন ছাড়া মদ, মাদক পানীয় ও স্বাস্থ্যের জন্য ক্ষতিকর ওষুধের ব্যবহার বন্ধ করতে রাষ্ট্র কার্যকর ব্যবস্থা নেবে।",
+     "দেহব্যবসা ও জুয়া ঠেকাতে রাষ্ট্র কার্যকর ব্যবস্থা নেবে।"
+    ]
+   },
+   {
+    "n": "১৮ক",
+    "t": "পরিবেশ ও জীব-বৈচিত্র্য সংরক্ষণ ও উন্নয়ন",
+    "sub": true,
+    "d": "রাষ্ট্র এখনকার ও ভবিষ্যতের নাগরিকদের জন্য পরিবেশ রক্ষা ও উন্নত করবে। একই সঙ্গে প্রাকৃতিক সম্পদ, জীববৈচিত্র্য, জলাভূমি, বন ও বন্যপ্রাণী রক্ষা ও নিরাপদ রাখবে।"
+   },
+   {
+    "n": "১৯",
+    "t": "সুযোগের সমতা",
+    "d": "সুযোগের সমতা:",
+    "pts": [
+     "সব নাগরিকের জন্য সমান সুযোগ নিশ্চিত করতে রাষ্ট্র চেষ্টা করবে।",
+     "মানুষে মানুষে সামাজিক ও অর্থনৈতিক বৈষম্য দূর করতে, সম্পদ সুষমভাবে ভাগ করতে এবং দেশের সব জায়গায় সমান অর্থনৈতিক উন্নয়নের লক্ষ্যে সমান সুযোগ-সুবিধা দিতে রাষ্ট্র কার্যকর ব্যবস্থা নেবে।",
+     "জাতীয় জীবনের সব স্তরে নারীদের অংশগ্রহণ ও সুযোগের সমতা রাষ্ট্র নিশ্চিত করবে।"
+    ]
+   },
+   {
+    "n": "২০",
+    "t": "অধিকার ও কর্তব্যরূপে কর্ম",
+    "d": "কাজ নিয়ে নীতি:",
+    "pts": [
+     "কাজ করতে সক্ষম প্রত্যেক নাগরিকের জন্য কাজ একটি অধিকার, দায়িত্ব ও সম্মানের বিষয়। \"প্রত্যেকের কাছ থেকে যোগ্যতা অনুযায়ী, প্রত্যেককে কাজ অনুযায়ী\"—এই নীতিতে সবাই নিজের কাজের মজুরি পাবেন।",
+     "রাষ্ট্র এমন অবস্থা তৈরির চেষ্টা করবে, যেখানে সাধারণ নিয়ম হিসেবে কেউ বিনা পরিশ্রমের আয় ভোগ করতে পারবে না, আর মাথার ও গায়ের—সব ধরনের শ্রম সৃজনশীল প্রচেষ্টা এবং মানুষের পূর্ণ বিকাশের মাধ্যম হবে।"
+    ]
+   },
+   {
+    "n": "২১",
+    "t": "নাগরিক ও সরকারি কর্মচারীদের কর্তব্য",
+    "d": "নাগরিক ও সরকারি কর্মীর দায়িত্ব:",
+    "pts": [
+     "সংবিধান ও আইন মানা, শৃঙ্খলা রক্ষা করা, নাগরিক দায়িত্ব পালন করা এবং জাতীয় সম্পত্তি রক্ষা করা প্রত্যেক নাগরিকের কর্তব্য।",
+     "সব সময় জনগণের সেবা করার চেষ্টা করা সরকারি চাকরিতে নিয়োজিত প্রত্যেক ব্যক্তির কর্তব্য।"
+    ]
+   },
+   {
+    "n": "২২",
+    "t": "নির্বাহী বিভাগ হইতে বিচার বিভাগের পৃথকীকরণ",
+    "d": "রাষ্ট্র নিশ্চিত করবে যে বিচার বিভাগ শাসন বিভাগ (সরকারি নির্বাহী বিভাগ) থেকে আলাদা থাকবে।"
+   },
+   {
+    "n": "২৩",
+    "t": "জাতীয় সংস্কৃতি",
+    "d": "রাষ্ট্র জনগণের সাংস্কৃতিক ঐতিহ্য ও উত্তরাধিকার রক্ষা করবে। জাতীয় ভাষা, সাহিত্য ও শিল্পকলার এমনভাবে বিকাশের ব্যবস্থা নেবে, যাতে সব স্তরের মানুষ জাতীয় সংস্কৃতিকে সমৃদ্ধ করতে অবদান রাখতে ও অংশ নিতে পারে।"
+   },
+   {
+    "n": "২৩ক",
+    "t": "উপজাতি, ক্ষুদ্র জাতিসত্তা, নৃ-গোষ্ঠী ও সম্প্রদায়ের সংস্কৃতি",
+    "sub": true,
+    "d": "রাষ্ট্র বিভিন্ন উপজাতি, ক্ষুদ্র জাতিসত্তা, নৃগোষ্ঠী ও সম্প্রদায়ের নিজস্ব আঞ্চলিক সংস্কৃতি ও ঐতিহ্য রক্ষা, উন্নয়ন ও বিকাশের ব্যবস্থা নেবে।"
+   },
+   {
+    "n": "২৪",
+    "t": "জাতীয় স্মৃতিনিদর্শন, প্রভৃতি",
+    "d": "বিশেষ শিল্পমূল্য বা ঐতিহাসিক গুরুত্ব আছে এমন স্মৃতিনিদর্শন, জিনিস বা স্থান যাতে নষ্ট, বিকৃত বা সরানো না হয়, সে জন্য রাষ্ট্র ব্যবস্থা নেবে।"
+   },
+   {
+    "n": "২৫",
+    "t": "আন্তর্জাতিক শান্তি, নিরাপত্তা ও সংহতির উন্নয়ন",
+    "d": "আন্তর্জাতিক সম্পর্কের ভিত্তি হবে অন্য দেশের সার্বভৌমত্ব ও সমতার প্রতি সম্মান, অন্য রাষ্ট্রের ভেতরের বিষয়ে হস্তক্ষেপ না করা, আন্তর্জাতিক বিরোধ শান্তিপূর্ণভাবে মেটানো এবং আন্তর্জাতিক আইন ও জাতিসংঘ সনদের নীতির প্রতি সম্মান। এই নীতির ভিত্তিতে রাষ্ট্র:",
+    "pts": [
+     "আন্তর্জাতিক সম্পর্কে শক্তি প্রয়োগ এড়াবে এবং সাধারণ ও সম্পূর্ণ নিরস্ত্রীকরণের চেষ্টা করবে।",
+     "প্রত্যেক জাতির স্বাধীন ইচ্ছামতো নিজের সামাজিক, অর্থনৈতিক ও রাজনৈতিক ব্যবস্থা ঠিক করার অধিকার সমর্থন করবে।",
+     "সাম্রাজ্যবাদ, ঔপনিবেশিকতা ও বর্ণবৈষম্যের বিরুদ্ধে বিশ্বের সব জায়গায় নির্যাতিত মানুষের ন্যায্য সংগ্রামকে সমর্থন করবে।"
+    ]
+   }
+  ]
+ },
+ {
+  "part": "তৃতীয় ভাগ : মৌলিক অধিকার",
+  "range": "অনুচ্ছেদ ২৬ — ৪৭ক",
+  "items": [
+   {
+    "n": "২৬",
+    "t": "মৌলিক অধিকারের সহিত অসামঞ্জস্য আইন বাতিল",
+    "d": "মৌলিক অধিকারের সঙ্গে সাংঘর্ষিক আইন বাতিল:",
+    "pts": [
+     "এই ভাগের (মৌলিক অধিকারের) সঙ্গে না মেলে এমন সব পুরোনো আইন, সংবিধান চালুর দিন থেকে যতটুকু না মেলে ততটুকু বাতিল।",
+     "রাষ্ট্র এই ভাগের কোনো বিধানের সঙ্গে সাংঘর্ষিক কোনো আইন বানাবে না। বানালে তা যতটুকু না মেলে ততটুকু বাতিল হবে।",
+     "তবে ১৪২ অনুচ্ছেদ অনুযায়ী করা সংবিধান সংশোধনের ক্ষেত্রে এই অনুচ্ছেদের কিছুই খাটবে না।"
+    ]
+   },
+   {
+    "n": "২৭",
+    "t": "আইনের দৃষ্টিতে সমতা",
+    "d": "সব নাগরিক আইনের চোখে সমান এবং আইনের সমান আশ্রয় পাওয়ার অধিকারী।"
+   },
+   {
+    "n": "২৮",
+    "t": "ধর্ম প্রভৃতি কারণে বৈষম্য",
+    "d": "বৈষম্য নিষেধ:",
+    "pts": [
+     "শুধু ধর্ম, গোষ্ঠী, বর্ণ, নারী-পুরুষভেদ বা জন্মস্থানের কারণে রাষ্ট্র কোনো নাগরিকের প্রতি বৈষম্য করবে না।",
+     "রাষ্ট্র ও গণজীবনের সব স্তরে নারী-পুরুষ সমান অধিকার পাবেন।",
+     "শুধু ধর্ম, গোষ্ঠী, বর্ণ, নারী-পুরুষভেদ বা জন্মস্থানের কারণে কোনো নাগরিককে জনসাধারণের বিনোদন বা বিশ্রামের জায়গায় ঢোকার বা কোনো শিক্ষাপ্রতিষ্ঠানে ভর্তির ক্ষেত্রে কোনো বাধা, বাধ্যবাধকতা বা শর্তের মধ্যে ফেলা যাবে না।",
+     "নারী বা শিশুদের জন্য, কিংবা সমাজের যেকোনো পিছিয়ে পড়া অংশের উন্নতির জন্য বিশেষ ব্যবস্থা করা থেকে এই অনুচ্ছেদ রাষ্ট্রকে আটকাবে না।"
+    ]
+   },
+   {
+    "n": "২৯",
+    "t": "সরকারি নিয়োগলাভে সুযোগের সমতা",
+    "d": "সরকারি চাকরিতে সমান সুযোগ:",
+    "pts": [
+     "সরকারি চাকরিতে নিয়োগ বা পদ পাওয়ার ক্ষেত্রে সব নাগরিকের সমান সুযোগ থাকবে।",
+     "শুধু ধর্ম, গোষ্ঠী, বর্ণ, নারী-পুরুষভেদ বা জন্মস্থানের কারণে কেউ সরকারি চাকরির অযোগ্য হবেন না, বা সেখানে তাঁর প্রতি বৈষম্য করা যাবে না।",
+     [
+      "এই অনুচ্ছেদের কোনো কিছুই রাষ্ট্রকে এগুলো করা থেকে আটকাবে না:",
+      [
+       "পিছিয়ে পড়া নাগরিকরা যাতে সরকারি চাকরিতে যথাযথ প্রতিনিধিত্ব পান, সে জন্য তাঁদের পক্ষে বিশেষ ব্যবস্থা করা।",
+       "কোনো ধর্মীয় বা উপ-সম্প্রদায়ের প্রতিষ্ঠানে ওই ধর্ম বা সম্প্রদায়ের লোকদের জন্য নিয়োগ সংরক্ষণের আইন চালু করা।",
+       "কাজের বিশেষ ধরনের কারণে যে ধরনের চাকরি বা পদ নারী বা পুরুষের জন্য অনুপযোগী মনে হয়, তা যথাক্রমে পুরুষ বা নারীর জন্য সংরক্ষণ করা।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "৩০",
+    "t": "বিদেশী খেতাব প্রভৃতি গ্রহণ নিষিদ্ধকরণ",
+    "d": "রাষ্ট্রপতির আগাম অনুমতি ছাড়া কোনো নাগরিক কোনো বিদেশি রাষ্ট্রের কাছ থেকে খেতাব, সম্মান, পুরস্কার বা ভূষণ নিতে পারবেন না।"
+   },
+   {
+    "n": "৩১",
+    "t": "আইনের আশ্রয়লাভের অধিকার",
+    "d": "আইনের আশ্রয় পাওয়া এবং কেবল আইন অনুযায়ী ব্যবহার পাওয়া সবার অবিচ্ছেদ্য অধিকার। এই অধিকার যেকোনো জায়গায় থাকা প্রত্যেক নাগরিকের এবং সাময়িকভাবে বাংলাদেশে থাকা অন্য সবার। বিশেষ করে আইনসম্মত পথ ছাড়া এমন কোনো কাজ করা যাবে না, যাতে কারও জীবন, স্বাধীনতা, দেহ, সুনাম বা সম্পত্তির ক্ষতি হয়।"
+   },
+   {
+    "n": "৩২",
+    "t": "জীবন ও ব্যক্তি-স্বাধীনতার অধিকাররক্ষণ",
+    "d": "আইনসম্মত পথ ছাড়া কাউকে তাঁর জীবন ও ব্যক্তিস্বাধীনতা থেকে বঞ্চিত করা যাবে না।"
+   },
+   {
+    "n": "৩৩",
+    "t": "গ্রেফতার ও আটক সম্পর্কে রক্ষাকবচ",
+    "d": "গ্রেপ্তার ও আটক:",
+    "pts": [
+     "গ্রেপ্তার হওয়া ব্যক্তিকে যত তাড়াতাড়ি সম্ভব গ্রেপ্তারের কারণ না জানিয়ে আটকে রাখা যাবে না। তাঁর পছন্দের আইনজীবীর সঙ্গে পরামর্শ ও আইনজীবীর মাধ্যমে নিজের পক্ষে লড়ার অধিকার কেড়ে নেওয়া যাবে না।",
+     "গ্রেপ্তার ও আটক প্রত্যেক ব্যক্তিকে গ্রেপ্তারের ২৪ ঘণ্টার মধ্যে (গ্রেপ্তারের জায়গা থেকে আদালতে নেওয়ার পথের সময় বাদে) নিকটতম ম্যাজিস্ট্রেটের সামনে হাজির করতে হবে। ম্যাজিস্ট্রেটের আদেশ ছাড়া এর বেশি সময় আটকে রাখা যাবে না।",
+     [
+      "(১) ও (২) নম্বর নিয়ম এই দুই ধরনের লোকের ক্ষেত্রে খাটবে না:",
+      [
+       "যিনি তখনকার জন্য বিদেশি শত্রু; অথবা",
+       "যাঁকে প্রতিরোধমূলক আটক (নিবর্তনমূলক আটক) আইনে গ্রেপ্তার বা আটক করা হয়েছে।"
+      ]
+     ],
+     "প্রতিরোধমূলক আটকের আইনে কাউকে ছয় মাসের বেশি আটকে রাখা যাবে না। তবে সুপ্রিম কোর্টের বিচারক আছেন বা ছিলেন (বা বিচারক হওয়ার যোগ্য) এমন দুজন এবং একজন প্রবীণ সরকারি কর্মকর্তাকে নিয়ে গঠিত উপদেষ্টা-পর্ষদ, ছয় মাস শেষ হওয়ার আগে ওই ব্যক্তির বক্তব্য শুনে যদি রিপোর্ট দেয় যে আরও আটকে রাখার যথেষ্ট কারণ আছে, তাহলে আরও রাখা যাবে।",
+     "প্রতিরোধমূলক আটকের আদেশে কাউকে আটক করা হলে আদেশদানকারী কর্তৃপক্ষ যত তাড়াতাড়ি সম্ভব আদেশের কারণ জানাবে এবং আদেশের বিরুদ্ধে কথা বলার সুযোগ দেবে। তবে তথ্য প্রকাশ জনস্বার্থের বিরুদ্ধে মনে হলে কর্তৃপক্ষ তা প্রকাশ না করতে পারবে।",
+     "উপদেষ্টা-পর্ষদ ঠিক কোন পদ্ধতিতে তদন্ত করবে, তা সংসদ আইন করে ঠিক করতে পারবে।"
+    ]
+   },
+   {
+    "n": "৩৪",
+    "t": "জবরদস্তি-শ্রম নিষিদ্ধকরণ",
+    "d": "জোর করে কাজ করানো:",
+    "pts": [
+     "সব ধরনের জোর করে কাজ করানো (জবরদস্তি-শ্রম) নিষিদ্ধ। এই নিয়ম ভাঙলে তা আইনে শাস্তিযোগ্য অপরাধ।",
+     [
+      "তবে এই নিয়ম এসব ক্ষেত্রে খাটবে না:",
+      [
+       "কোনো ব্যক্তি ফৌজদারি অপরাধের জন্য আইন অনুযায়ী সাজা ভোগ করছেন; অথবা",
+       "জনগণের উদ্দেশ্য পূরণের জন্য আইন দিয়ে বাধ্যতামূলক কাজ নির্ধারিত আছে।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "৩৫",
+    "t": "বিচার ও দণ্ড সম্পর্কে রক্ষণ",
+    "d": "বিচার ও শাস্তির সুরক্ষা:",
+    "pts": [
+     "অপরাধের সময় চালু ছিল এমন আইন ভাঙা ছাড়া কাউকে দোষী করা যাবে না। অপরাধের সময়কার আইনে যে শাস্তি হতে পারত, তার চেয়ে বেশি বা ভিন্ন শাস্তি দেওয়া যাবে না।",
+     "একই অপরাধের জন্য কাউকে একবারের বেশি বিচারে তোলা বা শাস্তি দেওয়া যাবে না।",
+     "ফৌজদারি মামলার আসামি আইনে গড়া স্বাধীন ও নিরপেক্ষ আদালত বা ট্রাইব্যুনালে দ্রুত ও প্রকাশ্য বিচার পাওয়ার অধিকারী।",
+     "কোনো অপরাধের আসামিকে নিজের বিরুদ্ধে সাক্ষ্য দিতে বাধ্য করা যাবে না।",
+     "কাউকে নির্যাতন করা যাবে না, নিষ্ঠুর, অমানবিক বা অপমানজনক শাস্তি দেওয়া যাবে না, কিংবা এমন আচরণও করা যাবে না।",
+     "প্রচলিত আইনে ঠিক করা কোনো শাস্তি বা বিচারপদ্ধতির বিধান (৩) ও (৫) নম্বর নিয়মের কারণে প্রভাবিত হবে না।"
+    ]
+   },
+   {
+    "n": "৩৬",
+    "t": "চলাফেরার স্বাধীনতা",
+    "d": "জনস্বার্থে আইনে ঠিক করা যুক্তিসংগত বাধা মেনে প্রত্যেক নাগরিকের অধিকার আছে: দেশের সব জায়গায় অবাধে চলাফেরা করার, যেকোনো জায়গায় থাকা ও বসতি গড়ার, এবং বাংলাদেশ ছাড়ার ও আবার ফেরার।"
+   },
+   {
+    "n": "৩৭",
+    "t": "সমাবেশের স্বাধীনতা",
+    "d": "জনশৃঙ্খলা বা জনস্বাস্থ্যের স্বার্থে আইনে ঠিক করা যুক্তিসংগত বাধা মেনে প্রত্যেক নাগরিক শান্তিপূর্ণভাবে ও নিরস্ত্র অবস্থায় জড়ো হতে এবং জনসভা ও শোভাযাত্রায় যোগ দিতে পারবেন।"
+   },
+   {
+    "n": "৩৮",
+    "t": "সংগঠনের স্বাধীনতা",
+    "d": "জনশৃঙ্খলা ও নৈতিকতার স্বার্থে আইনে ঠিক করা যুক্তিসংগত বাধা মেনে প্রত্যেক নাগরিক সমিতি বা সংঘ গড়তে পারবেন। তবে এসব ক্ষেত্রে কেউ এমন সমিতি বা সংঘ গড়তে বা এর সদস্য হতে পারবেন না, যদি তা:",
+    "pts": [
+     "নাগরিকদের মধ্যে ধর্মীয়, সামাজিক ও সাম্প্রদায়িক সম্প্রীতি নষ্ট করার উদ্দেশ্যে গড়া হয়।",
+     "ধর্ম, গোষ্ঠী, বর্ণ, নারী-পুরুষ, জন্মস্থান বা ভাষার ক্ষেত্রে নাগরিকদের মধ্যে বৈষম্য তৈরির উদ্দেশ্যে গড়া হয়।",
+     "রাষ্ট্র, নাগরিক বা অন্য কোনো দেশের বিরুদ্ধে সন্ত্রাসী বা জঙ্গি কাজ চালানোর উদ্দেশ্যে গড়া হয়।",
+     "এর গঠন ও উদ্দেশ্য সংবিধানের বিরুদ্ধে যায়।"
+    ]
+   },
+   {
+    "n": "৩৯",
+    "t": "চিন্তা ও বিবেকের স্বাধীনতা এবং বাক্‌-স্বাধীনতা",
+    "d": "চিন্তা, মতপ্রকাশ ও সংবাদের স্বাধীনতা:",
+    "pts": [
+     "চিন্তা ও বিবেকের স্বাধীনতার নিশ্চয়তা দেওয়া হলো।",
+     [
+      "রাষ্ট্রের নিরাপত্তা, বিদেশি রাষ্ট্রের সঙ্গে বন্ধুত্বপূর্ণ সম্পর্ক, জনশৃঙ্খলা, শালীনতা ও নৈতিকতার স্বার্থে এবং আদালত অবমাননা, মানহানি বা অপরাধে উসকানির ক্ষেত্রে আইনে ঠিক করা যুক্তিসংগত বাধা মেনে নিশ্চয়তা দেওয়া হলো:",
+      [
+       "প্রত্যেক নাগরিকের কথা বলা ও মত প্রকাশের স্বাধীনতার অধিকার, এবং",
+       "সংবাদমাধ্যমের স্বাধীনতা।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "৪০",
+    "t": "পেশা বা বৃত্তির স্বাধীনতা",
+    "d": "আইনে ঠিক করা বাধা এবং আইনে ঠিক করা যোগ্যতা (থাকলে তা) মেনে প্রত্যেক নাগরিকের অধিকার আছে যেকোনো বৈধ পেশা বা বৃত্তি নেওয়ার এবং যেকোনো বৈধ ব্যবসা চালানোর।"
+   },
+   {
+    "n": "৪১",
+    "t": "ধর্মীয় স্বাধীনতা",
+    "d": "ধর্মের স্বাধীনতা:",
+    "pts": [
+     [
+      "আইন, জনশৃঙ্খলা ও নৈতিকতার সীমার মধ্যে:",
+      [
+       "প্রত্যেক নাগরিকের যেকোনো ধর্ম মানা, পালন ও প্রচার করার অধিকার আছে।",
+       "প্রত্যেক ধর্মীয় সম্প্রদায় ও উপ-সম্প্রদায়ের নিজেদের ধর্মীয় প্রতিষ্ঠান গড়া, রক্ষা ও পরিচালনার অধিকার আছে।"
+      ]
+     ],
+     "কোনো শিক্ষাপ্রতিষ্ঠানে পড়া কাউকে তাঁর নিজের ধর্মের বাইরের কোনো ধর্মীয় শিক্ষা নিতে, বা কোনো ধর্মীয় অনুষ্ঠান বা উপাসনায় অংশ নিতে বাধ্য করা যাবে না।"
+    ]
+   },
+   {
+    "n": "৪২",
+    "t": "সম্পত্তির অধিকার",
+    "d": "সম্পত্তির অধিকার:",
+    "pts": [
+     "আইনে ঠিক করা বাধা মেনে প্রত্যেক নাগরিকের সম্পত্তি অর্জন, ধরে রাখা, হস্তান্তর বা অন্যভাবে ব্যবহার করার অধিকার আছে। আইনের অনুমতি ছাড়া কোনো সম্পত্তি জোর করে নেওয়া, রাষ্ট্রের মালিকানায় আনা বা দখল করা যাবে না।",
+     "এই ক্ষমতা নিয়ে বানানো আইনে ক্ষতিপূরণসহ জোর করে নেওয়া, রাষ্ট্রীয়করণ বা দখলের বিধান থাকবে এবং ক্ষতিপূরণ কত হবে বা কীভাবে নির্ধারণ ও দেওয়া হবে, তার নীতি ও পদ্ধতি ঠিক করা হবে। তবে সেই আইনে ক্ষতিপূরণ অপর্যাপ্ত—এ কারণে আদালতে সেই আইন নিয়ে প্রশ্ন তোলা যাবে না।"
+    ]
+   },
+   {
+    "n": "৪৩",
+    "t": "গৃহ ও যোগাযোগের রক্ষণ",
+    "d": "রাষ্ট্রের নিরাপত্তা, জনশৃঙ্খলা, জনসাধারণের নৈতিকতা বা জনস্বাস্থ্যের স্বার্থে আইনে ঠিক করা যুক্তিসংগত বাধা মেনে প্রত্যেক নাগরিকের থাকবে:",
+    "pts": [
+     "নিজের বাড়িতে ঢোকা, তল্লাশি ও আটক থেকে নিরাপত্তার অধিকার।",
+     "চিঠিপত্র ও যোগাযোগের অন্য মাধ্যমের গোপনীয়তা রক্ষার অধিকার।"
+    ]
+   },
+   {
+    "n": "৪৪",
+    "t": "মৌলিক অধিকার বলবৎকরণ",
+    "d": "মৌলিক অধিকার রক্ষায় আদালতে যাওয়া:",
+    "pts": [
+     "এই ভাগে দেওয়া অধিকারগুলো কার্যকর করতে ১০২ অনুচ্ছেদ অনুযায়ী হাইকোর্ট বিভাগে মামলা করার অধিকারের নিশ্চয়তা দেওয়া হলো।",
+     "হাইকোর্ট বিভাগের ক্ষমতা কমানো ছাড়াই সংসদ আইন করে অন্য কোনো আদালতকে তার এখতিয়ারের এলাকার মধ্যে এই ক্ষমতাগুলোর সবগুলো বা কোনোটি ব্যবহারের ক্ষমতা দিতে পারবে।"
+    ]
+   },
+   {
+    "n": "৪৫",
+    "t": "শৃঙ্খলামূলক আইনের ক্ষেত্রে অধিকারের পরিবর্তন",
+    "d": "শৃঙ্খলা বাহিনীর সদস্যদের শৃঙ্খলা-সংক্রান্ত আইনের কোনো বিধান যদি তাঁদের দায়িত্ব ঠিকমতো পালন বা বাহিনীতে শৃঙ্খলা রক্ষার জন্য বানানো হয়, তাহলে সেই বিধানের ক্ষেত্রে এই ভাগের (মৌলিক অধিকারের) কোনো কিছু খাটবে না।"
+   },
+   {
+    "n": "৪৬",
+    "t": "দায়মুক্তি বিধানের ক্ষমতা",
+    "d": "এই ভাগের আগের বিধানে যা-ই লেখা থাকুক, সরকারি চাকরিতে থাকা কেউ বা অন্য কেউ যদি জাতীয় মুক্তিসংগ্রামের প্রয়োজনে কিংবা বাংলাদেশের সীমানার কোনো এলাকায় শৃঙ্খলা রক্ষা বা ফেরানোর প্রয়োজনে কোনো কাজ করে থাকেন, তাহলে সংসদ আইন করে তাঁকে দায়মুক্ত করতে পারবে। ওই এলাকায় দেওয়া কোনো সাজা, দণ্ড, বাজেয়াপ্তির আদেশ বা অন্য কোনো কাজকেও আইন করে বৈধ করতে পারবে।"
+   },
+   {
+    "n": "৪৭",
+    "t": "কতিপয় আইনের হেফাজত",
+    "d": "কিছু আইনের সুরক্ষা:",
+    "pts": [
+     [
+      "সংসদ যদি কোনো আইনে স্পষ্ট ঘোষণা করে যে দ্বিতীয় ভাগের (রাষ্ট্র পরিচালনার মূলনীতি) কোনো নীতি কার্যকর করতেই এই বিধান করা হলো, তাহলে নিচের বিষয়ে সেই আইন মৌলিক অধিকারের সঙ্গে সাংঘর্ষিক বা অধিকার খর্ব করছে—এই কারণে বাতিল হবে না:",
+      [
+       "কোনো সম্পত্তি জোর করে নেওয়া, রাষ্ট্রীয়করণ, দখল, কিংবা সাময়িক বা স্থায়ীভাবে নিয়ন্ত্রণ বা ব্যবস্থাপনা।",
+       "ব্যবসা বা অন্য উদ্যোগের একাধিক প্রতিষ্ঠানকে বাধ্যতামূলকভাবে এক করা।",
+       "এ ধরনের প্রতিষ্ঠানের পরিচালক, ব্যবস্থাপক, এজেন্ট ও কর্মচারীদের অধিকার এবং শেয়ার-স্টকের মালিকদের ভোটাধিকার বিলোপ, বদল, সীমিত বা নিয়ন্ত্রণ করা।",
+       "খনিজ দ্রব্য বা খনিজ তেল খোঁজা বা পাওয়ার অধিকার বিলোপ, বদল, সীমিত বা নিয়ন্ত্রণ করা।",
+       "অন্যদের পুরো বা আংশিক বাদ দিয়ে সরকার বা সরকারের নিজস্ব, নিয়ন্ত্রণাধীন বা পরিচালনাধীন সংস্থার মাধ্যমে কোনো ব্যবসা, শিল্প বা সেবা চালানো।",
+       "কোনো সম্পত্তির স্বত্ব, পেশা-ব্যবসা-সংক্রান্ত অধিকার, বা কোনো সরকারি প্রতিষ্ঠান বা বাণিজ্যিক-শিল্প উদ্যোগের মালিক-কর্মচারীর অধিকার বিলোপ, বদল, সীমিত বা নিয়ন্ত্রণ করা।"
+      ]
+     ],
+     "সংবিধানে যা-ই থাকুক, প্রথম তফসিলে থাকা আইনগুলো (এগুলোর সংশোধনীসহ) পুরোপুরি চালু থাকবে। এই আইন বা এর অধীনে করা বা না-করা কোনো কাজ সংবিধানের সঙ্গে না মেলার কারণে বাতিল বা বেআইনি হবে না।",
+     "সংবিধানে যা-ই থাকুক, গণহত্যা, মানবতাবিরোধী অপরাধ, যুদ্ধাপরাধ এবং আন্তর্জাতিক আইনের অধীনে অন্য অপরাধের জন্য কোনো সশস্ত্র বাহিনী, প্রতিরক্ষা বাহিনী বা সহায়ক বাহিনীর সদস্য (বা অন্য কোনো ব্যক্তি, গোষ্ঠী বা সংগঠন) কিংবা যুদ্ধবন্দীকে আটক, বিচার বা শাস্তি দেওয়ার আইন সংবিধানের সঙ্গে সাংঘর্ষিক—এই কারণে বাতিল বা বেআইনি হবে না, কখনও হয়েছে বলেও ধরা হবে না।"
+    ]
+   },
+   {
+    "n": "৪৭ক",
+    "t": "সংবিধানের কতিপয় বিধানের অপ্রযোজ্যতা",
+    "sub": true,
+    "d": "৪৭(৩) অনুচ্ছেদের আইন যাঁদের ওপর খাটে, তাঁদের ক্ষেত্রে:",
+    "pts": [
+     "৩১ অনুচ্ছেদ, ৩৫ অনুচ্ছেদের (১) ও (৩) দফা এবং ৪৪ অনুচ্ছেদে দেওয়া অধিকারগুলো খাটবে না।",
+     "সংবিধানে যা-ই থাকুক, সংবিধানের অধীনে কোনো প্রতিকার চেয়ে সুপ্রিম কোর্টে আবেদন করার অধিকারও তাঁদের থাকবে না।"
+    ]
+   }
+  ]
+ },
+ {
+  "part": "চতুর্থ ভাগ : নির্বাহী বিভাগ",
+  "range": "অনুচ্ছেদ ৪৮ — ৬৪",
+  "items": [
+   {
+    "n": "৪৮",
+    "t": "রাষ্ট্রপতি",
+    "d": "রাষ্ট্রপতি:",
+    "pts": [
+     "বাংলাদেশে একজন রাষ্ট্রপতি থাকবেন। আইন অনুযায়ী সংসদ সদস্যরা তাঁকে নির্বাচন করবেন।",
+     "রাষ্ট্রপ্রধান হিসেবে রাষ্ট্রপতি দেশের অন্য সবার ওপরে থাকবেন। সংবিধান ও অন্য আইনে তাঁকে যেসব ক্ষমতা ও দায়িত্ব দেওয়া হয়েছে, তিনি তা পালন করবেন।",
+     "প্রধানমন্ত্রী নিয়োগ (৫৬(৩) অনুচ্ছেদ) এবং প্রধান বিচারপতি নিয়োগ (৯৫(১) অনুচ্ছেদ) ছাড়া অন্য সব দায়িত্বে রাষ্ট্রপতি প্রধানমন্ত্রীর পরামর্শ অনুযায়ী চলবেন। প্রধানমন্ত্রী আদৌ কোনো পরামর্শ দিয়েছেন কি না, দিলে কী দিয়েছেন—এ নিয়ে কোনো আদালত প্রশ্ন তুলে তদন্ত করতে পারবে না।",
+     [
+      "এই লোকেরা রাষ্ট্রপতি নির্বাচিত হতে পারবেন না:",
+      [
+       "যাঁর বয়স ৩৫ বছরের কম;",
+       "যিনি সংসদ সদস্য হওয়ার যোগ্য নন;",
+       "যিনি আগে কখনও এই সংবিধান অনুযায়ী অভিশংসনের (ইমপিচমেন্ট) মাধ্যমে রাষ্ট্রপতির পদ থেকে সরে গেছেন।"
+      ]
+     ],
+     "প্রধানমন্ত্রী রাষ্ট্র ও পররাষ্ট্র নীতির বিষয়ে রাষ্ট্রপতিকে জানাবেন। রাষ্ট্রপতি অনুরোধ করলে যেকোনো বিষয় মন্ত্রিসভার বিবেচনার জন্য পেশ করবেন।"
+    ]
+   },
+   {
+    "n": "৪৯",
+    "t": "ক্ষমা প্রদর্শনের অধিকার",
+    "d": "আদালত, ট্রাইব্যুনাল বা অন্য কোনো কর্তৃপক্ষের দেওয়া যেকোনো শাস্তি ক্ষমা, স্থগিত বা বিরাম দেওয়ার এবং শাস্তি মওকুফ, স্থগিত বা কমানোর ক্ষমতা রাষ্ট্রপতির আছে।"
+   },
+   {
+    "n": "৫০",
+    "t": "রাষ্ট্রপতি-পদের মেয়াদ",
+    "d": "রাষ্ট্রপতির পদের মেয়াদ:",
+    "pts": [
+     "রাষ্ট্রপতি দায়িত্ব নেওয়ার দিন থেকে পাঁচ বছর পদে থাকবেন। মেয়াদ শেষ হলেও তাঁর উত্তরসূরি দায়িত্ব না নেওয়া পর্যন্ত তিনি পদে থাকবেন।",
+     "একটানা হোক বা না হোক, কেউ দুই মেয়াদের বেশি রাষ্ট্রপতি থাকতে পারবেন না।",
+     "স্পিকারকে সই করা চিঠি দিয়ে রাষ্ট্রপতি নিজের পদ ছাড়তে পারবেন।",
+     "রাষ্ট্রপতি দায়িত্বে থাকার সময় সংসদ সদস্য হওয়ার যোগ্য থাকবেন না। কোনো সংসদ সদস্য রাষ্ট্রপতি নির্বাচিত হলে দায়িত্ব নেওয়ার দিনেই সংসদে তাঁর আসন খালি হবে।"
+    ]
+   },
+   {
+    "n": "৫১",
+    "t": "রাষ্ট্রপতির দায়মুক্তি",
+    "d": "রাষ্ট্রপতির দায়মুক্তি:",
+    "pts": [
+     "রাষ্ট্রপতি দায়িত্ব পালন করতে গিয়ে বা সেই বিবেচনায় কিছু করলে বা না করলে, সে জন্য তাঁকে কোনো আদালতে জবাব দিতে হবে না। (৫২ অনুচ্ছেদের অভিশংসনের ক্ষমতা এতে ক্ষুণ্ণ হবে না।) তবে এতে সরকারের বিরুদ্ধে মামলা করার কারও অধিকার বাদ যাবে না।",
+     "রাষ্ট্রপতি দায়িত্বে থাকাকালে তাঁর বিরুদ্ধে কোনো আদালতে ফৌজদারি মামলা করা বা চালিয়ে যাওয়া যাবে না। তাঁকে গ্রেপ্তার বা কারাবন্দি করার জন্য কোনো আদালত থেকে পরোয়ানাও জারি করা যাবে না।"
+    ]
+   },
+   {
+    "n": "৫২",
+    "t": "রাষ্ট্রপতির অভিশংসন",
+    "d": "রাষ্ট্রপতির অভিশংসন (ইমপিচমেন্ট):",
+    "pts": [
+     "সংবিধান ভাঙা বা গুরুতর অসদাচরণের অভিযোগে রাষ্ট্রপতিকে অভিশংসন করা যাবে। এ জন্য সংসদের মোট সদস্যের অর্ধেকের বেশির সই দিয়ে অভিযোগ লিখে একটি প্রস্তাবের নোটিশ স্পিকারকে দিতে হবে। নোটিশ দেওয়ার দিন থেকে ১৪ দিনের আগে বা ৩০ দিনের পরে প্রস্তাব আলোচনা করা যাবে না। সংসদ অধিবেশনে না থাকলে স্পিকার সঙ্গে সঙ্গে সংসদ ডাকবেন।",
+     "এই অভিযোগ তদন্তের জন্য সংসদ কোনো আদালত, ট্রাইব্যুনাল বা কর্তৃপক্ষ নিয়োগ বা ঠিক করলে সংসদ রাষ্ট্রপতির আচরণ তার কাছে পাঠাতে পারবে।",
+     "অভিযোগ বিবেচনার সময় রাষ্ট্রপতির উপস্থিত থাকার এবং প্রতিনিধি পাঠানোর অধিকার থাকবে।",
+     "বিবেচনার পর মোট সদস্যের অন্তত দুই-তৃতীয়াংশ ভোটে অভিযোগ সঠিক বলে ঘোষণা করে প্রস্তাব পাস হলে, পাসের দিনেই রাষ্ট্রপতির পদ খালি হবে।",
+     "৫৪ অনুচ্ছেদ অনুযায়ী স্পিকার রাষ্ট্রপতির দায়িত্ব পালন করার সময় এই অনুচ্ছেদ খাটবে, তবে (১) নম্বর নিয়মে স্পিকারের জায়গায় ডেপুটি স্পিকার এবং (৪) নম্বর নিয়মে রাষ্ট্রপতির পদ খালি হওয়ার জায়গায় স্পিকারের পদ খালি হওয়া ধরতে হবে। (৪) নম্বর নিয়মের প্রস্তাব পাস হলে স্পিকার রাষ্ট্রপতির দায়িত্ব পালন থেকে বিরত থাকবেন।"
+    ]
+   },
+   {
+    "n": "৫৩",
+    "t": "অসামর্থ্যের কারণে রাষ্ট্রপতির অপসারণ",
+    "d": "শারীরিক বা মানসিক অক্ষমতার কারণে রাষ্ট্রপতিকে সরানো:",
+    "pts": [
+     "শারীরিক বা মানসিক অক্ষমতার কারণে রাষ্ট্রপতিকে পদ থেকে সরানো যাবে। এ জন্য সংসদের মোট সদস্যের অর্ধেকের বেশির সই দিয়ে অক্ষমতার বিবরণ লিখে একটি প্রস্তাবের নোটিশ স্পিকারকে দিতে হবে।",
+     "সংসদ অধিবেশনে না থাকলে নোটিশ পাওয়ামাত্র স্পিকার অধিবেশন ডাকবেন এবং একটি চিকিৎসা-পর্ষদ গঠনের প্রস্তাব আনবেন। প্রস্তাব উত্থাপন ও পাস হলে স্পিকার তখনই নোটিশের একটি কপি রাষ্ট্রপতির কাছে পাঠাবেন এবং সই করা অনুরোধে জানাবেন, তিনি যেন অনুরোধ পাঠানোর দিন থেকে ১০ দিনের মধ্যে পর্ষদের সামনে পরীক্ষার জন্য হাজির হন।",
+     "অপসারণের প্রস্তাবের নোটিশ স্পিকারকে দেওয়ার ১৪ দিনের আগে বা ৩০ দিনের পরে প্রস্তাবে ভোট নেওয়া যাবে না। ওই সময়ের মধ্যে প্রস্তাব তুলতে আবার সংসদ ডাকার দরকার হলে স্পিকার সংসদ ডাকবেন।",
+     "প্রস্তাব বিবেচনার সময় রাষ্ট্রপতির উপস্থিত থাকার এবং প্রতিনিধি পাঠানোর অধিকার থাকবে।",
+     "সংসদে প্রস্তাব ওঠার আগে রাষ্ট্রপতি পর্ষদের সামনে হাজির না হলে প্রস্তাবে ভোট নেওয়া যাবে। মোট সদস্যের অন্তত দুই-তৃতীয়াংশ ভোটে পাস হলে পাসের দিনেই রাষ্ট্রপতির পদ খালি হবে।",
+     "সংসদে প্রস্তাব ওঠার আগে রাষ্ট্রপতি পর্ষদের সামনে হাজির হয়ে থাকলে, সংসদকে পর্ষদের মত জানানোর সুযোগ না দেওয়া পর্যন্ত প্রস্তাবে ভোট নেওয়া যাবে না।",
+     "পর্ষদের রিপোর্ট পরীক্ষার ৭ দিনের মধ্যে জমা দিতে হবে (না দিলে তা বিবেচনা করতে হবে না)। প্রস্তাব ও রিপোর্ট বিবেচনার পর মোট সদস্যের অন্তত দুই-তৃতীয়াংশ ভোটে প্রস্তাব পাস হলে পাসের দিনেই রাষ্ট্রপতির পদ খালি হবে।"
+    ]
+   },
+   {
+    "n": "৫৪",
+    "t": "অনুপস্থিতি প্রভৃতির কালে রাষ্ট্রপতি-পদে স্পীকার",
+    "d": "রাষ্ট্রপতির পদ খালি হলে, বা অনুপস্থিতি, অসুস্থতা বা অন্য কারণে তিনি দায়িত্ব পালনে অক্ষম হলে, নতুন রাষ্ট্রপতি নির্বাচিত না হওয়া পর্যন্ত (বা রাষ্ট্রপতি আবার দায়িত্ব নেওয়া পর্যন্ত) স্পিকার রাষ্ট্রপতির দায়িত্ব পালন করবেন।"
+   },
+   {
+    "n": "৫৫",
+    "t": "মন্ত্রিসভা",
+    "d": "মন্ত্রিসভা ও নির্বাহী ক্ষমতা:",
+    "pts": [
+     "প্রধানমন্ত্রীর নেতৃত্বে একটি মন্ত্রিসভা থাকবে। প্রধানমন্ত্রী ও তাঁর ঠিক করা অন্য মন্ত্রীদের নিয়ে মন্ত্রিসভা গঠিত হবে।",
+     "প্রজাতন্ত্রের নির্বাহী ক্ষমতা সংবিধান অনুযায়ী প্রধানমন্ত্রী বা তাঁর কর্তৃত্বে প্রয়োগ হবে।",
+     "মন্ত্রিসভা যৌথভাবে সংসদের কাছে দায়ী থাকবে।",
+     "সরকারের সব নির্বাহী কাজ রাষ্ট্রপতির নামে নেওয়া হয়েছে বলে প্রকাশ করা হবে।",
+     "রাষ্ট্রপতির নামে করা আদেশ ও অন্যান্য চুক্তিপত্র কীভাবে সত্যায়িত বা প্রমাণিত হবে, তা রাষ্ট্রপতি বিধি দিয়ে ঠিক করবেন। এভাবে সত্যায়িত কোনো আদেশ বা চুক্তি ঠিকমতো করা হয়নি—এ কথা বলে আদালতে তার বৈধতা নিয়ে প্রশ্ন তোলা যাবে না।",
+     "সরকারি কাজ ভাগ ও পরিচালনার জন্য রাষ্ট্রপতি বিধি বানাবেন।"
+    ]
+   },
+   {
+    "n": "৫৬",
+    "t": "মন্ত্রিগণ",
+    "d": "প্রধানমন্ত্রী ও মন্ত্রী নিয়োগ:",
+    "pts": [
+     "একজন প্রধানমন্ত্রী থাকবেন। প্রধানমন্ত্রী যেভাবে ঠিক করবেন, সেভাবে অন্য মন্ত্রী, প্রতিমন্ত্রী ও উপমন্ত্রী থাকবেন।",
+     "প্রধানমন্ত্রী, অন্যান্য মন্ত্রী, প্রতিমন্ত্রী ও উপমন্ত্রীদের নিয়োগ দেবেন রাষ্ট্রপতি। তবে তাঁদের অন্তত নয়-দশমাংশ সংসদ সদস্যদের মধ্য থেকে নিতে হবে, আর বড়জোর এক-দশমাংশ সংসদ সদস্য হওয়ার যোগ্য অন্য ব্যক্তিদের মধ্য থেকে মনোনীত হতে পারবেন।",
+     "যে সংসদ সদস্যের ওপর সংসদের সংখ্যাগরিষ্ঠ সদস্যের আস্থা আছে বলে রাষ্ট্রপতির কাছে মনে হবে, তাঁকে রাষ্ট্রপতি প্রধানমন্ত্রী নিয়োগ দেবেন।",
+     "সংসদ ভেঙে যাওয়া এবং এর পরের সাধারণ নির্বাচনের মাঝের সময়ে (২) বা (৩) নম্বর নিয়মে নিয়োগ দেওয়ার দরকার হলে, ভেঙে যাওয়ার ঠিক আগে যাঁরা সংসদ সদস্য ছিলেন, তাঁদের এ কাজের জন্য সদস্য বলে ধরা হবে।"
+    ]
+   },
+   {
+    "n": "৫৭",
+    "t": "প্রধানমন্ত্রীর পদের মেয়াদ",
+    "d": "প্রধানমন্ত্রীর পদের মেয়াদ:",
+    "pts": [
+     [
+      "প্রধানমন্ত্রীর পদ খালি হবে, যদি:",
+      [
+       "তিনি রাষ্ট্রপতির কাছে পদত্যাগপত্র দেন; অথবা",
+       "তিনি সংসদ সদস্য না থাকেন।"
+      ]
+     ],
+     "সংসদের সংখ্যাগরিষ্ঠ সদস্যের সমর্থন হারালে প্রধানমন্ত্রী পদত্যাগ করবেন, অথবা সংসদ ভেঙে দিতে লিখিতভাবে রাষ্ট্রপতিকে পরামর্শ দেবেন। তিনি এই পরামর্শ দিলে রাষ্ট্রপতি যদি সন্তুষ্ট হন যে অন্য কোনো সংসদ সদস্যের ওপর সংখ্যাগরিষ্ঠের আস্থা নেই, তাহলে সংসদ ভেঙে দেবেন।",
+     "প্রধানমন্ত্রীর উত্তরসূরি দায়িত্ব না নেওয়া পর্যন্ত প্রধানমন্ত্রী নিজের পদে থাকতে পারবেন—এই অনুচ্ছেদের কিছুই তাতে বাধা নয়।"
+    ]
+   },
+   {
+    "n": "৫৮",
+    "t": "অন্যান্য মন্ত্রীর পদের মেয়াদ",
+    "d": "অন্য মন্ত্রীদের পদের মেয়াদ:",
+    "pts": [
+     [
+      "প্রধানমন্ত্রী ছাড়া অন্য কোনো মন্ত্রীর পদ খালি হবে, যদি:",
+      [
+       "তিনি রাষ্ট্রপতির কাছে পাঠানোর জন্য প্রধানমন্ত্রীকে পদত্যাগপত্র দেন;",
+       "তিনি সংসদ সদস্য না থাকেন (তবে ৫৬(২) অনুচ্ছেদের শর্ত অনুযায়ী সংসদ সদস্যের বাইরে থেকে মনোনীত মন্ত্রীর বেলায় এটি খাটবে না);",
+       "(২) নম্বর নিয়ম অনুযায়ী রাষ্ট্রপতি তাঁকে সরানোর নির্দেশ দেন; অথবা",
+       "(৪) নম্বর নিয়মে যা বলা আছে তা কার্যকর হয়।"
+      ]
+     ],
+     "প্রধানমন্ত্রী যেকোনো সময় কোনো মন্ত্রীকে পদত্যাগ করতে বলতে পারবেন। ওই মন্ত্রী তা না মানলে প্রধানমন্ত্রী রাষ্ট্রপতিকে তাঁর নিয়োগ শেষ করার পরামর্শ দিতে পারবেন।",
+     "সংসদ ভেঙে যাওয়া অবস্থায় কোনো মন্ত্রী পদে থাকতে পারবেন—(১) নম্বর নিয়মের (ক), (খ) ও (ঘ) উপ-নিয়ম তাতে বাধা নয়।",
+     "প্রধানমন্ত্রী পদত্যাগ করলে বা পদে না থাকলে প্রত্যেক মন্ত্রী পদত্যাগ করেছেন বলে ধরা হবে। তবে এই পরিচ্ছেদের বিধান মেনে তাঁদের উত্তরসূরি দায়িত্ব না নেওয়া পর্যন্ত তাঁরা নিজ নিজ পদে থাকবেন।",
+     "এই অনুচ্ছেদে \"মন্ত্রী\" বলতে প্রতিমন্ত্রী ও উপমন্ত্রীও ধরা হবে।"
+    ]
+   },
+   {
+    "n": "৫৮ক",
+    "t": "বিলুপ্ত",
+    "sub": true,
+    "rep": true,
+    "d": "এই অনুচ্ছেদটি বিলুপ্ত (বাদ দেওয়া হয়েছে)। সংবিধান (পঞ্চদশ সংশোধন) আইন, ২০১১-এর ২০ ধারার মাধ্যমে এটি বাদ গেছে। এর সঙ্গে \"নির্দলীয় তত্ত্বাবধায়ক সরকার\" নামের ২ক পরিচ্ছেদটিও বাদ দেওয়া হয়েছে।"
+   },
+   {
+    "n": "৫৯",
+    "t": "স্থানীয় শাসন",
+    "d": "স্থানীয় শাসন:",
+    "pts": [
+     "আইন অনুযায়ী নির্বাচিত ব্যক্তিদের নিয়ে গঠিত প্রতিষ্ঠানের হাতে দেশের প্রতিটি প্রশাসনিক এককের স্থানীয় শাসনের ভার দেওয়া হবে।",
+     [
+      "সংবিধান ও অন্য আইন মেনে সংসদ আইন করে যেভাবে ঠিক করবে, সেই প্রতিষ্ঠান নিজ এলাকায় সেই দায়িত্ব পালন করবে। ওই আইনে এসব বিষয়ের দায়িত্ব থাকতে পারবে:",
+      [
+       "প্রশাসন ও সরকারি কর্মচারীদের কাজ;",
+       "জনশৃঙ্খলা রক্ষা;",
+       "জনসাধারণের কাজ ও অর্থনৈতিক উন্নয়নের পরিকল্পনা তৈরি ও বাস্তবায়ন।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "৬০",
+    "t": "স্থানীয় শাসন-সংক্রান্ত প্রতিষ্ঠানের ক্ষমতা",
+    "d": "৫৯ অনুচ্ছেদের নিয়মগুলো পুরোপুরি কার্যকর করতে সংসদ আইন করে স্থানীয় শাসনের প্রতিষ্ঠানগুলোকে স্থানীয় প্রয়োজনে কর বসানোর ক্ষমতাসহ বাজেট তৈরি এবং নিজস্ব তহবিল রক্ষণাবেক্ষণের ক্ষমতা দেবে।"
+   },
+   {
+    "n": "৬১",
+    "t": "সর্বাধিনায়কতা (প্রতিরক্ষা কর্মবিভাগ)",
+    "d": "দেশের প্রতিরক্ষা বাহিনীগুলোর সর্বাধিনায়ক রাষ্ট্রপতি। এই ক্ষমতা কীভাবে প্রয়োগ হবে, তা আইন দিয়ে নিয়ন্ত্রিত হবে।"
+   },
+   {
+    "n": "৬২",
+    "t": "প্রতিরক্ষা কর্মবিভাগে ভর্তি প্রভৃতি",
+    "d": "প্রতিরক্ষা বাহিনী নিয়ে আইন:",
+    "pts": [
+     [
+      "সংসদ আইন করে এসব বিষয় নিয়ন্ত্রণ করবে:",
+      [
+       "প্রতিরক্ষা বাহিনীগুলো ও তাদের সংরক্ষিত অংশ গঠন ও রক্ষণাবেক্ষণ;",
+       "এই বাহিনীগুলোতে কমিশন (অফিসার পদ) দেওয়া;",
+       "প্রতিরক্ষা বাহিনীগুলোর প্রধানদের নিয়োগ এবং তাঁদের বেতন-ভাতা ঠিক করা;",
+       "এই বাহিনী ও সংরক্ষিত অংশের শৃঙ্খলা এবং অন্যান্য বিষয়।"
+      ]
+     ],
+     "সংসদ আইন করে (১) নম্বরের বিষয়গুলোর ব্যবস্থা না করা পর্যন্ত, যেসব বিষয় প্রচলিত আইনের আওতায় নেই, রাষ্ট্রপতি আদেশ দিয়ে সেগুলোর ব্যবস্থা করতে পারবেন।"
+    ]
+   },
+   {
+    "n": "৬৩",
+    "t": "যুদ্ধ",
+    "d": "সংসদের সম্মতি ছাড়া যুদ্ধ ঘোষণা করা যাবে না এবং প্রজাতন্ত্র কোনো যুদ্ধে অংশও নেবে না।"
+   },
+   {
+    "n": "৬৪",
+    "t": "অ্যাটর্নি-জেনারেল",
+    "d": "অ্যাটর্নি-জেনারেল:",
+    "pts": [
+     "সুপ্রিম কোর্টের বিচারক হওয়ার যোগ্য কাউকে রাষ্ট্রপতি বাংলাদেশের অ্যাটর্নি-জেনারেল পদে নিয়োগ দেবেন।",
+     "রাষ্ট্রপতির দেওয়া সব দায়িত্ব অ্যাটর্নি-জেনারেল পালন করবেন।",
+     "দায়িত্ব পালনের জন্য দেশের সব আদালতে তাঁর কথা বলার অধিকার থাকবে।",
+     "রাষ্ট্রপতি যত দিন চান, তত দিন অ্যাটর্নি-জেনারেল পদে থাকবেন এবং রাষ্ট্রপতির ঠিক করা পারিশ্রমিক পাবেন।"
+    ]
+   }
+  ]
+ },
+ {
+  "part": "পঞ্চম ভাগ : আইনসভা",
+  "range": "অনুচ্ছেদ ৬৫ — ৯৩",
+  "items": [
+   {
+    "n": "৬৫",
+    "t": "সংসদ প্রতিষ্ঠা",
+    "d": "জাতীয় সংসদ:",
+    "pts": [
+     "\"জাতীয় সংসদ\" নামে বাংলাদেশের একটি সংসদ থাকবে। সংবিধান মেনে আইন বানানোর ক্ষমতা সংসদের হাতে থাকবে। তবে সংসদ আইন করে কোনো ব্যক্তি বা কর্তৃপক্ষকে আদেশ, বিধি, প্রবিধান, উপ-আইন বা আইনের মতো কার্যকর অন্য দলিল বানানোর ক্ষমতা দিতে পারবে।",
+     "একক আঞ্চলিক নির্বাচনী এলাকা থেকে সরাসরি ভোটে আইন অনুযায়ী নির্বাচিত ৩০০ সদস্য নিয়ে সংসদ গঠিত হবে। (৩) নম্বর নিয়ম চালু থাকাকালে ওই নিয়মের সদস্যরাও এতে থাকবেন। সদস্যদের বলা হবে সংসদ সদস্য।",
+     "নারী আসন: সংবিধান (সপ্তদশ সংশোধন) আইন, ২০১৮ চালুর সময়ের সংসদের পরের সংসদের প্রথম বৈঠকের তারিখ থেকে ২৫ বছর পার হওয়ার পর সংসদ ভেঙে যাওয়া পর্যন্ত ৫০টি আসন শুধু নারী সদস্যদের জন্য সংরক্ষিত থাকবে। এই নারীরা আইন অনুযায়ী ওই ৩০০ সদস্যের ভোটে, আনুপাতিক প্রতিনিধিত্বের পদ্ধতিতে একক হস্তান্তরযোগ্য ভোটের মাধ্যমে নির্বাচিত হবেন। তবে সরাসরি নির্বাচনের কোনো আসনে কোনো নারীর নির্বাচন করা এতে আটকাবে না।",
+     "সংবিধান (পঞ্চদশ সংশোধন) আইন, ২০১১ চালুর সময়ের সংসদের বাকি মেয়াদে সরাসরি ভোটে নির্বাচিত ৩০০ সদস্য এবং ৫০ নারী সদস্য নিয়ে সংসদ গঠিত হবে (৩ক নিয়ম)।",
+     "রাজধানীতে সংসদের আসন থাকবে।"
+    ]
+   },
+   {
+    "n": "৬৬",
+    "t": "সংসদে নির্বাচিত হইবার যোগ্যতা ও অযোগ্যতা",
+    "d": "সংসদ সদস্য হওয়ার যোগ্যতা:",
+    "pts": [
+     "বাংলাদেশের নাগরিক এবং ২৫ বছর পূর্ণ হলে (২ নম্বর নিয়মের শর্ত মেনে) সংসদ সদস্য নির্বাচিত হওয়া ও থাকার যোগ্য হবেন।",
+     [
+      "এই লোকেরা সংসদ সদস্য নির্বাচিত হতে বা থাকতে পারবেন না:",
+      [
+       "যাঁকে উপযুক্ত আদালত অপ্রকৃতিস্থ বলে ঘোষণা করেছেন;",
+       "যিনি দেউলিয়া ঘোষিত হয়ে দায় থেকে মুক্তি পাননি;",
+       "যিনি কোনো বিদেশি রাষ্ট্রের নাগরিকত্ব নিয়েছেন বা কোনো বিদেশি রাষ্ট্রের প্রতি আনুগত্য ঘোষণা বা স্বীকার করেছেন;",
+       "যিনি নৈতিক স্খলনজনিত ফৌজদারি অপরাধে দোষী সাব্যস্ত হয়ে অন্তত দুই বছরের কারাদণ্ড পেয়েছেন এবং মুক্তির পর পাঁচ বছর পার হয়নি;",
+       "যিনি ১৯৭২ সালের বাংলাদেশ যোগসাজশকারী (বিশেষ ট্রাইব্যুনাল) আদেশের অধীনে কোনো অপরাধে দণ্ডিত হয়েছেন;",
+       "আইনে যে পদ অযোগ্যতা তৈরি করে না, সেই পদ ছাড়া যিনি প্রজাতন্ত্রের কর্মে কোনো লাভজনক পদে আছেন;",
+       "যিনি কোনো আইনের কারণে এই নির্বাচনের জন্য অযোগ্য।"
+      ]
+     ],
+     "জন্মসূত্রে বাংলাদেশের নাগরিক কেউ বিদেশি নাগরিকত্ব নিলে, পরে যদি তিনি দ্বৈত নাগরিকত্বের ক্ষেত্রে বিদেশি নাগরিকত্ব ছেড়ে দেন, অথবা অন্য ক্ষেত্রে আবার বাংলাদেশের নাগরিকত্ব নেন, তাহলে এই অনুচ্ছেদের জন্য তিনি বিদেশি নাগরিকত্ব নিয়েছেন বলে ধরা হবে না।",
+     "শুধু রাষ্ট্রপতি, প্রধানমন্ত্রী, স্পিকার, ডেপুটি স্পিকার, মন্ত্রী, প্রতিমন্ত্রী বা উপমন্ত্রী হওয়ার কারণে কাউকে প্রজাতন্ত্রের কর্মে লাভজনক পদে আছেন বলে ধরা হবে না।",
+     "নির্বাচনের পর কোনো সংসদ সদস্য অযোগ্য হয়েছেন কি না, কিংবা ৭০ অনুচ্ছেদ অনুযায়ী কারও আসন খালি হবে কি না—এ নিয়ে বিতর্ক হলে প্রশ্নটি নির্বাচন কমিশনের কাছে যাবে। কমিশনের সিদ্ধান্তই চূড়ান্ত।",
+     "এই ব্যবস্থা পুরোপুরি কার্যকর করতে নির্বাচন কমিশনকে ক্ষমতা দিতে সংসদ প্রয়োজনমতো আইন করতে পারবে।"
+    ]
+   },
+   {
+    "n": "৬৭",
+    "t": "সদস্যদের আসন শূন্য হওয়া",
+    "d": "সংসদ সদস্যের আসন খালি হওয়া:",
+    "pts": [
+     [
+      "এই ক্ষেত্রে সংসদ সদস্যের আসন খালি হবে:",
+      [
+       "নির্বাচনের পর সংসদের প্রথম বৈঠকের দিন থেকে ৯০ দিনের মধ্যে তৃতীয় তফসিলের শপথ বা ঘোষণা নিতে এবং সই করতে না পারলে (তবে এই সময় শেষ হওয়ার আগে স্পিকার যথাযথ কারণে সময় বাড়াতে পারবেন);",
+       "সংসদের অনুমতি ছাড়া টানা ৯০ বৈঠক-দিবস অনুপস্থিত থাকলে;",
+       "সংসদ ভেঙে গেলে;",
+       "৬৬(২) অনুচ্ছেদ অনুযায়ী অযোগ্য হয়ে গেলে;",
+       "৭০ অনুচ্ছেদে বলা পরিস্থিতি তৈরি হলে।"
+      ]
+     ],
+     "সংসদ সদস্য স্পিকারকে সই করা চিঠি দিয়ে পদত্যাগ করতে পারবেন। (স্পিকারের পদ খালি থাকলে বা তিনি অক্ষম হলে ডেপুটি স্পিকারকে দিতে হবে।) চিঠি পাওয়ার সময় থেকেই ওই সদস্যের আসন খালি হবে।"
+    ]
+   },
+   {
+    "n": "৬৮",
+    "t": "সংসদ-সদস্যদের পারিশ্রমিক প্রভৃতি",
+    "d": "সংসদ সদস্যদের পারিশ্রমিক, ভাতা ও বিশেষ অধিকার সংসদের আইন দিয়ে ঠিক হবে। আইন না হওয়া পর্যন্ত রাষ্ট্রপতি আদেশ দিয়ে যা ঠিক করবেন, সদস্যরা তা-ই পাবেন।"
+   },
+   {
+    "n": "৬৯",
+    "t": "শপথ গ্রহণের পূর্বে আসন গ্রহণ বা ভোটদান করিলে সদস্যের অর্থদণ্ড",
+    "d": "কেউ সংবিধান অনুযায়ী শপথ বা ঘোষণা করার ও সই দেওয়ার আগে, কিংবা সংসদ সদস্য হওয়ার যোগ্য নন বা অযোগ্য হয়েছেন জেনেও সংসদ সদস্য হিসেবে আসন নিলে বা ভোট দিলে, প্রতিদিনের এই কাজের জন্য তাঁকে এক হাজার টাকা করে জরিমানা দিতে হবে। এই টাকা প্রজাতন্ত্রের পাওনা হিসেবে আদায় হবে।"
+   },
+   {
+    "n": "৭০",
+    "t": "রাজনৈতিক দল হইতে পদত্যাগ বা দলের বিপক্ষে ভোটদানের কারণে আসন শূন্য হওয়া",
+    "d": "কোনো রাজনৈতিক দলের প্রার্থী হিসেবে মনোনীত হয়ে সংসদ সদস্য নির্বাচিত হওয়ার পর কেউ যদি:",
+    "pts": [
+     "ওই দল থেকে পদত্যাগ করেন, অথবা",
+     "সংসদে ওই দলের বিপক্ষে ভোট দেন,",
+     "তাহলে সংসদে তাঁর আসন খালি হবে। তবে এ কারণে তিনি পরের কোনো নির্বাচনে সংসদ সদস্য হওয়ার অযোগ্য হবেন না।"
+    ]
+   },
+   {
+    "n": "৭১",
+    "t": "দ্বৈত-সদস্যতায় বাধা",
+    "d": "একাধিক আসনে নির্বাচন:",
+    "pts": [
+     "কেউ একই সময়ে দুই বা তার বেশি নির্বাচনী এলাকার সংসদ সদস্য হতে পারবেন না।",
+     [
+      "তবে একই সময়ে দুই বা তার বেশি এলাকা থেকে প্রার্থী হওয়া যাবে। একাধিক এলাকা থেকে নির্বাচিত হলে:",
+      [
+       "সর্বশেষ নির্বাচনের ৩০ দিনের মধ্যে তিনি কোন এলাকার প্রতিনিধিত্ব করতে চান, তা সই করা ঘোষণায় নির্বাচন কমিশনকে জানাবেন। অন্য যেসব এলাকা থেকে নির্বাচিত হয়েছিলেন, সেগুলোর আসন খালি হবে;",
+       "এটি না করলে তিনি যেসব আসনে নির্বাচিত হয়েছিলেন, সবগুলো আসন খালি হবে;",
+       "এই নিয়মগুলো যতটুকু খাটে, তা না মানা পর্যন্ত তিনি সংসদ সদস্যের শপথ বা ঘোষণা নিতে ও সই করতে পারবেন না।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "৭২",
+    "t": "সংসদের অধিবেশন",
+    "d": "সংসদ ডাকা, স্থগিত ও ভেঙে দেওয়া:",
+    "pts": [
+     "সরকারি বিজ্ঞপ্তি দিয়ে রাষ্ট্রপতি সংসদ ডাকবেন, স্থগিত করবেন ও ভেঙে দেবেন। সংসদ ডাকার সময় প্রথম বৈঠকের সময় ও জায়গা তিনিই ঠিক করবেন। তবে ১২৩(৩)(ক) অনুচ্ছেদের ৯০ দিনের সময় বাদে, সংসদের এক অধিবেশনের শেষ ও পরের অধিবেশনের প্রথম বৈঠকের মধ্যে ৬০ দিনের বেশি বিরতি থাকবে না। এই দায়িত্বে রাষ্ট্রপতি প্রধানমন্ত্রীর লিখিত পরামর্শ অনুযায়ী চলবেন।",
+     "সাধারণ নির্বাচনের ফল ঘোষণার ৩০ দিনের মধ্যে বৈঠকের জন্য সংসদ ডাকতে হবে।",
+     "রাষ্ট্রপতি আগে ভেঙে না দিলে প্রথম বৈঠকের তারিখ থেকে পাঁচ বছর পার হলে সংসদ ভেঙে যাবে। তবে প্রজাতন্ত্র যুদ্ধে থাকলে সংসদ আইন করে এই মেয়াদ একবারে বড়জোর এক বছর বাড়াতে পারবে। যুদ্ধ শেষ হলে বাড়তি মেয়াদ কোনোভাবেই ছয় মাসের বেশি হবে না।",
+     "সংসদ ভেঙে যাওয়ার পর এবং পরের সাধারণ নির্বাচনের আগে যুদ্ধের কারণে যদি রাষ্ট্রপতির কাছে মনে হয় সংসদ আবার ডাকা দরকার, তাহলে ভেঙে দেওয়া সংসদই তিনি ডাকবেন।",
+     "এই নিয়মগুলো মেনে সংসদের বৈঠক কার্যপ্রণালী-বিধি বা অন্য উপায়ে সংসদ যেভাবে ঠিক করবে, সেই সময় ও জায়গায় হবে।"
+    ]
+   },
+   {
+    "n": "৭৩",
+    "t": "সংসদে রাষ্ট্রপতির ভাষণ ও বাণী",
+    "d": "রাষ্ট্রপতির ভাষণ:",
+    "pts": [
+     "রাষ্ট্রপতি সংসদে ভাষণ দিতে এবং বাণী পাঠাতে পারবেন।",
+     "প্রত্যেক সাধারণ নির্বাচনের পর প্রথম অধিবেশনের শুরুতে এবং প্রতি বছর প্রথম অধিবেশনের শুরুতে রাষ্ট্রপতি সংসদে ভাষণ দেবেন।",
+     "রাষ্ট্রপতির ভাষণ শোনার বা বাণী পাওয়ার পর সংসদ সেই ভাষণ বা বাণী নিয়ে আলোচনা করবে।"
+    ]
+   },
+   {
+    "n": "৭৩ক",
+    "t": "সংসদ সম্পর্কে মন্ত্রীগণের অধিকার",
+    "sub": true,
+    "d": "সংসদে মন্ত্রীদের অধিকার:",
+    "pts": [
+     "প্রত্যেক মন্ত্রী সংসদে কথা বলতে ও এর কাজে অংশ নিতে পারবেন। তবে তিনি সংসদ সদস্য না হলে ভোট দিতে পারবেন না এবং শুধু নিজের মন্ত্রণালয়ের বিষয়ে কথা বলতে পারবেন।",
+     "এই অনুচ্ছেদে \"মন্ত্রী\" বলতে প্রতিমন্ত্রী ও উপমন্ত্রীও ধরা হবে (প্রধানমন্ত্রী-সংক্রান্ত অংশ সংশোধনীতে বাদ গেছে)।"
+    ]
+   },
+   {
+    "n": "৭৪",
+    "t": "স্পীকার ও ডেপুটি স্পীকার",
+    "d": "স্পিকার ও ডেপুটি স্পিকার:",
+    "pts": [
+     "সাধারণ নির্বাচনের পর সংসদের প্রথম বৈঠকে সংসদ সদস্যদের মধ্য থেকে একজন স্পিকার ও একজন ডেপুটি স্পিকার নির্বাচিত হবেন। এই দুই পদের কোনোটি খালি হলে সাত দিনের মধ্যে (সংসদ বৈঠকে না থাকলে পরের প্রথম বৈঠকে) সদস্যদের মধ্য থেকে একজনকে নির্বাচিত করে তা পূরণ করতে হবে।",
+     [
+      "স্পিকার বা ডেপুটি স্পিকারের পদ খালি হবে, যদি:",
+      [
+       "তিনি সংসদ সদস্য না থাকেন;",
+       "তিনি মন্ত্রীর পদ নেন;",
+       "তাঁকে সরানোর দাবিতে প্রস্তাব (অন্তত ১৪ দিনের নোটিশের পর) মোট সদস্যের অর্ধেকের বেশির ভোটে সংসদে পাস হয়;",
+       "তিনি রাষ্ট্রপতিকে সই করা চিঠি দিয়ে পদ ছাড়েন;",
+       "সাধারণ নির্বাচনের পর অন্য কেউ তাঁর দায়িত্ব নেন;",
+       "ডেপুটি স্পিকারের বেলায়, তিনি স্পিকারের পদে যোগ দেন।"
+      ]
+     ],
+     "স্পিকারের পদ খালি থাকলে, তিনি রাষ্ট্রপতির দায়িত্ব পালন করলে, বা অন্য কারণে অক্ষম বলে সংসদ ঠিক করলে, তাঁর সব দায়িত্ব ডেপুটি স্পিকার পালন করবেন। ডেপুটি স্পিকারের পদও খালি থাকলে সংসদের কার্যপ্রণালী-বিধি অনুযায়ী কোনো সদস্য তা পালন করবেন। বৈঠকে স্পিকার না থাকলে ডেপুটি স্পিকার, তিনিও না থাকলে বিধি অনুযায়ী কোনো সদস্য সভাপতিত্ব করবেন।",
+     "স্পিকারকে (বা ডেপুটি স্পিকারকে) সরানোর প্রস্তাব বিবেচনার সময় তিনি উপস্থিত থাকলেও সভাপতিত্ব করবেন না। তখনও (৩) নম্বর নিয়মের মতো ব্যবস্থা হবে।",
+     "সরানোর প্রস্তাব বিবেচনার সময় স্পিকার বা ডেপুটি স্পিকারের কথা বলার এবং সংসদের কাজে অংশ নেওয়ার অধিকার থাকবে, তবে তিনি শুধু সদস্য হিসেবে ভোট দিতে পারবেন।",
+     "উত্তরসূরি দায়িত্ব না নেওয়া পর্যন্ত স্পিকার বা ডেপুটি স্পিকার নিজের পদে আছেন বলে ধরা হবে।"
+    ]
+   },
+   {
+    "n": "৭৫",
+    "t": "কার্যপ্রণালী-বিধি, কোরাম প্রভৃতি",
+    "d": "সংসদের কাজের নিয়ম:",
+    "pts": [
+     [
+      "সংবিধান মেনে:",
+      [
+       "সংসদের কার্যপ্রণালী সংসদের বানানো কার্যপ্রণালী-বিধি দিয়ে চলবে। সংসদ বিধি না বানানো পর্যন্ত রাষ্ট্রপতির বানানো বিধি দিয়ে চলবে;",
+       "উপস্থিত ও ভোটদানকারী সদস্যদের সংখ্যাগরিষ্ঠ ভোটে সিদ্ধান্ত হবে। ভোট সমান হলে ছাড়া সভাপতি ভোট দেবেন না, সমান হলে তিনি নির্ণায়ক ভোট দেবেন;",
+       "কোনো সদস্যপদ খালি আছে, বা কেউ সংসদে বসা বা ভোট দেওয়ার অধিকার না থাকা সত্ত্বেও তা করেছেন—শুধু এই কারণে সংসদের কোনো কাজ অবৈধ হবে না।"
+      ]
+     ],
+     "বৈঠক চলার সময় উপস্থিত সদস্য ৬০ জনের কম বলে সভাপতির দৃষ্টি আকর্ষণ করা হলে, অন্তত ৬০ জন সদস্য উপস্থিত না হওয়া পর্যন্ত তিনি বৈঠক স্থগিত বা মুলতবি রাখবেন।"
+    ]
+   },
+   {
+    "n": "৭৬",
+    "t": "সংসদের স্থায়ী কমিটিসমূহ",
+    "d": "সংসদীয় স্থায়ী কমিটি:",
+    "pts": [
+     [
+      "সংসদ সদস্যদের মধ্য থেকে সদস্য নিয়ে সংসদ এই স্থায়ী কমিটিগুলো গঠন করবে:",
+      [
+       "সরকারি হিসাব কমিটি;",
+       "বিশেষ অধিকার কমিটি;",
+       "কার্যপ্রণালী-বিধিতে ঠিক করা অন্যান্য স্থায়ী কমিটি।"
+      ]
+     ],
+     [
+      "এর বাইরেও সংসদ অন্য স্থায়ী কমিটি গঠন করতে পারবে। সংবিধান ও আইন মেনে এসব কমিটি:",
+      [
+       "খসড়া বিল ও অন্যান্য আইনি প্রস্তাব পরীক্ষা করতে পারবে;",
+       "আইন কার্যকর হচ্ছে কি না তা পর্যালোচনা করতে এবং কার্যকর করার ব্যবস্থার প্রস্তাব দিতে পারবে;",
+       "সংসদ কোনো বিষয়কে জনগুরুত্বপূর্ণ বলে জানালে সেই বিষয়ে কোনো মন্ত্রণালয়ের কাজ বা প্রশাসন নিয়ে অনুসন্ধান বা তদন্ত করতে পারবে, এবং মন্ত্রণালয়ের ক্ষমতাপ্রাপ্ত প্রতিনিধির কাছ থেকে তথ্য সংগ্রহ ও প্রশ্নের মৌখিক বা লিখিত উত্তর পাওয়ার ব্যবস্থা করতে পারবে;",
+       "সংসদের দেওয়া অন্য যেকোনো দায়িত্ব পালন করতে পারবে।"
+      ]
+     ],
+     [
+      "সংসদ আইন করে এসব কমিটিকে এই ক্ষমতা দিতে পারবে:",
+      [
+       "সাক্ষী হাজির করানো এবং শপথ বা ঘোষণার মাধ্যমে তাঁদের সাক্ষ্য নেওয়া;",
+       "দলিলপত্র জমা দিতে বাধ্য করা।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "৭৭",
+    "t": "ন্যায়পাল",
+    "d": "ন্যায়পাল (ওম্বুডসম্যান):",
+    "pts": [
+     "সংসদ আইন করে ন্যায়পালের পদ তৈরি করতে পারবে।",
+     "সংসদ আইন করে যেমন ক্ষমতা ও দায়িত্ব দেবে, ন্যায়পাল তা পালন করবেন। এর মধ্যে কোনো মন্ত্রণালয়, সরকারি কর্মচারী বা সংবিধিবদ্ধ সরকারি সংস্থার যেকোনো কাজ নিয়ে তদন্ত চালানোর ক্ষমতাও থাকতে পারবে।",
+     "ন্যায়পাল নিজের দায়িত্ব পালন নিয়ে বছরে একটি রিপোর্ট বানাবেন, আর সেটি সংসদে পেশ করা হবে।"
+    ]
+   },
+   {
+    "n": "৭৮",
+    "t": "সংসদ ও সদস্যদের বিশেষ অধিকার ও দায়মুক্তি",
+    "d": "সংসদের বিশেষ অধিকার ও দায়মুক্তি:",
+    "pts": [
+     "সংসদের কাজ বৈধ কি না, তা নিয়ে কোনো আদালতে প্রশ্ন তোলা যাবে না।",
+     "সংসদের কার্যপ্রণালী নিয়ন্ত্রণ, কাজ পরিচালনা বা শৃঙ্খলা রক্ষার ক্ষমতা যে সদস্য বা কর্মচারীর হাতে আছে, ওই ক্ষমতা প্রয়োগের ব্যাপারে তিনি কোনো আদালতের এখতিয়ারের মধ্যে পড়বেন না।",
+     "সংসদে বা সংসদের কোনো কমিটিতে কিছু বলা বা ভোট দেওয়ার জন্য কোনো সংসদ সদস্যের বিরুদ্ধে আদালতে মামলা করা যাবে না।",
+     "সংসদের বা সংসদের কর্তৃত্বে কোনো রিপোর্ট, কাগজপত্র, ভোট বা কার্যধারা প্রকাশের জন্য কারও বিরুদ্ধে আদালতে মামলা করা যাবে না।",
+     "এই অনুচ্ছেদ মেনে সংসদ আইন করে সংসদ, সংসদের কমিটি ও সংসদ সদস্যদের বিশেষ অধিকার ঠিক করতে পারবে।"
+    ]
+   },
+   {
+    "n": "৭৯",
+    "t": "সংসদ-সচিবালয়",
+    "d": "সংসদ সচিবালয়:",
+    "pts": [
+     "সংসদের নিজস্ব সচিবালয় থাকবে।",
+     "সচিবালয়ের কর্মচারীদের নিয়োগ ও চাকরির শর্ত সংসদ আইন করে ঠিক করতে পারবে।",
+     "সংসদ বিধান না বানানো পর্যন্ত রাষ্ট্রপতি স্পিকারের সঙ্গে পরামর্শ করে এসব বিষয়ে বিধি বানাতে পারবেন। এই বিধি যেকোনো আইনের বিধান মেনে কার্যকর থাকবে।"
+    ]
+   },
+   {
+    "n": "৮০",
+    "t": "আইন প্রণয়ন পদ্ধতি",
+    "d": "আইন বানানোর পদ্ধতি:",
+    "pts": [
+     "আইন বানানোর জন্য সংসদে আনা প্রতিটি প্রস্তাব বিল আকারে উত্থাপিত হবে।",
+     "সংসদে কোনো বিল পাস হলে সম্মতির জন্য তা রাষ্ট্রপতির কাছে পেশ করতে হবে।",
+     "বিল পেশ করার ১৫ দিনের মধ্যে রাষ্ট্রপতি তাতে সম্মতি দেবেন। অর্থবিল ছাড়া অন্য বিলের ক্ষেত্রে তিনি বিলটি বা এর কোনো বিধান পুনর্বিবেচনার জন্য, বা তাঁর নির্দেশ করা সংশোধনী বিবেচনার অনুরোধ জানিয়ে বার্তাসহ সংসদে ফেরত দিতে পারবেন। এটি না করলে ওই সময় শেষে ধরা হবে যে তিনি সম্মতি দিয়েছেন।",
+     "রাষ্ট্রপতি ফেরত পাঠালে সংসদ তাঁর বার্তাসহ বিলটি আবার বিবেচনা করবে। সংসদ সংশোধনীসহ বা ছাড়া আবার বিলটি পাস করলে তা আবার রাষ্ট্রপতির কাছে যাবে, আর তিনি সাত দিনের মধ্যে সম্মতি দেবেন। না দিলে ওই সময় শেষে ধরা হবে যে তিনি সম্মতি দিয়েছেন।",
+     "সংসদে পাস হওয়া বিলে রাষ্ট্রপতি সম্মতি দিলে, বা দিয়েছেন বলে ধরা হলে, তা আইন হবে এবং \"সংসদের আইন\" নামে পরিচিত হবে।"
+    ]
+   },
+   {
+    "n": "৮১",
+    "t": "অর্থবিল",
+    "d": "অর্থবিল:",
+    "pts": [
+     [
+      "এই ভাগে \"অর্থবিল\" বলতে শুধু সেই বিল বোঝায়, যাতে নিচের বিষয়গুলোর সবগুলো বা যেকোনো একটি সম্পর্কে বিধান থাকে:",
+      [
+       "কোনো কর বসানো, নিয়ন্ত্রণ, বদল, মওকুফ বা বাতিল;",
+       "সরকারের ঋণ নেওয়া বা কোনো গ্যারান্টি দেওয়া, কিংবা সরকারের আর্থিক দায় নিয়ে আইন সংশোধন;",
+       "সংযুক্ত তহবিলের রক্ষণাবেক্ষণ, তাতে টাকা জমা দেওয়া, বা সেখান থেকে টাকা দেওয়া বা ঠিক করা;",
+       "সংযুক্ত তহবিলের ওপর দায় বসানো, বদলানো বা বাদ দেওয়া;",
+       "সংযুক্ত তহবিল বা সরকারি হিসাবের টাকা পাওয়া, রক্ষা করা বা দেওয়া, কিংবা সরকারের হিসাব নিরীক্ষা;",
+       "উপরের বিষয়গুলোর আনুষঙ্গিক কোনো বিষয়।"
+      ]
+     ],
+     "শুধু জরিমানা বা অন্য অর্থদণ্ড বসানো বা বদলানো, লাইসেন্স ফি বা সেবার ফি বসানো বা দেওয়া, কিংবা স্থানীয় কাজে কোনো স্থানীয় সংস্থার কর বসানো-নিয়ন্ত্রণ-বদল-মওকুফ-বাতিলের বিধান থাকলে কোনো বিল অর্থবিল বলে গণ্য হবে না।",
+     "রাষ্ট্রপতির সম্মতির জন্য পাঠানোর সময় প্রত্যেক অর্থবিলের সঙ্গে স্পিকারের সই করা একটি সনদ থাকবে যে এটি অর্থবিল। এই সনদ সব বিষয়ে চূড়ান্ত। এ নিয়ে কোনো আদালতে প্রশ্ন তোলা যাবে না।"
+    ]
+   },
+   {
+    "n": "৮২",
+    "t": "আর্থিক ব্যবস্থাবলীর সুপারিশ",
+    "d": "অর্থবিল বা সরকারি অর্থ খরচের প্রশ্ন জড়িত আছে—এমন কোনো বিল রাষ্ট্রপতির সুপারিশ ছাড়া সংসদে তোলা যাবে না। তবে অর্থবিলে কোনো কর কমানো বা বাদ দেওয়ার সংশোধনী তুলতে এই সুপারিশ লাগবে না।"
+   },
+   {
+    "n": "৮৩",
+    "t": "সংসদের আইন ব্যতীত করারোপে বাধা",
+    "d": "সংসদের আইন বা অনুমতি ছাড়া কোনো কর বসানো বা আদায় করা যাবে না।"
+   },
+   {
+    "n": "৮৪",
+    "t": "সংযুক্ত তহবিল ও প্রজাতন্ত্রের সরকারি হিসাব",
+    "d": "সংযুক্ত তহবিল ও সরকারি হিসাব:",
+    "pts": [
+     "সরকারের পাওয়া সব রাজস্ব, নেওয়া সব ঋণ এবং ঋণ পরিশোধ হিসেবে পাওয়া সব টাকা একটি তহবিলের অংশ হবে। এর নাম \"সংযুক্ত তহবিল\"।",
+     "সরকারের হাতে বা পক্ষে পাওয়া অন্য সব সরকারি টাকা প্রজাতন্ত্রের সরকারি হিসাবে জমা হবে।"
+    ]
+   },
+   {
+    "n": "৮৫",
+    "t": "সরকারি অর্থের নিয়ন্ত্রণ",
+    "d": "সরকারি অর্থের নিয়ন্ত্রণ:",
+    "pts": [
+     "সরকারি টাকা রক্ষা করা, সংযুক্ত তহবিলে বা সরকারি হিসাবে টাকা জমা দেওয়া বা তুলে নেওয়া, এবং এসবের সঙ্গে জড়িত সব বিষয় সংসদের আইন দিয়ে নিয়ন্ত্রিত হবে।",
+     "আইন না হওয়া পর্যন্ত রাষ্ট্রপতির বানানো বিধি দিয়ে এসব নিয়ন্ত্রিত হবে।"
+    ]
+   },
+   {
+    "n": "৮৬",
+    "t": "প্রজাতন্ত্রের সরকারি হিসাবে প্রদেয় অর্থ",
+    "d": "সরকারি হিসাবে জমা হবে:",
+    "pts": [
+     "রাজস্ব এবং ৮৪(১) অনুচ্ছেদ অনুযায়ী সংযুক্ত তহবিলে যাওয়া টাকা বাদে, প্রজাতন্ত্রের কর্মে থাকা বা প্রজাতন্ত্রের কাজের সঙ্গে জড়িত কারও হাতে পাওয়া বা জমা থাকা সব টাকা।",
+     "যেকোনো মামলা, বিষয়, হিসাব বা ব্যক্তি-সংক্রান্ত যে টাকা কোনো আদালত পেয়েছে বা যার কাছে জমা আছে, সেই সব টাকা।"
+    ]
+   },
+   {
+    "n": "৮৭",
+    "t": "বার্ষিক আর্থিক বিবৃতি",
+    "d": "বার্ষিক আর্থিক বিবৃতি (বাজেট):",
+    "pts": [
+     "প্রতি অর্থ-বছরের জন্য সরকারের আনুমানিক আয় ও ব্যয়ের একটি বিবৃতি সংসদে পেশ করতে হবে। একে \"বার্ষিক আর্থিক বিবৃতি\" বলে।",
+     [
+      "এই বিবৃতিতে আলাদা আলাদাভাবে দেখাতে হবে:",
+      [
+       "সংবিধানের দ্বারা বা অধীনে সংযুক্ত তহবিলের ওপর দায় হিসেবে বলা ব্যয়ের জন্য দরকারি টাকা;",
+       "সংযুক্ত তহবিল থেকে করা হবে—এমন অন্য প্রস্তাবিত ব্যয়ের জন্য দরকারি টাকা। আর রাজস্ব খাতের ব্যয় অন্য ব্যয় থেকে আলাদা করে দেখাতে হবে।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "৮৮",
+    "t": "সংযুক্ত তহবিলের উপর দায়যুক্ত ব্যয়",
+    "d": "সংযুক্ত তহবিলের ওপর দায়যুক্ত ব্যয়, অর্থাৎ যেসব খরচ এই তহবিল থেকে অবশ্যই দিতে হবে:",
+    "pts": [
+     "রাষ্ট্রপতির পারিশ্রমিক এবং তাঁর দপ্তরের অন্যান্য ব্যয়।",
+     [
+      "এঁদের পারিশ্রমিক: স্পিকার ও ডেপুটি স্পিকার; সুপ্রিম কোর্টের বিচারকরা; মহা হিসাব-নিরীক্ষক ও নিয়ন্ত্রক; নির্বাচন কমিশনাররা; সরকারি কর্ম কমিশনের সদস্যরা।",
+      []
+     ],
+     "সংসদ, সুপ্রিম কোর্ট, মহা হিসাব-নিরীক্ষক ও নিয়ন্ত্রকের দপ্তর, নির্বাচন কমিশন এবং সরকারি কর্ম কমিশনের কর্মচারীদের পারিশ্রমিকসহ প্রশাসনিক ব্যয়।",
+     "সুদ, ঋণ পরিশোধের তহবিলের দায়, মূলধন পরিশোধ, এবং ঋণ তোলা ও সংযুক্ত তহবিলের জামানতে নেওয়া ঋণ শোধ-সংক্রান্ত অন্য ব্যয়সহ সরকারের ঋণ-সংক্রান্ত সব দেনা।",
+     "কোনো আদালত বা ট্রাইব্যুনাল প্রজাতন্ত্রের বিরুদ্ধে রায়, ডিক্রি বা রোয়েদাদ দিলে তা কার্যকর করতে লাগা যেকোনো পরিমাণ টাকা।",
+     "সংবিধান বা সংসদের আইনে এমন দায়যুক্ত বলে ঘোষিত অন্য যেকোনো ব্যয়।"
+    ]
+   },
+   {
+    "n": "৮৯",
+    "t": "বার্ষিক আর্থিক বিবৃতি সম্পর্কিত পদ্ধতি",
+    "d": "সংসদে বাজেট আলোচনা ও মঞ্জুরি:",
+    "pts": [
+     "বার্ষিক আর্থিক বিবৃতির যে অংশ সংযুক্ত তহবিলের দায়যুক্ত ব্যয়-সংক্রান্ত, তা সংসদে আলোচনা করা যাবে, কিন্তু ভোটে দেওয়া যাবে না।",
+     "বাকি ব্যয়ের অংশ \"মঞ্জুরি-দাবি\" আকারে সংসদে পেশ হবে। সংসদ কোনো দাবিতে সম্মতি দিতে পারবে, না-ও দিতে পারবে, কিংবা টাকার অঙ্ক কমিয়ে সম্মতি দিতে পারবে।",
+     "রাষ্ট্রপতির সুপারিশ ছাড়া কোনো মঞ্জুরি-দাবি করা যাবে না।"
+    ]
+   },
+   {
+    "n": "৯০",
+    "t": "নির্দিষ্টকরণ আইন",
+    "d": "মঞ্জুরির পর অর্থ-বিল:",
+    "pts": [
+     [
+      "সংসদ ৮৯ অনুচ্ছেদে মঞ্জুরি দেওয়ার পর যত দ্রুত সম্ভব একটি বিল সংসদে তুলতে হবে, যাতে সংযুক্ত তহবিল থেকে এসব ব্যয়ের জন্য দরকারি সব টাকা ঠিক করার বিধান থাকবে:",
+      [
+       "সংসদের দেওয়া মঞ্জুরি; এবং",
+       "সংযুক্ত তহবিলের দায়যুক্ত ব্যয় (সংসদে পেশ করা বিবৃতিতে দেখানো অঙ্কের বেশি না হয়ে)।"
+      ]
+     ],
+     "এই বিলে এমন কোনো সংশোধনী প্রস্তাব করা যাবে না, যাতে মঞ্জুরির পরিমাণ বা উদ্দেশ্য কিংবা দায়যুক্ত ব্যয়ের পরিমাণ বদলে যায়।",
+     "সংবিধানের বিধান মেনে এই অনুচ্ছেদ অনুযায়ী পাস হওয়া আইনে ঠিক করা ছাড়া সংযুক্ত তহবিল থেকে কোনো টাকা তোলা যাবে না।"
+    ]
+   },
+   {
+    "n": "৯১",
+    "t": "সম্পূরক ও অতিরিক্ত মঞ্জুরি",
+    "d": "বাড়তি ও অতিরিক্ত বাজেট:",
+    "pts": [
+     [
+      "কোনো অর্থ-বছরে যদি দেখা যায়:",
+      [
+       "চলতি বছরে কোনো সেবা-কাজের জন্য অনুমোদিত ব্যয় কম পড়েছে, কিংবা বার্ষিক বিবৃতিতে নেই এমন কোনো নতুন কাজের জন্য খরচের দরকার হয়েছে; অথবা",
+       "কোনো কাজে মঞ্জুর করা টাকার বেশি খরচ হয়ে গেছে,"
+      ]
+     ],
+     "তাহলে (ব্যয় সংযুক্ত তহবিলের দায়যুক্ত হোক বা না হোক) সংযুক্ত তহবিল থেকে ব্যয়ের অনুমতি দেওয়ার ক্ষমতা রাষ্ট্রপতির থাকবে। রাষ্ট্রপতি আনুমানিক ব্যয় নিয়ে একটি সম্পূরক আর্থিক বিবৃতি, কিংবা বাড়তি ব্যয় নিয়ে একটি অতিরিক্ত আর্থিক বিবৃতি সংসদে পেশের ব্যবস্থা করবেন। বার্ষিক বিবৃতির মতো এ ক্ষেত্রেও ৮৭ থেকে ৯০ অনুচ্ছেদ (দরকারি অদলবদলসহ) খাটবে।"
+    ]
+   },
+   {
+    "n": "৯২",
+    "t": "হিসাব, ঋণ প্রভৃতির উপর ভোট",
+    "d": "অগ্রিম মঞ্জুরি ও ব্যতিক্রমী ব্যয়:",
+    "pts": [
+     [
+      "এই পরিচ্ছেদের আগের নিয়মে যা-ই থাকুক, সংসদ:",
+      [
+       "৮৯ অনুচ্ছেদের নিয়মে মঞ্জুরির ভোট এবং ৯০ অনুচ্ছেদ অনুযায়ী আইন পাস না হওয়া পর্যন্ত অর্থ-বছরের কোনো অংশের আনুমানিক ব্যয়ের অগ্রিম মঞ্জুরি দিতে পারবে;",
+       "কাজের বিশালতা বা অনির্দিষ্টতার কারণে বার্ষিক বিবৃতির সাধারণ বিবরণের সঙ্গে ব্যয় ঠিক করা না গেলে, প্রজাতন্ত্রের সম্পদ থেকে এমন অপ্রত্যাশিত ব্যয়ের জন্য মঞ্জুরি দিতে পারবে;",
+       "চলতি ব্যয়ের অংশ নয়—এমন ব্যতিক্রমী মঞ্জুরি দিতে পারবে; আর যে উদ্দেশ্যে মঞ্জুরি, তা পূরণে আইন করে সংযুক্ত তহবিল থেকে টাকা তোলার অনুমতি দিতে পারবে।"
+      ]
+     ],
+     "বার্ষিক বিবৃতির ব্যয়ের ক্ষেত্রে ৮৯ ও ৯০ অনুচ্ছেদ যেভাবে খাটে, (১) নম্বর নিয়মের মঞ্জুরি ও আইনের ক্ষেত্রেও সেগুলো সমানভাবে খাটবে।",
+     [
+      "কোনো অর্থ-বছরে সংসদ যদি:",
+      [
+       "বছর শুরুর আগে ৮৯ অনুচ্ছেদে মঞ্জুরি ও ৯০ অনুচ্ছেদে আইন পাস করতে না পারে এবং এই অনুচ্ছেদে অগ্রিম মঞ্জুরিও না দিয়ে থাকে; অথবা",
+       "কোনো অগ্রিম মঞ্জুরির মেয়াদ শেষ হওয়ার আগে ৮৯ ও ৯০ অনুচ্ছেদের কাজ শেষ করতে না পারে,",
+       "তাহলে রাষ্ট্রপতি প্রধানমন্ত্রীর পরামর্শে আদেশ দিয়ে, মঞ্জুরি ও আইন না হওয়া পর্যন্ত, ওই বছরের বড়জোর ৬০ দিনের জন্য বছরের আর্থিক বিবৃতিতে বলা ব্যয় চালাতে সংযুক্ত তহবিল থেকে টাকা তোলার অনুমতি দিতে পারবেন।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "৯২ক",
+    "t": "কতিপয় ক্ষেত্রে ব্যয় নির্বাহের কর্তৃত্ব (বিলুপ্ত)",
+    "sub": true,
+    "rep": true,
+    "d": "এই অনুচ্ছেদটি বিলুপ্ত (বাদ দেওয়া হয়েছে)। সংবিধান (দ্বাদশ সংশোধন) আইন, ১৯৯১-এর ১০ ধারার মাধ্যমে এটি বাদ গেছে।"
+   },
+   {
+    "n": "৯৩",
+    "t": "অধ্যাদেশ প্রণয়ন-ক্ষমতা",
+    "d": "অধ্যাদেশ জারির ক্ষমতা:",
+    "pts": [
+     "সংসদ ভেঙে গেলে বা অধিবেশন না থাকলে, কোনো সময় রাষ্ট্রপতির কাছে যদি মনে হয় তখনই ব্যবস্থা নেওয়ার মতো পরিস্থিতি আছে, তিনি দরকারমতো অধ্যাদেশ বানিয়ে জারি করতে পারবেন। জারির সময় থেকে তা সংসদের আইনের মতো ক্ষমতা পাবে। তবে এমন অধ্যাদেশে এসব বিধান করা যাবে না:",
+     [
+      "",
+      [
+       "যা সংবিধান অনুযায়ী সংসদ আইন করে বৈধভাবে করতে পারে না;",
+       "যাতে সংবিধানের কোনো বিধান বদলে বা বাতিল হয়ে যায়;",
+       "যা আগে করা কোনো অধ্যাদেশের কোনো বিধানকে চালু রাখে।"
+      ]
+     ],
+     "এই অধ্যাদেশ জারির পর সংসদের প্রথম বৈঠকে তা পেশ করতে হবে। আগে বাতিল না হলে পেশ করার ৩০ দিন পার হলে, কিংবা তার আগে সংসদ প্রস্তাব পাস করে তা অনুমোদন না করলে, অধ্যাদেশের কার্যকারিতা শেষ হয়ে যাবে।",
+     "সংসদ ভেঙে যাওয়া অবস্থায় কোনো সময় রাষ্ট্রপতির কাছে যদি মনে হয় ব্যবস্থা নেওয়া দরকার, তিনি এমন অধ্যাদেশ জারি করতে পারবেন, যাতে সংযুক্ত তহবিলের দায়যুক্ত হোক বা না হোক, সেই তহবিল থেকে ব্যয়ের অনুমতি থাকে। জারির সময় থেকে এই অধ্যাদেশও সংসদের আইনের মতো ক্ষমতা পাবে।",
+     "এভাবে জারি করা অধ্যাদেশ যত দ্রুত সম্ভব সংসদে পেশ করতে হবে। সংসদ পুনর্গঠনের তারিখ থেকে ৩০ দিনের মধ্যে ৮৭, ৮৯ ও ৯০ অনুচ্ছেদের নিয়মগুলো (দরকারি অদলবদলসহ) মানতে হবে।"
+    ]
+   }
+  ]
+ },
+ {
+  "part": "ষষ্ঠ ভাগ : বিচার বিভাগ",
+  "range": "অনুচ্ছেদ ৯৪ — ১১৭",
+  "items": [
+   {
+    "n": "৯৪",
+    "t": "সুপ্রীম কোর্ট প্রতিষ্ঠা",
+    "d": "সুপ্রিম কোর্ট:",
+    "pts": [
+     "\"বাংলাদেশ সুপ্রিম কোর্ট\" নামে দেশের একটি সর্বোচ্চ আদালত থাকবে। এটি আপিল বিভাগ ও হাইকোর্ট বিভাগ নিয়ে গঠিত হবে।",
+     "প্রধান বিচারপতি (যাঁকে \"বাংলাদেশের প্রধান বিচারপতি\" বলা হবে) এবং প্রতিটি বিভাগে বসার জন্য রাষ্ট্রপতি যত জন বিচারক দরকার মনে করবেন, তত জন বিচারক নিয়ে সুপ্রিম কোর্ট গঠিত হবে।",
+     "প্রধান বিচারপতি ও আপিল বিভাগে নিযুক্ত বিচারকরা শুধু আপিল বিভাগে বসবেন। অন্য বিচারকরা শুধু হাইকোর্ট বিভাগে বসবেন।",
+     "সংবিধান মেনে প্রধান বিচারপতি ও অন্য বিচারকরা বিচারের কাজে স্বাধীন থাকবেন।"
+    ]
+   },
+   {
+    "n": "৯৫",
+    "t": "বিচারক নিয়োগ",
+    "d": "বিচারক নিয়োগ:",
+    "pts": [
+     "প্রধান বিচারপতিকে রাষ্ট্রপতি নিয়োগ দেবেন। অন্য বিচারকদের রাষ্ট্রপতি প্রধান বিচারপতির সঙ্গে পরামর্শ করে নিয়োগ দেবেন।",
+     [
+      "কেউ বাংলাদেশের নাগরিক না হলে, এবং নিচের কোনো যোগ্যতা না থাকলে তিনি বিচারক হওয়ার যোগ্য নন:",
+      [
+       "সুপ্রিম কোর্টে অন্তত ১০ বছর অ্যাডভোকেট থাকা; অথবা",
+       "বাংলাদেশের সীমানার মধ্যে অন্তত ১০ বছর কোনো বিচার বিভাগীয় পদে থাকা; অথবা",
+       "সুপ্রিম কোর্টের বিচারক হওয়ার জন্য আইনে ঠিক করা যোগ্যতা থাকা।"
+      ]
+     ],
+     "এই অনুচ্ছেদে \"সুপ্রিম কোর্ট\" বলতে সংবিধান চালুর আগে বাংলাদেশের সীমানার মধ্যে যে আদালত হাইকোর্ট হিসেবে এখতিয়ার প্রয়োগ করেছে, সেটিও ধরা হবে।"
+    ]
+   },
+   {
+    "n": "৯৬",
+    "t": "বিচারকদের পদের মেয়াদ",
+    "d": "বিচারকদের পদের মেয়াদ:",
+    "pts": [
+     "এই অনুচ্ছেদের অন্য বিধান মেনে কোনো বিচারক ৬৭ বছর বয়স পূর্ণ হওয়া পর্যন্ত পদে থাকবেন।",
+     "প্রমাণিত অসদাচরণ বা অক্ষমতার কারণে সংসদের মোট সদস্যের অন্তত দুই-তৃতীয়াংশের সমর্থনে পাস হওয়া প্রস্তাব অনুযায়ী দেওয়া রাষ্ট্রপতির আদেশ ছাড়া কোনো বিচারককে সরানো যাবে না।",
+     "এই প্রস্তাবের পদ্ধতি এবং বিচারকের অসদাচরণ বা অক্ষমতা তদন্ত ও প্রমাণের পদ্ধতি সংসদ আইন করে ঠিক করতে পারবে।",
+     "কোনো বিচারক রাষ্ট্রপতিকে সই করা চিঠি দিয়ে পদত্যাগ করতে পারবেন।"
+    ]
+   },
+   {
+    "n": "৯৭",
+    "t": "অস্থায়ী প্রধান বিচারপতি নিয়োগ",
+    "d": "প্রধান বিচারপতির পদ খালি হলে, কিংবা অনুপস্থিতি, অসুস্থতা বা অন্য কারণে তিনি দায়িত্ব পালনে অক্ষম বলে রাষ্ট্রপতির কাছে মনে হলে, নতুন কেউ ওই পদে যোগ না দেওয়া পর্যন্ত (বা প্রধান বিচারপতি আবার দায়িত্ব না নেওয়া পর্যন্ত) আপিল বিভাগের অন্য বিচারকদের মধ্যে যিনি চাকরিতে সবচেয়ে প্রবীণ, তিনি প্রধান বিচারপতির দায়িত্ব পালন করবেন।"
+   },
+   {
+    "n": "৯৮",
+    "t": "সুপ্রীম কোর্টের অতিরিক্ত বিচারকগণ",
+    "d": "অতিরিক্ত বিচারক:",
+    "pts": [
+     "৯৪ অনুচ্ছেদে যা-ই থাকুক, সুপ্রিম কোর্টের কোনো বিভাগে সাময়িকভাবে বিচারক বাড়ানো উচিত বলে রাষ্ট্রপতির কাছে মনে হলে, তিনি যথাযথ যোগ্যতার এক বা একাধিক ব্যক্তিকে বড়জোর দুই বছরের জন্য অতিরিক্ত বিচারক নিয়োগ দিতে পারবেন।",
+     "অথবা তিনি উপযুক্ত মনে করলে হাইকোর্ট বিভাগের কোনো বিচারককে যেকোনো অস্থায়ী মেয়াদের জন্য আপিল বিভাগে বসার ব্যবস্থা করতে পারবেন।",
+     "অতিরিক্ত বিচারক হিসেবে নিযুক্ত কাউকে ৯৫ অনুচ্ছেদ অনুযায়ী বিচারক নিয়োগ দেওয়া, কিংবা এই অনুচ্ছেদে আরেক মেয়াদে অতিরিক্ত বিচারক নিয়োগ দেওয়া—এই অনুচ্ছেদের কোনো কিছুই তাতে বাধা নয়।"
+    ]
+   },
+   {
+    "n": "৯৯",
+    "t": "অবসর গ্রহণের পর বিচারকগণের অক্ষমতা",
+    "d": "অবসরের পর বিচারকদের নিষেধাজ্ঞা:",
+    "pts": [
+     "কেউ বিচারক হিসেবে দায়িত্ব পালন করে থাকলে (অতিরিক্ত বিচারক হিসেবে ছাড়া), পদ থেকে অবসর নেওয়া বা সরে যাওয়ার পর তিনি কোনো আদালত বা কর্তৃপক্ষের কাছে ওকালতি বা কাজ করতে পারবেন না। বিচার বা আধা-বিচার বিভাগীয় পদ ছাড়া প্রজাতন্ত্রের কর্মে কোনো লাভজনক পদেও নিয়োগের যোগ্য হবেন না।",
+     "তবে হাইকোর্ট বিভাগের বিচারক পদে থেকে অবসর নিলে তিনি আপিল বিভাগে ওকালতি বা কাজ করতে পারবেন।"
+    ]
+   },
+   {
+    "n": "১০০",
+    "t": "সুপ্রীম কোর্টের আসন",
+    "d": "সুপ্রিম কোর্টের স্থায়ী আসন রাজধানীতে থাকবে। তবে রাষ্ট্রপতির অনুমোদন নিয়ে প্রধান বিচারপতি সময়ে সময়ে অন্য যে স্থান বা স্থানগুলো ঠিক করবেন, সেখানেও হাইকোর্ট বিভাগের অধিবেশন হতে পারবে।"
+   },
+   {
+    "n": "১০১",
+    "t": "হাইকোর্ট বিভাগের এখতিয়ার",
+    "d": "এই সংবিধান বা অন্য আইনে হাইকোর্ট বিভাগকে যে আদি (প্রথম বিচারের), আপিল ও অন্য ধরনের এখতিয়ার ও ক্ষমতা দেওয়া হয়েছে, হাইকোর্ট বিভাগের সেই এখতিয়ার ও ক্ষমতা থাকবে।"
+   },
+   {
+    "n": "১০২",
+    "t": "কতিপয় আদেশ ও নির্দেশ প্রভৃতি দানের ক্ষেত্রে হাইকোর্ট বিভাগের ক্ষমতা",
+    "d": "হাইকোর্ট বিভাগের রিট ক্ষমতা:",
+    "pts": [
+     "কোনো ক্ষতিগ্রস্ত ব্যক্তির আবেদনে, সংবিধানের তৃতীয় ভাগের (মৌলিক অধিকারের) কোনো অধিকার কার্যকর করতে হাইকোর্ট বিভাগ যেকোনো ব্যক্তি বা কর্তৃপক্ষকে (প্রজাতন্ত্রের কাজে দায়িত্বপ্রাপ্ত ব্যক্তিসহ) উপযুক্ত নির্দেশ বা আদেশ দিতে পারবে।",
+     [
+      "আইনে অন্য সমান কার্যকর প্রতিকার না থাকলে, হাইকোর্ট বিভাগ:",
+      [
+       "কোনো ক্ষতিগ্রস্ত ব্যক্তির আবেদনে, প্রজাতন্ত্র বা স্থানীয় কর্তৃপক্ষের কাজে নিয়োজিত কোনো ব্যক্তিকে আইনে অনুমোদিত নয় এমন কাজ করা থেকে বিরত রাখতে, বা আইনে করণীয় কাজ করতে নির্দেশ দিতে পারবে;",
+       "অথবা তাঁর করা কোনো কাজ বা নেওয়া কোনো কার্যধারা আইনসম্মত কর্তৃত্ব ছাড়া হয়েছে এবং তার কোনো আইনগত কার্যকারিতা নেই—এমন ঘোষণা দিয়ে আদেশ দিতে পারবে;",
+       "যেকোনো ব্যক্তির আবেদনে, আটক কোনো ব্যক্তিকে আইনসম্মত কর্তৃত্ব ছাড়া বা বেআইনিভাবে আটক রাখা হয়নি—এ বিষয়ে সন্তুষ্ট হতে তাঁকে আদালতের সামনে হাজির করার নির্দেশ দিতে পারবে;",
+       "কোনো সরকারি পদে থাকা (বা থাকার দাবিদার) ব্যক্তিকে কোন কর্তৃত্বে তিনি ওই পদে আছেন, তা দেখাতে নির্দেশ দিতে পারবে।"
+      ]
+     ],
+     "৪৭ অনুচ্ছেদ খাটে এমন কোনো আইনের ক্ষেত্রে এই অনুচ্ছেদের অধীনে অন্তর্বর্তী বা অন্য কোনো আদেশ দেওয়ার ক্ষমতা হাইকোর্ট বিভাগের থাকবে না।",
+     "অন্তর্বর্তী আদেশ চাওয়া হলে, আর সেই আদেশ যদি উন্নয়ন কর্মসূচির বাস্তবায়নে বা উন্নয়নমূলক কাজে বাধা তৈরি করতে পারে, কিংবা অন্য কোনোভাবে জনস্বার্থের জন্য ক্ষতিকর হতে পারে, তাহলে অ্যাটর্নি-জেনারেলকে যুক্তিসংগত নোটিশ দিয়ে তাঁর (বা তাঁর নিযুক্ত অন্য অ্যাডভোকেটের) বক্তব্য না শোনা পর্যন্ত এবং আদেশে এমন প্রভাব পড়বে না—এ বিষয়ে সন্তুষ্ট না হওয়া পর্যন্ত আদালত অন্তর্বর্তী আদেশ দেবে না।",
+     "এই অনুচ্ছেদে \"ব্যক্তি\" বলতে সংবিধিবদ্ধ সরকারি কর্তৃপক্ষ এবং যেকোনো আদালত বা ট্রাইব্যুনাল ধরা হবে। তবে প্রতিরক্ষা বাহিনী বা শৃঙ্খলা বাহিনীর আইনে গড়া আদালত বা ট্রাইব্যুনাল, এবং ১১৭ অনুচ্ছেদ যে ট্রাইব্যুনালের ক্ষেত্রে খাটে, তা বাদ থাকবে।"
+    ]
+   },
+   {
+    "n": "১০৩",
+    "t": "আপীল বিভাগের এখতিয়ার",
+    "d": "আপিল বিভাগের আপিলের এখতিয়ার:",
+    "pts": [
+     "হাইকোর্ট বিভাগের রায়, ডিক্রি, আদেশ বা দণ্ডাদেশের বিরুদ্ধে আপিল শুনে নিষ্পত্তি করার এখতিয়ার আপিল বিভাগের আছে।",
+     [
+      "এই ক্ষেত্রে আপিল বিভাগে অধিকার হিসেবেই আপিল করা যাবে, যখন হাইকোর্ট বিভাগ:",
+      [
+       "সনদ দেয় যে মামলায় সংবিধানের ব্যাখ্যা-সংক্রান্ত আইনের গুরুত্বপূর্ণ প্রশ্ন জড়িত;",
+       "মৃত্যুদণ্ড বহাল রেখেছে, কিংবা কাউকে মৃত্যুদণ্ড বা যাবজ্জীবন কারাদণ্ড দিয়েছে;",
+       "হাইকোর্ট বিভাগের অবমাননার জন্য কাউকে শাস্তি দিয়েছে;",
+       "এবং সংসদ আইন করে যেসব অন্য ক্ষেত্রের বিধান করবে।"
+      ]
+     ],
+     "যে মামলায় (২) নম্বর নিয়ম খাটে না, সেখানে আপিল বিভাগ অনুমতি দিলেই কেবল আপিল চলবে।",
+     "সংসদ আইন করে ঘোষণা দিতে পারবে যে এই অনুচ্ছেদের বিধান হাইকোর্ট বিভাগের মতো অন্য কোনো আদালত বা ট্রাইব্যুনালের ক্ষেত্রেও খাটবে।"
+    ]
+   },
+   {
+    "n": "১০৪",
+    "t": "আপীল বিভাগের পরোয়ানা জারী ও নির্বাহ",
+    "d": "আপিল বিভাগে বিচারাধীন কোনো মামলা বা বিষয়ে পূর্ণ ন্যায়বিচারের জন্য যেমন দরকার, আপিল বিভাগ তেমন নির্দেশ, আদেশ, ডিক্রি বা রিট জারি করতে পারবে। এর মধ্যে কাউকে হাজির হওয়া কিংবা কোনো দলিলপত্র প্রকাশ বা জমা দেওয়ার আদেশও আছে।"
+   },
+   {
+    "n": "১০৫",
+    "t": "আপীল বিভাগ কর্তৃক রায় বা আদেশ পুনর্বিবেচনা",
+    "d": "সংসদের যেকোনো আইন এবং আপিল বিভাগের বানানো বিধি মেনে আপিল বিভাগের ঘোষিত কোনো রায় বা দেওয়া আদেশ পুনর্বিবেচনার ক্ষমতা ওই বিভাগের থাকবে।"
+   },
+   {
+    "n": "১০৬",
+    "t": "সুপ্রীম কোর্টের উপদেষ্টামূলক এখতিয়ার",
+    "d": "রাষ্ট্রপতির কাছে যদি কখনও মনে হয় যে আইনের এমন কোনো প্রশ্ন উঠেছে বা ওঠার সম্ভাবনা আছে, যা এমন ধরনের ও এতটা জনগুরুত্বপূর্ণ যে এ নিয়ে সুপ্রিম কোর্টের মত নেওয়া দরকার, তাহলে তিনি প্রশ্নটি আপিল বিভাগের বিবেচনায় পাঠাতে পারবেন। আপিল বিভাগ নিজের বিবেচনায় উপযুক্ত শুনানির পর রাষ্ট্রপতিকে নিজের মত জানাতে পারবে।"
+   },
+   {
+    "n": "১০৭",
+    "t": "সুপ্রীম কোর্টের বিধি প্রণয়ন-ক্ষমতা",
+    "d": "সুপ্রিম কোর্টের নিয়ম বানানোর ক্ষমতা:",
+    "pts": [
+     "সংসদের যেকোনো আইন মেনে সুপ্রিম কোর্ট রাষ্ট্রপতির অনুমোদন নিয়ে প্রতিটি বিভাগ এবং অধস্তন যেকোনো আদালতের রীতি ও পদ্ধতি নিয়ন্ত্রণের জন্য বিধি বানাতে পারবে।",
+     "সুপ্রিম কোর্ট এই অনুচ্ছেদের (১) নম্বর নিয়ম এবং ১১৩ ও ১১৬ অনুচ্ছেদের দায়িত্বগুলো নিজের কোনো একটি বিভাগ বা এক বা একাধিক বিচারকের ওপর দিতে পারবে।",
+     "এই অনুচ্ছেদে বানানো বিধি মেনে কোন কোন বিচারককে নিয়ে কোন বিভাগের কোন বেঞ্চ গঠিত হবে এবং কোন বিচারক কী উদ্দেশ্যে বসবেন, তা প্রধান বিচারপতি ঠিক করবেন।",
+     "প্রধান বিচারপতি সুপ্রিম কোর্টের যেকোনো বিভাগের সবচেয়ে প্রবীণ বিচারককে সেই বিভাগে (৩) নম্বর নিয়ম বা বিধি দিয়ে দেওয়া যেকোনো ক্ষমতা প্রয়োগের ভার দিতে পারবেন।"
+    ]
+   },
+   {
+    "n": "১০৮",
+    "t": "কোর্ট অব রেকর্ড রূপে সুপ্রীম কোর্ট",
+    "d": "সুপ্রিম কোর্ট একটি \"কোর্ট অব রেকর্ড\" হবে। আইন মেনে এর অবমাননার জন্য তদন্তের আদেশ বা শাস্তি দেওয়ার ক্ষমতাসহ এমন আদালতের সব ক্ষমতা এর থাকবে।"
+   },
+   {
+    "n": "১০৯",
+    "t": "আদালতসমূহের উপর তত্ত্বাবধান ও নিয়ন্ত্রণ",
+    "d": "হাইকোর্ট বিভাগের অধীন সব আদালত ও ট্রাইব্যুনালের ওপর ওই বিভাগের তত্ত্বাবধান ও নিয়ন্ত্রণের ক্ষমতা থাকবে।"
+   },
+   {
+    "n": "১১০",
+    "t": "অধস্তন আদালত হইতে হাইকোর্ট বিভাগে মামলা স্থানান্তর",
+    "d": "হাইকোর্ট বিভাগের কাছে যদি মনে হয় যে অধস্তন কোনো আদালতে চলা কোনো মামলায় সংবিধানের ব্যাখ্যা-সংক্রান্ত আইনের গুরুত্বপূর্ণ প্রশ্ন, বা এমন জনগুরুত্বপূর্ণ বিষয় জড়িত, যার সিদ্ধান্ত না হলে মামলার মীমাংসা হবে না, তাহলে হাইকোর্ট বিভাগ ওই আদালত থেকে মামলাটি তুলে নেবে এবং:",
+    "pts": [
+     "নিজেই মামলাটির মীমাংসা করবে; অথবা",
+     "আইনের প্রশ্নটির নিষ্পত্তি করে সেই রায়ের নকলসহ মামলাটি আগের (বা অন্য কোনো অধস্তন) আদালতে ফেরত পাঠাবে। সেই আদালত তখন ওই রায়ের সঙ্গে মিল রেখে মামলার মীমাংসা করবে।"
+    ]
+   },
+   {
+    "n": "১১১",
+    "t": "সুপ্রীম কোর্টের রায়ের বাধ্যতামূলক কার্যকারিতা",
+    "d": "আপিল বিভাগ যে আইন ঘোষণা করবে, তা হাইকোর্ট বিভাগকে মানতে হবে। আর সুপ্রিম কোর্টের যেকোনো বিভাগ যে আইন ঘোষণা করবে, তা সব অধস্তন আদালতকে মানতে হবে।"
+   },
+   {
+    "n": "১১২",
+    "t": "সুপ্রীম কোর্টের সহায়তা",
+    "d": "প্রজাতন্ত্রের সীমানার মধ্যে থাকা সব নির্বাহী ও বিচার বিভাগীয় কর্তৃপক্ষ সুপ্রিম কোর্টকে সহায়তা করবে।"
+   },
+   {
+    "n": "১১৩",
+    "t": "সুপ্রীম কোর্টের কর্মচারীগণ",
+    "d": "সুপ্রিম কোর্টের কর্মচারী:",
+    "pts": [
+     "সুপ্রিম কোর্টের কর্মচারীদের নিয়োগ দেবেন প্রধান বিচারপতি, বা তাঁর নির্দেশে অন্য কোনো বিচারক বা কর্মচারী। রাষ্ট্রপতির আগাম অনুমোদন নিয়ে সুপ্রিম কোর্টের বানানো বিধি অনুযায়ী এই নিয়োগ হবে।",
+     "সংসদের আইন মেনে সুপ্রিম কোর্টের বানানো বিধিতে যেমন ঠিক করা হবে, কর্মচারীদের চাকরির শর্ত তেমন হবে।"
+    ]
+   },
+   {
+    "n": "১১৪",
+    "t": "অধস্তন আদালতসমূহ প্রতিষ্ঠা",
+    "d": "আইন দিয়ে যেভাবে ঠিক করা হবে, সুপ্রিম কোর্ট ছাড়া সেভাবে অন্য অধস্তন আদালত থাকবে।"
+   },
+   {
+    "n": "১১৫",
+    "t": "অধস্তন আদালতে নিয়োগ",
+    "d": "বিচার বিভাগীয় পদে এবং বিচারের দায়িত্বে থাকা ম্যাজিস্ট্রেট পদে রাষ্ট্রপতি নিয়োগ দেবেন। এই কাজের জন্য রাষ্ট্রপতির বানানো বিধি অনুযায়ী নিয়োগ হবে।"
+   },
+   {
+    "n": "১১৬",
+    "t": "অধস্তন আদালতসমূহের নিয়ন্ত্রণ ও শৃঙ্খলা",
+    "d": "বিচার বিভাগে নিযুক্ত ব্যক্তি এবং বিচারের দায়িত্বে থাকা ম্যাজিস্ট্রেটদের নিয়ন্ত্রণ (কর্মস্থল ঠিক করা, পদোন্নতি ও ছুটি মঞ্জুরিসহ) এবং শৃঙ্খলা রক্ষার ভার রাষ্ট্রপতির ওপর থাকবে। রাষ্ট্রপতি তা সুপ্রিম কোর্টের সঙ্গে পরামর্শ করে প্রয়োগ করবেন।"
+   },
+   {
+    "n": "১১৬ক",
+    "t": "বিচারবিভাগীয় কর্মচারীগণ বিচারকার্য পালনের ক্ষেত্রে স্বাধীন",
+    "sub": true,
+    "d": "সংবিধানের বিধান মেনে বিচার বিভাগে নিযুক্ত ব্যক্তিরা এবং ম্যাজিস্ট্রেটরা বিচারের কাজে স্বাধীন থাকবেন।"
+   },
+   {
+    "n": "১১৭",
+    "t": "প্রশাসনিক ট্রাইব্যুনালসমূহ",
+    "d": "প্রশাসনিক ট্রাইব্যুনাল:",
+    "pts": [
+     [
+      "আগে যা-ই বলা হোক, সংসদ আইন করে এই বিষয়গুলোর ওপর এখতিয়ার প্রয়োগের জন্য এক বা একাধিক প্রশাসনিক ট্রাইব্যুনাল গড়তে পারবে:",
+      [
+       "নবম ভাগের বিষয় এবং জরিমানা বা অন্য শাস্তিসহ প্রজাতন্ত্রের কর্মে থাকা ব্যক্তিদের চাকরির শর্ত;",
+       "রাষ্ট্রীয় মালিকানার কোনো উদ্যোগ বা সংবিধিবদ্ধ সরকারি সংস্থার পরিচালনা ও ব্যবস্থাপনা, এবং এসব উদ্যোগ বা সংস্থার কর্মীসহ আইন দ্বারা সরকারের ওপর ন্যস্ত বা সরকার পরিচালিত কোনো সম্পত্তির অর্জন, প্রশাসন, ব্যবস্থাপনা ও বিলি-ব্যবস্থা;",
+       "যে আইনের ক্ষেত্রে ১০২ অনুচ্ছেদের (৩) নম্বর নিয়ম খাটে, সেই আইন।"
+      ]
+     ],
+     "এই অনুচ্ছেদে কোনো প্রশাসনিক ট্রাইব্যুনাল গড়া হলে, তার এখতিয়ারের মধ্যে থাকা বিষয়ে অন্য কোনো আদালত কোনো কার্যধারা নেবে না বা আদেশ দেবে না। তবে সংসদ আইন করে ট্রাইব্যুনালের সিদ্ধান্ত পুনর্বিবেচনা বা তার বিরুদ্ধে আপিলের বিধান করতে পারবে।"
+    ]
+   }
+  ]
+ },
+ {
+  "part": "সপ্তম ভাগ : নির্বাচন",
+  "range": "অনুচ্ছেদ ১১৮ — ১২৬",
+  "items": [
+   {
+    "n": "১১৮",
+    "t": "নির্বাচন কমিশন প্রতিষ্ঠা",
+    "d": "নির্বাচন কমিশন:",
+    "pts": [
+     "প্রধান নির্বাচন কমিশনার এবং বড়জোর চারজন নির্বাচন কমিশনারকে নিয়ে বাংলাদেশের একটি নির্বাচন কমিশন থাকবে। এই বিষয়ে আইন থাকলে তা মেনে রাষ্ট্রপতি তাঁদের নিয়োগ দেবেন।",
+     "একাধিক কমিশনার নিয়ে কমিশন গঠিত হলে প্রধান নির্বাচন কমিশনার তার সভাপতি হবেন।",
+     [
+      "সংবিধান মেনে কোনো নির্বাচন কমিশনারের মেয়াদ দায়িত্ব নেওয়ার তারিখ থেকে পাঁচ বছর। আর:",
+      [
+       "প্রধান নির্বাচন কমিশনার পদে থাকা কেউ প্রজাতন্ত্রের কোনো কর্মে নিয়োগের যোগ্য হবেন না;",
+       "অন্য কোনো নির্বাচন কমিশনার পদ ছাড়ার পর প্রধান নির্বাচন কমিশনার হিসেবে নিয়োগের যোগ্য হবেন, কিন্তু অন্য কোনোভাবে প্রজাতন্ত্রের কর্মে নিয়োগের যোগ্য হবেন না।"
+      ]
+     ],
+     "নির্বাচন কমিশন নিজের দায়িত্ব পালনে স্বাধীন থাকবে এবং শুধু সংবিধান ও আইনের অধীন থাকবে।",
+     "সংসদের আইন মেনে নির্বাচন কমিশনারদের চাকরির শর্ত রাষ্ট্রপতি আদেশ দিয়ে ঠিক করবেন। তবে সুপ্রিম কোর্টের বিচারককে যেভাবে ও যে কারণে সরানো যায়, সেভাবে ও সেই কারণ ছাড়া কোনো নির্বাচন কমিশনারকে সরানো যাবে না।",
+     "কোনো নির্বাচন কমিশনার রাষ্ট্রপতিকে সই করা চিঠি দিয়ে পদত্যাগ করতে পারবেন।"
+    ]
+   },
+   {
+    "n": "১১৯",
+    "t": "নির্বাচন কমিশনের দায়িত্ব",
+    "d": "নির্বাচন কমিশনের দায়িত্ব:",
+    "pts": [
+     [
+      "রাষ্ট্রপতি পদ ও সংসদের নির্বাচনের ভোটার তালিকা তৈরির তত্ত্বাবধান, নির্দেশ ও নিয়ন্ত্রণ এবং এই নির্বাচন পরিচালনার দায়িত্ব নির্বাচন কমিশনের ওপর থাকবে। সংবিধান ও আইন অনুযায়ী কমিশন:",
+      [
+       "রাষ্ট্রপতি পদের নির্বাচন করবে;",
+       "সংসদ সদস্যদের নির্বাচন করবে;",
+       "সংসদ নির্বাচনের জন্য নির্বাচনী এলাকার সীমানা ঠিক করবে;",
+       "রাষ্ট্রপতি পদ ও সংসদের নির্বাচনের জন্য ভোটার তালিকা তৈরি করবে।"
+      ]
+     ],
+     "এই দায়িত্বের বাইরে সংবিধান বা অন্য আইনে ঠিক করা আরও দায়িত্বও নির্বাচন কমিশন পালন করবে।"
+    ]
+   },
+   {
+    "n": "১২০",
+    "t": "নির্বাচন কমিশনের কর্মচারীগণ",
+    "d": "এই ভাগে নির্বাচন কমিশনকে দেওয়া দায়িত্ব পালনের জন্য যত কর্মচারী লাগবে, কমিশন অনুরোধ করলে রাষ্ট্রপতি কমিশনকে তত কর্মচারী দেওয়ার ব্যবস্থা করবেন।"
+   },
+   {
+    "n": "১২১",
+    "t": "প্রতি এলাকার জন্য একটিমাত্র ভোটার তালিকা",
+    "d": "সংসদ নির্বাচনের জন্য প্রতিটি আঞ্চলিক নির্বাচনী এলাকার একটি করে ভোটার তালিকা থাকবে। ধর্ম, জাত, বর্ণ ও নারী-পুরুষ ভেদে ভোটারদের ভাগ করে কোনো বিশেষ ভোটার তালিকা করা যাবে না।"
+   },
+   {
+    "n": "১২২",
+    "t": "ভোটার তালিকায় নামভুক্তির যোগ্যতা",
+    "d": "ভোটাধিকার:",
+    "pts": [
+     "সংসদের নির্বাচন প্রাপ্তবয়স্কের ভোটাধিকারের ভিত্তিতে হবে।",
+     [
+      "কেউ সংসদ নির্বাচনের কোনো এলাকার ভোটার তালিকায় নাম তুলতে পারবেন, যদি:",
+      [
+       "তিনি বাংলাদেশের নাগরিক হন;",
+       "তাঁর বয়স ১৮ বছরের কম না হয়;",
+       "কোনো যোগ্য আদালত তাঁকে অপ্রকৃতিস্থ ঘোষণা করে সেই ঘোষণা বহাল না থাকে;",
+       "তিনি ওই এলাকার বাসিন্দা হন বা আইনে বাসিন্দা বলে গণ্য হন;",
+       "তিনি ১৯৭২ সালের বাংলাদেশ যোগসাজশকারী (বিশেষ ট্রাইব্যুনাল) আদেশের অধীনে কোনো অপরাধে দণ্ডিত না হন।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "১২৩",
+    "t": "নির্বাচন অনুষ্ঠানের সময়",
+    "d": "নির্বাচনের সময়:",
+    "pts": [
+     "রাষ্ট্রপতির মেয়াদ শেষ হয়ে পদ খালি হলে, মেয়াদ শেষের তারিখের আগের ৯০ থেকে ৬০ দিনের মধ্যে খালি পদ পূরণের নির্বাচন হবে। তবে যে সংসদ তাঁকে নির্বাচিত করেছে, সেই সংসদের মেয়াদের মধ্যে তাঁর কার্যকাল শেষ হলে, সংসদের পরের সাধারণ নির্বাচন না হওয়া পর্যন্ত এই নির্বাচন হবে না। ওই সাধারণ নির্বাচনের পর সংসদের প্রথম বৈঠকের দিন থেকে ৩০ দিনের মধ্যে রাষ্ট্রপতির পদ পূরণের নির্বাচন হবে।",
+     "মৃত্যু, পদত্যাগ বা অপসারণের কারণে রাষ্ট্রপতির পদ খালি হলে, পদ খালি হওয়ার ৯০ দিনের মধ্যে তা পূরণের নির্বাচন হবে।",
+     [
+      "সংসদ সদস্যদের সাধারণ নির্বাচন হবে:",
+      [
+       "মেয়াদ শেষে সংসদ ভাঙলে, ভাঙার আগের ৯০ দিনের মধ্যে;",
+       "মেয়াদ শেষ হওয়া ছাড়া অন্য কারণে সংসদ ভাঙলে, ভাঙার পরের ৯০ দিনের মধ্যে।",
+       "তবে (ক) অনুযায়ী যে সাধারণ নির্বাচন হবে, তাতে নির্বাচিতরা ওই মেয়াদ শেষ না হওয়া পর্যন্ত সংসদ সদস্য হিসেবে দায়িত্ব নেবেন না।"
+      ]
+     ],
+     "সংসদ ভেঙে যাওয়া ছাড়া অন্য কারণে কোনো সংসদ সদস্যের পদ খালি হলে, খালি হওয়ার ৯০ দিনের মধ্যে তা পূরণের নির্বাচন হবে। তবে প্রধান নির্বাচন কমিশনার যদি মনে করেন কোনো দৈব-দুর্বিপাকের কারণে ওই সময়ের মধ্যে নির্বাচন সম্ভব নয়, তাহলে ওই মেয়াদের শেষ দিনের পরের ৯০ দিনের মধ্যে নির্বাচন হবে।"
+    ]
+   },
+   {
+    "n": "১২৪",
+    "t": "নির্বাচন সম্পর্কে সংসদের বিধান প্রণয়নের ক্ষমতা",
+    "d": "সংবিধান মেনে সংসদ আইন করে সংসদ নির্বাচন-সংক্রান্ত সব বিষয়ে বিধান করতে পারবে। এর মধ্যে আছে নির্বাচনী এলাকার সীমা ঠিক করা, ভোটার তালিকা তৈরি, নির্বাচন করা এবং সংসদ ঠিকভাবে গঠনের জন্য দরকারি অন্যান্য বিষয়।"
+   },
+   {
+    "n": "১২৫",
+    "t": "নির্বাচনী আইন ও নির্বাচনের বৈধতা",
+    "d": "সংবিধানে যা-ই থাকুক:",
+    "pts": [
+     "১২৪ অনুচ্ছেদ অনুযায়ী করা (বা করা বলে ধরা) নির্বাচনী এলাকার সীমা ঠিক করা বা এলাকার আসন বণ্টনের কোনো আইনের বৈধতা নিয়ে আদালতে প্রশ্ন তোলা যাবে না।",
+     "সংসদের আইন অনুযায়ী ঠিক করা কর্তৃপক্ষের কাছে এবং ঠিক করা পদ্ধতিতে নির্বাচনী দরখাস্ত না করে রাষ্ট্রপতি পদের নির্বাচন বা সংসদের কোনো নির্বাচন নিয়ে প্রশ্ন তোলা যাবে না।",
+     "নির্বাচনের তফসিল ঘোষণা হয়ে গেলে, সেই নির্বাচনের বিষয়ে নির্বাচন কমিশনকে যুক্তিসংগত নোটিশ ও শুনানির সুযোগ না দিয়ে কোনো আদালত অন্তর্বর্তী বা অন্য কোনো আদেশ বা নির্দেশ দিতে পারবে না।"
+    ]
+   },
+   {
+    "n": "১২৬",
+    "t": "নির্বাচন কমিশনকে নির্বাহী কর্তৃপক্ষের সহায়তাদান",
+    "d": "নির্বাচন কমিশনকে তার দায়িত্ব পালনে সহায়তা করা সব নির্বাহী কর্তৃপক্ষের কর্তব্য।"
+   }
+  ]
+ },
+ {
+  "part": "অষ্টম ভাগ : মহা হিসাব-নিরীক্ষক ও নিয়ন্ত্রক",
+  "range": "অনুচ্ছেদ ১২৭ — ১৩২",
+  "items": [
+   {
+    "n": "১২৭",
+    "t": "মহা হিসাব-নিরীক্ষক পদের প্রতিষ্ঠা",
+    "d": "মহা হিসাব-নিরীক্ষক ও নিয়ন্ত্রক:",
+    "pts": [
+     "বাংলাদেশের একজন মহা হিসাব-নিরীক্ষক ও নিয়ন্ত্রক (\"মহা হিসাব-নিরীক্ষক\") থাকবেন। তাঁকে রাষ্ট্রপতি নিয়োগ দেবেন।",
+     "সংবিধান ও সংসদের আইন মেনে মহা হিসাব-নিরীক্ষকের চাকরির শর্ত রাষ্ট্রপতি আদেশ দিয়ে ঠিক করবেন।"
+    ]
+   },
+   {
+    "n": "১২৮",
+    "t": "মহা হিসাব-নিরীক্ষকের দায়িত্ব",
+    "d": "মহা হিসাব-নিরীক্ষকের দায়িত্ব:",
+    "pts": [
+     "তিনি প্রজাতন্ত্রের সরকারি হিসাব এবং সব আদালত, সরকারি কর্তৃপক্ষ ও কর্মচারীর সরকারি হিসাব নিরীক্ষা করবেন ও রিপোর্ট দেবেন। এ জন্য তিনি বা তাঁর ক্ষমতাপ্রাপ্ত কেউ প্রজাতন্ত্রের কর্মে থাকা যেকোনো ব্যক্তির হাতে থাকা সব নথি, বই, রসিদ, দলিল, নগদ টাকা, স্ট্যাম্প, জামিন, ভান্ডার বা অন্য সরকারি সম্পত্তি পরীক্ষা করতে পারবেন।",
+     "আইন দিয়ে সরাসরি গড়া কোনো যৌথ সংস্থার হিসাব আইন যাঁকে নিরীক্ষা ও রিপোর্টের দায়িত্ব দিয়েছে, তিনি করতে পারবেন।",
+     "এই দায়িত্বের বাইরে সংসদ আইন করে যেমন ঠিক করবে, মহা হিসাব-নিরীক্ষককে তেমন দায়িত্ব দিতে পারবে। আইন না হওয়া পর্যন্ত রাষ্ট্রপতি আদেশ দিয়ে এমন বিধান করতে পারবেন।",
+     "এই দায়িত্ব পালনে মহা হিসাব-নিরীক্ষক অন্য কোনো ব্যক্তি বা কর্তৃপক্ষের পরিচালনা বা নিয়ন্ত্রণের অধীন থাকবেন না।"
+    ]
+   },
+   {
+    "n": "১২৯",
+    "t": "মহা হিসাব-নিরীক্ষকের কর্মের মেয়াদ",
+    "d": "মহা হিসাব-নিরীক্ষকের পদের মেয়াদ:",
+    "pts": [
+     "মহা হিসাব-নিরীক্ষক দায়িত্ব নেওয়ার তারিখ থেকে পাঁচ বছর, বা ৬৫ বছর বয়স পূর্ণ হওয়া—এর মধ্যে যেটি আগে ঘটবে, সেই পর্যন্ত পদে থাকবেন।",
+     "সুপ্রিম কোর্টের বিচারককে যেভাবে ও যে কারণে সরানো যায়, সেভাবে ও সেই কারণ ছাড়া মহা হিসাব-নিরীক্ষককে সরানো যাবে না।",
+     "তিনি রাষ্ট্রপতিকে সই করা চিঠি দিয়ে পদত্যাগ করতে পারবেন।",
+     "চাকরি শেষ হওয়ার পর তিনি প্রজাতন্ত্রের কর্মে আর কোনো পদে নিয়োগের যোগ্য হবেন না।"
+    ]
+   },
+   {
+    "n": "১৩০",
+    "t": "অস্থায়ী মহা হিসাব-নিরীক্ষক",
+    "d": "মহা হিসাব-নিরীক্ষকের পদ খালি থাকলে, বা অনুপস্থিতি, অসুস্থতা বা অন্য কারণে তিনি দায়িত্ব পালনে অক্ষম বলে রাষ্ট্রপতির কাছে মনে হলে, ১২৭ অনুচ্ছেদ অনুযায়ী নতুন নিয়োগ না হওয়া পর্যন্ত (বা মহা হিসাব-নিরীক্ষক আবার দায়িত্ব না নেওয়া পর্যন্ত) রাষ্ট্রপতি কাউকে ওই পদের দায়িত্ব পালনের জন্য নিয়োগ দিতে পারবেন।"
+   },
+   {
+    "n": "১৩১",
+    "t": "প্রজাতন্ত্রের হিসাবরক্ষার আকার ও পদ্ধতি",
+    "d": "প্রজাতন্ত্রের হিসাব কী আকারে ও পদ্ধতিতে রাখা হবে, তা মহা হিসাব-নিরীক্ষক রাষ্ট্রপতির অনুমোদন নিয়ে ঠিক করবেন।"
+   },
+   {
+    "n": "১৩২",
+    "t": "সংসদে মহা হিসাব-নিরীক্ষকের রিপোর্ট উপস্থাপন",
+    "d": "প্রজাতন্ত্রের হিসাব সম্পর্কে মহা হিসাব-নিরীক্ষকের রিপোর্ট রাষ্ট্রপতির কাছে পেশ করা হবে। রাষ্ট্রপতি তা সংসদে পেশের ব্যবস্থা করবেন।"
+   }
+  ]
+ },
+ {
+  "part": "নবম ভাগ : বাংলাদেশের কর্মবিভাগ",
+  "range": "অনুচ্ছেদ ১৩৩ — ১৪১",
+  "items": [
+   {
+    "n": "১৩৩",
+    "t": "নিয়োগ ও কর্মের শর্তাবলী",
+    "d": "সংবিধান মেনে সংসদ আইন করে প্রজাতন্ত্রের কর্মচারীদের নিয়োগ ও চাকরির শর্ত নিয়ন্ত্রণ করতে পারবে। তবে এ জন্য আইন বা আইনের অধীন বিধান না হওয়া পর্যন্ত রাষ্ট্রপতি নিয়োগ ও চাকরির শর্ত নিয়ে বিধি বানাতে পারবেন। এমন আইন হলে সেই আইন মেনে ওই বিধি কার্যকর থাকবে।"
+   },
+   {
+    "n": "১৩৪",
+    "t": "কর্মের মেয়াদ",
+    "d": "সংবিধানে অন্য কিছু বলা না থাকলে প্রজাতন্ত্রের কর্মে নিযুক্ত প্রত্যেক ব্যক্তি রাষ্ট্রপতি যত দিন চান, তত দিন পদে থাকবেন।"
+   },
+   {
+    "n": "১৩৫",
+    "t": "অসামরিক সরকারি কর্মচারীদের বরখাস্ত প্রভৃতি",
+    "d": "সরকারি কর্মচারীর বরখাস্ত নিয়ে সুরক্ষা:",
+    "pts": [
+     "প্রজাতন্ত্রের অসামরিক পদে থাকা কাউকে তাঁর নিয়োগকারী কর্তৃপক্ষের চেয়ে নিচের কোনো কর্তৃপক্ষ বরখাস্ত, অপসারণ বা পদাবনতি করতে পারবে না।",
+     [
+      "কাউকে বরখাস্ত, অপসারণ বা পদাবনতির আগে তাঁর বিরুদ্ধে প্রস্তাবিত ব্যবস্থার কারণ দর্শানোর (নিজের কথা বলার) যুক্তিসংগত সুযোগ দিতে হবে। তবে এই নিয়ম এসব ক্ষেত্রে খাটবে না:",
+      [
+       "যে আচরণের জন্য কেউ ফৌজদারি অপরাধে দণ্ডিত হয়েছেন, সেই আচরণের জন্য তাঁকে বরখাস্ত, অপসারণ বা পদাবনতি করা হলে;",
+       "বরখাস্ত বা অপসারণের ক্ষমতাধারী কর্তৃপক্ষের কাছে যদি মনে হয় (এবং তা লিখে রাখে) যে কোনো কারণে ওই ব্যক্তিকে কারণ দর্শানোর সুযোগ দেওয়া যুক্তিসংগতভাবে সম্ভব নয়;",
+       "রাষ্ট্রপতির কাছে যদি মনে হয় যে রাষ্ট্রের নিরাপত্তার স্বার্থে এই সুযোগ দেওয়া ঠিক নয়।"
+      ]
+     ],
+     "কারণ দর্শানোর সুযোগ দেওয়া যুক্তিসংগতভাবে সম্ভব কি না—এ প্রশ্ন উঠলে বরখাস্ত বা অপসারণের ক্ষমতাধারী কর্তৃপক্ষের সিদ্ধান্তই চূড়ান্ত।",
+     "কেউ লিখিত চুক্তিতে প্রজাতন্ত্রের কর্মে নিযুক্ত হলে এবং চুক্তির শর্ত অনুযায়ী যথাযথ নোটিশ দিয়ে চুক্তির অবসান ঘটালে, এই অনুচ্ছেদের জন্য তাঁকে পদ থেকে অপসারিত ধরা হবে না।"
+    ]
+   },
+   {
+    "n": "১৩৬",
+    "t": "কর্মবিভাগ পুনর্গঠন",
+    "d": "আইন দিয়ে প্রজাতন্ত্রের কর্মবিভাগ তৈরি, সংযুক্ত বা একত্র করাসহ পুনর্গঠনের বিধান করা যাবে। এমন আইন প্রজাতন্ত্রের কর্মে থাকা কারও চাকরির শর্তে পরিবর্তন আনতে বা তা বাতিল করতে পারবে।"
+   },
+   {
+    "n": "১৩৭",
+    "t": "কমিশন প্রতিষ্ঠা (সরকারি কর্ম কমিশন)",
+    "d": "আইন দিয়ে বাংলাদেশের জন্য এক বা একাধিক সরকারি কর্ম কমিশন গড়ার বিধান করা যাবে। প্রত্যেক কমিশন একজন সভাপতি এবং আইনে ঠিক করা সংখ্যার অন্য সদস্য নিয়ে গঠিত হবে।"
+   },
+   {
+    "n": "১৩৮",
+    "t": "সদস্য-নিয়োগ",
+    "d": "সরকারি কর্ম কমিশনে নিয়োগ:",
+    "pts": [
+     "প্রত্যেক সরকারি কর্ম কমিশনের সভাপতি ও অন্য সদস্যদের রাষ্ট্রপতি নিয়োগ দেবেন। তবে প্রত্যেক কমিশনের যতটা সম্ভব অর্ধেক (অর্ধেকের কম নয়) সদস্য এমন হবেন, যাঁরা বাংলাদেশের সীমানার মধ্যে যেকোনো সময় কোনো সরকারের কর্মে কুড়ি বছর বা তার বেশি সময় কোনো পদে ছিলেন।",
+     "সংসদের আইন মেনে কমিশনের সভাপতি ও অন্য সদস্যদের চাকরির শর্ত রাষ্ট্রপতি আদেশ দিয়ে ঠিক করবেন।"
+    ]
+   },
+   {
+    "n": "১৩৯",
+    "t": "সদস্যদের পদের মেয়াদ",
+    "d": "সরকারি কর্ম কমিশনের সদস্যদের মেয়াদ:",
+    "pts": [
+     "সভাপতি বা অন্য সদস্য দায়িত্ব নেওয়ার তারিখ থেকে পাঁচ বছর, বা ৬৫ বছর বয়স পূর্ণ হওয়া—এর মধ্যে যেটি আগে ঘটবে, সেই পর্যন্ত পদে থাকবেন।",
+     "সুপ্রিম কোর্টের বিচারককে যেভাবে ও যে কারণে সরানো যায়, সেভাবে ও সেই কারণ ছাড়া সভাপতি বা কোনো সদস্যকে সরানো যাবে না।",
+     "সভাপতি বা অন্য কোনো সদস্য রাষ্ট্রপতিকে সই করা চিঠি দিয়ে পদত্যাগ করতে পারবেন।",
+     [
+      "চাকরি শেষ হওয়ার পর কোনো সদস্য প্রজাতন্ত্রের কর্মে আবার নিয়োগের যোগ্য থাকবেন না। তবে (১) নম্বর নিয়ম মেনে:",
+      [
+       "চাকরি শেষের পর সভাপতি এক মেয়াদের জন্য পুনর্নিয়োগের যোগ্য থাকবেন;",
+       "চাকরি শেষের পর অন্য কোনো সদস্য (সভাপতি ছাড়া) এক মেয়াদের জন্য, কিংবা কোনো সরকারি কর্ম কমিশনের সভাপতি হিসেবে নিয়োগের যোগ্য থাকবেন।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "১৪০",
+    "t": "কমিশনের দায়িত্ব",
+    "d": "সরকারি কর্ম কমিশনের দায়িত্ব:",
+    "pts": [
+     [
+      "কমিশনের দায়িত্ব হবে:",
+      [
+       "প্রজাতন্ত্রের কর্মে নিয়োগের জন্য উপযুক্ত ব্যক্তিদের বাছাই করতে যাচাই ও পরীক্ষা নেওয়া;",
+       "(২) নম্বর নিয়ম অনুযায়ী রাষ্ট্রপতি কোনো বিষয়ে পরামর্শ চাইলে বা কমিশনের দায়িত্ব-সংক্রান্ত কোনো বিষয় পাঠালে রাষ্ট্রপতিকে উপদেশ দেওয়া;",
+       "আইনে ঠিক করা অন্য দায়িত্ব পালন করা।"
+      ]
+     ],
+     [
+      "সংসদের আইন এবং কমিশনের সঙ্গে পরামর্শ করে রাষ্ট্রপতির বানানো প্রবিধান (যা আইনের সঙ্গে সাংঘর্ষিক নয়) মেনে রাষ্ট্রপতি এসব বিষয়ে কমিশনের সঙ্গে পরামর্শ করবেন:",
+      [
+       "প্রজাতন্ত্রের কর্মের যোগ্যতা ও নিয়োগের পদ্ধতি-সংক্রান্ত বিষয়;",
+       "প্রজাতন্ত্রের কর্মে নিয়োগ, এক শাখা থেকে অন্য শাখায় পদোন্নতি ও বদলি, এবং এসবের জন্য প্রার্থীর উপযুক্ততা যাচাইয়ের নীতি;",
+       "অবসরভাতার অধিকারসহ প্রজাতন্ত্রের কর্মের শর্তে প্রভাব ফেলে এমন বিষয়;",
+       "প্রজাতন্ত্রের কর্মের শৃঙ্খলা-সংক্রান্ত বিষয়।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "১৪১",
+    "t": "বার্ষিক রিপোর্ট",
+    "d": "কমিশনের বার্ষিক রিপোর্ট:",
+    "pts": [
+     "প্রত্যেক কমিশন প্রতি বছর মার্চের প্রথম দিনে বা তার আগে, আগের ৩১ ডিসেম্বরে শেষ হওয়া বছরের কাজের রিপোর্ট বানিয়ে রাষ্ট্রপতির কাছে পেশ করবে।",
+     [
+      "রিপোর্টের সঙ্গে একটি স্মারকলিপি থাকবে, যাতে কমিশন যতটা জানে, ততটা লিখবে:",
+      [
+       "কোন কোন ক্ষেত্রে কমিশনের পরামর্শ নেওয়া হয়নি এবং কেন নেওয়া হয়নি;",
+       "যেসব ক্ষেত্রে কমিশনের সঙ্গে পরামর্শ করা উচিত ছিল অথচ করা হয়নি, সেই ক্ষেত্রগুলো এবং কেন করা হয়নি।"
+      ]
+     ],
+     "রিপোর্ট পেশের বছরের ৩১ মার্চের পর সংসদের প্রথম বৈঠকে রাষ্ট্রপতি সেই রিপোর্ট ও স্মারকলিপি সংসদে পেশের ব্যবস্থা করবেন।"
+    ]
+   }
+  ]
+ },
+ {
+  "part": "নবম-ক ভাগ : জরুরি বিধানাবলি",
+  "range": "অনুচ্ছেদ ১৪১ক — ১৪১গ",
+  "items": [
+   {
+    "n": "১৪১ক",
+    "t": "জরুরি-অবস্থা ঘোষণা",
+    "sub": true,
+    "d": "জরুরি অবস্থা ঘোষণা:",
+    "pts": [
+     "যুদ্ধ, বাইরের আক্রমণ বা ভেতরের গোলযোগে বাংলাদেশ বা এর কোনো অংশের নিরাপত্তা বা অর্থনৈতিক জীবন বিপন্ন—এমন জরুরি অবস্থা আছে বলে রাষ্ট্রপতির কাছে মনে হলে তিনি বড়জোর ১২০ দিনের জন্য জরুরি অবস্থা ঘোষণা করতে পারবেন। তবে ঘোষণা বৈধ হতে হলে ঘোষণার আগেই প্রধানমন্ত্রীর প্রতিস্বাক্ষর (সই) লাগবে।",
+     [
+      "জরুরি অবস্থার ঘোষণা:",
+      [
+       "পরের কোনো ঘোষণা দিয়ে প্রত্যাহার করা যাবে;",
+       "সংসদে পেশ করতে হবে;",
+       "১২০ দিন পার হলে আর কার্যকর থাকবে না। তবে সংসদ ভাঙা অবস্থায় ঘোষণা হলে, কিংবা ওই ১২০ দিনের মধ্যে সংসদ ভেঙে গেলে, সংসদ পুনর্গঠনের পর প্রথম বৈঠকের তারিখ থেকে ৩০ দিন পার হওয়ার আগে ঘোষণা অনুমোদনের প্রস্তাব সংসদে পাস না হলে, ওই ৩০ দিনের শেষে (বা ১২০ দিন পার হলে, যেটি আগে ঘটে) ঘোষণা আর কার্যকর থাকবে না।"
+      ]
+     ],
+     "যুদ্ধ, বাইরের আক্রমণ বা ভেতরের গোলযোগের বিপদ আসন্ন বলে রাষ্ট্রপতির কাছে মনে হলে, সেগুলো আসলে ঘটার আগেই তিনি দেশ বা এর কোনো অংশের নিরাপত্তা বিপন্ন বলে জরুরি অবস্থা ঘোষণা করতে পারবেন।"
+    ]
+   },
+   {
+    "n": "১৪১খ",
+    "t": "জরুরি-অবস্থার সময় সংবিধানের কতিপয় অনুচ্ছেদের বিধান স্থগিতকরণ",
+    "sub": true,
+    "d": "জরুরি অবস্থার সময় সংবিধানের কিছু অনুচ্ছেদ স্থগিত:",
+    "pts": [
+     "জরুরি অবস্থা চালু থাকার সময় ৩৬, ৩৭, ৩৮, ৩৯, ৪০ ও ৪২ অনুচ্ছেদের (তৃতীয় ভাগের) কোনো কিছুই রাষ্ট্রের আইন বানানো বা নির্বাহী ব্যবস্থা নেওয়ার ক্ষমতা সীমিত করবে না। এই অনুচ্ছেদগুলোর কারণে সাধারণত রাষ্ট্র যা করতে পারে না, তাও করতে পারবে।",
+     "তবে জরুরি অবস্থার ঘোষণা শেষ হলেই এভাবে বানানো আইন, যতটা কর্তৃত্বহীন, ততটা অকার্যকর হয়ে যাবে। এর আগে ওই আইনের কর্তৃত্বে যা করা হয়েছে বা করা হয়নি, সেটি বাদ থাকবে।"
+    ]
+   },
+   {
+    "n": "১৪১গ",
+    "t": "জরুরি-অবস্থার সময় মৌলিক অধিকারসমূহ স্থগিতকরণ",
+    "sub": true,
+    "d": "জরুরি অবস্থায় মৌলিক অধিকার বলবৎ করার মামলা স্থগিত:",
+    "pts": [
+     "জরুরি অবস্থা চালু থাকার সময় প্রধানমন্ত্রীর লিখিত পরামর্শ অনুযায়ী রাষ্ট্রপতি আদেশ দিয়ে ঘোষণা করতে পারবেন যে, আদেশে উল্লেখ করা মৌলিক অধিকারগুলো (তৃতীয় ভাগের) কার্যকর করতে আদালতে মামলা করার অধিকার, এবং ওই অধিকারগুলো নিয়ে আদালতে বিচারাধীন সব মামলা, জরুরি অবস্থার পুরো সময়ের জন্য (বা আদেশে ঠিক করা তার চেয়ে কম সময়ের জন্য) স্থগিত থাকবে।",
+     "এই আদেশ সারা বাংলাদেশে বা এর যেকোনো অংশে খাটতে পারবে।",
+     "এই অনুচ্ছেদের অধীন করা প্রতিটি আদেশ যত তাড়াতাড়ি সম্ভব সংসদে পেশ করতে হবে।"
+    ]
+   }
+  ]
+ },
+ {
+  "part": "দশম ভাগ : সংবিধান-সংশোধন",
+  "range": "অনুচ্ছেদ ১৪২",
+  "items": [
+   {
+    "n": "১৪২",
+    "t": "সংবিধানের বিধান সংশোধনের ক্ষমতা",
+    "d": "সংবিধান সংশোধনের নিয়ম:",
+    "pts": [
+     [
+      "সংবিধানে যা-ই থাকুক, সংসদ আইন করে সংবিধানের কোনো বিধান যোগ, বদল, প্রতিস্থাপন বা বাতিল করে সংশোধন করতে পারবে। তবে:",
+      [
+       "সংশোধনের বিলের পুরো শিরোনামে স্পষ্ট করে না লেখা থাকলে যে সংবিধানের কোনো বিধান সংশোধন করা হবে, বিলটি বিবেচনার জন্য নেওয়া যাবে না;",
+       "সংসদের মোট সদস্যের অন্তত দুই-তৃতীয়াংশ ভোটে পাস না হলে সেই বিল সম্মতির জন্য রাষ্ট্রপতির কাছে পাঠানো যাবে না।"
+      ]
+     ],
+     "এভাবে বিল পাস হওয়ার পর সম্মতির জন্য রাষ্ট্রপতির কাছে পাঠানো হলে তিনি সাত দিনের মধ্যে সম্মতি দেবেন। না দিলে ওই সময় শেষে ধরা হবে যে তিনি সম্মতি দিয়েছেন।"
+    ]
+   }
+  ]
+ },
+ {
+  "part": "একাদশ ভাগ : বিবিধ",
+  "range": "অনুচ্ছেদ ১৪৩ — ১৫৩",
+  "items": [
+   {
+    "n": "১৪৩",
+    "t": "প্রজাতন্ত্রের সম্পত্তি",
+    "d": "প্রজাতন্ত্রের সম্পদ:",
+    "pts": [
+     [
+      "আইন অনুযায়ী আগে থেকে প্রজাতন্ত্রের থাকা জমি বা সম্পত্তি ছাড়াও এগুলো প্রজাতন্ত্রের হবে:",
+      [
+       "বাংলাদেশের যেকোনো জমির ভেতরের সব খনিজ ও অন্যান্য মূল্যবান জিনিস;",
+       "বাংলাদেশের জলসীমার ভেতরের মহাসাগরের তলার, বা বাংলাদেশের মহীসোপানের ওপরের মহাসাগরের তলার সব জমি, খনিজ ও অন্যান্য মূল্যবান জিনিস;",
+       "বাংলাদেশে থাকা প্রকৃত মালিকহীন যেকোনো সম্পত্তি।"
+      ]
+     ],
+     "সংসদ সময়ে সময়ে আইন করে বাংলাদেশের সীমানা এবং জলসীমা ও মহীসোপানের সীমা ঠিক করতে পারবে।"
+    ]
+   },
+   {
+    "n": "১৪৪",
+    "t": "সম্পত্তি ও কারবার প্রভৃতি প্রসঙ্গে নির্বাহী কর্তৃত্ব",
+    "d": "প্রজাতন্ত্রের নির্বাহী কর্তৃত্বে সম্পত্তি নেওয়া, বিক্রি, হস্তান্তর, বন্ধক দেওয়া ও অন্যভাবে বিলি-ব্যবস্থা করা, যেকোনো ব্যবসা চালানো এবং যেকোনো চুক্তি করা যাবে।"
+   },
+   {
+    "n": "১৪৫",
+    "t": "চুক্তি ও দলিল",
+    "d": "চুক্তি ও দলিল:",
+    "pts": [
+     "প্রজাতন্ত্রের নির্বাহী কর্তৃত্বে করা সব চুক্তি ও দলিল রাষ্ট্রপতির করা বলে প্রকাশ করা হবে। রাষ্ট্রপতি যেমন নির্দেশ বা ক্ষমতা দেবেন, তাঁর পক্ষে সেই ব্যক্তি সেই পদ্ধতিতে তা সম্পাদন করবেন।",
+     "প্রজাতন্ত্রের নির্বাহী কর্তৃত্বে কোনো চুক্তি বা দলিল করা হলে, রাষ্ট্রপতি বা অন্য কেউ ব্যক্তিগতভাবে দায়ী হবেন না। তবে এটি সরকারের বিরুদ্ধে যথাযথ মামলা করার কারও অধিকার ক্ষুণ্ণ করবে না।"
+    ]
+   },
+   {
+    "n": "১৪৫ক",
+    "t": "আন্তর্জাতিক চুক্তি",
+    "sub": true,
+    "d": "বিদেশের সঙ্গে করা সব চুক্তি রাষ্ট্রপতির কাছে পেশ করা হবে, আর রাষ্ট্রপতি তা সংসদে পেশের ব্যবস্থা করবেন। তবে জাতীয় নিরাপত্তা-সংক্রান্ত এমন চুক্তি শুধু সংসদের গোপন বৈঠকে পেশ করা হবে।"
+   },
+   {
+    "n": "১৪৬",
+    "t": "বাংলাদেশের নামে মামলা",
+    "d": "\"বাংলাদেশ\" নামে বাংলাদেশ সরকার মামলা করতে পারবে এবং বাংলাদেশ সরকারের বিরুদ্ধেও মামলা করা যাবে।"
+   },
+   {
+    "n": "১৪৭",
+    "t": "কতিপয় পদাধিকারীর পারিশ্রমিক প্রভৃতি",
+    "d": "কিছু পদধারীর পারিশ্রমিক ও শর্ত:",
+    "pts": [
+     [
+      "এই অনুচ্ছেদ যে পদগুলোর ক্ষেত্রে খাটে, সেই পদে থাকা ব্যক্তির পারিশ্রমিক, বিশেষ অধিকার ও চাকরির অন্য শর্ত সংসদের আইন দিয়ে বা আইনের অধীন ঠিক হবে। এমনভাবে ঠিক না হওয়া পর্যন্ত:",
+      [
+       "সংবিধান চালুর ঠিক আগে ওই পদে থাকা ব্যক্তির ক্ষেত্রে যা খাটত, তা-ই খাটবে; অথবা",
+       "আগের নিয়ম না খাটলে রাষ্ট্রপতি আদেশ দিয়ে যা ঠিক করবেন, তা-ই খাটবে।"
+      ]
+     ],
+     "এই পদগুলোর কোনোটিতে থাকাকালে ওই ব্যক্তির পারিশ্রমিক, বিশেষ অধিকার ও চাকরির অন্য শর্ত এমনভাবে বদলানো যাবে না, যা তাঁর জন্য অসুবিধাজনক।",
+     "এই পদগুলোর কোনোটিতে থাকা ব্যক্তি কোনো লাভজনক পদ, বেতনভুক্ত পদ বা মর্যাদায় থাকতে পারবেন না। মুনাফার উদ্দেশ্যে গড়া কোনো কোম্পানি, সমিতি বা প্রতিষ্ঠানের ব্যবস্থাপনা বা পরিচালনায়ও অংশ নিতে পারবেন না। তবে শুধু এই পদগুলোতে আছেন বলেই কেউ লাভজনক পদে আছেন বলে ধরা হবে না।",
+     [
+      "এই অনুচ্ছেদ এই পদগুলোর জন্য খাটবে:",
+      [
+       "রাষ্ট্রপতি;",
+       "প্রধানমন্ত্রী;",
+       "স্পিকার বা ডেপুটি স্পিকার;",
+       "মন্ত্রী, প্রতিমন্ত্রী বা উপমন্ত্রী;",
+       "সুপ্রিম কোর্টের বিচারক;",
+       "মহা হিসাব-নিরীক্ষক ও নিয়ন্ত্রক;",
+       "নির্বাচন কমিশনার;",
+       "সরকারি কর্ম কমিশনের সদস্য।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "১৪৮",
+    "t": "পদের শপথ",
+    "d": "শপথ:",
+    "pts": [
+     "তৃতীয় তফসিলে উল্লেখ করা যেকোনো পদে নির্বাচিত বা নিযুক্ত ব্যক্তি দায়িত্ব নেওয়ার আগে ওই তফসিল অনুযায়ী শপথ বা ঘোষণা করবেন এবং শপথপত্র বা ঘোষণাপত্রে সই করবেন।",
+     "সংবিধানের অধীন কোনো নির্দিষ্ট ব্যক্তির কাছে শপথ নেওয়ার কথা থাকলে, সেই ব্যক্তি যাঁকে ও যে জায়গা ঠিক করে দেবেন, তাঁর কাছে সেই জায়গায় শপথ নেওয়া যাবে।",
+     "সংসদ সদস্যদের সাধারণ নির্বাচনের ফল সরকারি গেজেটে প্রকাশের পরের তিন দিনের মধ্যে যাঁর শপথ পড়ানোর কথা, তিনি (বা তাঁর ঠিক করা অন্য কেউ) যদি কোনো কারণে নির্বাচিত সদস্যদের শপথ পড়াতে ব্যর্থ হন বা না পড়ান, তাহলে এর পরের তিন দিনের মধ্যে প্রধান নির্বাচন কমিশনার তা পড়াবেন—যেন তিনিই এ কাজের জন্য ঠিক করা ব্যক্তি।",
+     "যে ক্ষেত্রে দায়িত্ব নেওয়ার আগে শপথ বাধ্যতামূলক, সেখানে শপথ নেওয়ার ঠিক পরেই তিনি দায়িত্ব নিয়েছেন বলে ধরা হবে।"
+    ]
+   },
+   {
+    "n": "১৪৯",
+    "t": "প্রচলিত আইনের হেফাজত",
+    "d": "সংবিধানের বিধান মেনে সব প্রচলিত আইন চালু থাকবে। তবে সংবিধানের অধীন বানানো আইন দিয়ে সেগুলো সংশোধন বা বাতিল করা যাবে।"
+   },
+   {
+    "n": "১৫০",
+    "t": "ক্রান্তিকালীন ও অস্থায়ী বিধানাবলী",
+    "d": "সাময়িক ও পরিবর্তনকালীন বিধান:",
+    "pts": [
+     "সংবিধানের অন্য কোনো বিধানে যা-ই থাকুক, ১৯৭২ সালের ১৬ ডিসেম্বর সংবিধান চালুর সময় চতুর্থ তফসিলে বলা বিধানগুলো পরিবর্তনকালীন ও অস্থায়ী বিধান হিসেবে কার্যকর থাকবে।",
+     [
+      "১৯৭১ সালের ৭ মার্চ থেকে ১৯৭২ সালের ১৬ ডিসেম্বর সংবিধান চালুর ঠিক আগ পর্যন্ত সময়ে, এই তিনটি বাংলাদেশের স্বাধীনতা ও মুক্তিসংগ্রামের ঐতিহাসিক ভাষণ ও দলিল, যা ওই সময়ের জন্য পরিবর্তনকালীন ও অস্থায়ী বিধান বলে গণ্য হবে:",
+      [
+       "পঞ্চম তফসিলে থাকা, ১৯৭১ সালের ৭ মার্চ ঢাকার রেসকোর্স ময়দানে জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমানের ঐতিহাসিক ভাষণ;",
+       "ষষ্ঠ তফসিলে থাকা, ১৯৭১ সালের ২৬ মার্চ জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমানের বাংলাদেশের স্বাধীনতা ঘোষণার টেলিগ্রাম;",
+       "সপ্তম তফসিলে থাকা, ১৯৭১ সালের ১০ এপ্রিল মুজিবনগর সরকারের জারি করা স্বাধীনতার ঘোষণাপত্র।"
+      ]
+     ]
+    ]
+   },
+   {
+    "n": "১৫১",
+    "t": "রহিতকরণ",
+    "d": "রাষ্ট্রপতির এই আদেশগুলো বাতিল করা হলো:",
+    "pts": [
+     "আইনের ধারাবাহিকতা বলবৎকরণ আদেশ (১৯৭১ সালের ১০ এপ্রিল জারি);",
+     "১৯৭২ সালের বাংলাদেশ অস্থায়ী সংবিধান আদেশ;",
+     "১৯৭২ সালের বাংলাদেশ হাইকোর্ট আদেশ (পি.ও. নং ৫);",
+     "১৯৭২ সালের বাংলাদেশ মহা হিসাব-নিরীক্ষক ও নিয়ন্ত্রক আদেশ (পি.ও. নং ১৫);",
+     "১৯৭২ সালের বাংলাদেশ গণপরিষদ আদেশ (পি.ও. নং ২২);",
+     "১৯৭২ সালের বাংলাদেশ নির্বাচন কমিশন আদেশ (পি.ও. নং ২৫);",
+     "১৯৭২ সালের বাংলাদেশ সরকারি কর্ম কমিশনসমূহ আদেশ (পি.ও. নং ৩৪);",
+     "১৯৭২ সালের বাংলাদেশ (সরকারি কর্ম সম্পাদন) আদেশ (পি.ও. নং ৫৮)।"
+    ]
+   },
+   {
+    "n": "১৫২",
+    "t": "ব্যাখ্যা",
+    "d": "শব্দের অর্থ (সংজ্ঞা):",
+    "pts": [
+     [
+      "অন্যরকম অর্থ না বোঝালে এই সংবিধানে এসব শব্দের অর্থ হলো:",
+      [
+       "\"অধিবেশন\" (সংসদের) — সংবিধান চালুর পর, কিংবা একবার স্থগিত বা ভেঙে যাওয়ার পর সংসদ প্রথম যখন বসে, তখন থেকে স্থগিত বা ভেঙে যাওয়া পর্যন্ত বৈঠকগুলো।",
+       "\"বৈঠক\" (সংসদের) — মুলতবি না করে সংসদ যত ক্ষণ টানা বসে থাকে।",
+       "\"অনুচ্ছেদ\", \"ভাগ\", \"তফসিল\", \"দফা\", \"উপ-দফা\" — সংবিধানের সেই অংশ।",
+       "\"অবসর-ভাতা\" — কাউকে দেওয়া যেকোনো অবসর-ভাতা; ভবিষ্য তহবিলের চাঁদা ফেরত দেওয়ার সময় দেওয়া অবসরকালীন বেতন বা আনুতোষিকও এর মধ্যে ধরা হবে।",
+       "\"অর্থ-বছর\" — যে বছরের শুরু জুলাই মাসের প্রথম দিনে।",
+       "\"আইন\" — কোনো আইন, অধ্যাদেশ, আদেশ, বিধি, প্রবিধান, উপ-আইন, বিজ্ঞপ্তি ও অন্য আইনি দলিল এবং বাংলাদেশে আইনের শক্তি আছে এমন কোনো প্রথা বা রীতি।",
+       "\"আদালত\" — সুপ্রিম কোর্টসহ যেকোনো আদালত। \"আপিল বিভাগ\" — সুপ্রিম কোর্টের আপিল বিভাগ। \"হাইকোর্ট বিভাগ\" — সুপ্রিম কোর্টের হাইকোর্ট বিভাগ। \"সুপ্রিম কোর্ট\" — ৯৪ অনুচ্ছেদে গঠিত সুপ্রিম কোর্ট।",
+       "\"ঋণগ্রহণ\" — বার্ষিক কিস্তিতে শোধ করার মতো টাকা তোলাও এর মধ্যে পড়ে। \"ঋণ\" একই অর্থে।",
+       "\"করারোপ\" — সাধারণ, স্থানীয় বা বিশেষ যেকোনো কর, খাজনা, শুল্ক বা বিশেষ কর বসানো। \"কর\" একই অর্থে।",
+       "\"গ্যারান্টি\" — কোনো উদ্যোগের মুনাফা ঠিক করা পরিমাণের কম হলে টাকা দেওয়ার বাধ্যবাধকতা (সংবিধান চালুর আগে নেওয়াও)।",
+       "\"জেলা-বিচারক\" — অতিরিক্ত জেলা-বিচারকও এর মধ্যে পড়বেন।",
+       "\"দেনা\" ও \"দেনার দায়\" — বার্ষিক কিস্তিতে মূলধন শোধের যেকোনো বাধ্যবাধকতাজনিত দায় এবং যেকোনো গ্যারান্টিযুক্ত দায়।",
+       "\"নাগরিক\" — নাগরিকত্ব আইন অনুযায়ী যিনি বাংলাদেশের নাগরিক।",
+       "\"প্রচলিত আইন\" — সংবিধান চালুর ঠিক আগে বাংলাদেশের সীমানায় বা এর কোনো অংশে আইনের শক্তি ছিল এমন যেকোনো আইন, কাজে চালু থাকুক বা না থাকুক।",
+       "\"প্রজাতন্ত্র\" — গণপ্রজাতন্ত্রী বাংলাদেশ।",
+       "\"প্রজাতন্ত্রের কর্ম\" — অসামরিক বা সামরিক ক্ষমতায় বাংলাদেশ সরকার-সংক্রান্ত যেকোনো কাজ, চাকরি বা পদ, এবং আইনে প্রজাতন্ত্রের কর্ম বলে ঘোষিত অন্য কর্ম।",
+       "\"প্রধান নির্বাচন কমিশনার\" — ১১৮ অনুচ্ছেদ অনুযায়ী ওই পদে নিযুক্ত ব্যক্তি। \"প্রধান বিচারপতি\" — বাংলাদেশের প্রধান বিচারপতি।",
+       "\"প্রশাসনিক একাংশ\" — জেলা, কিংবা ৫৯ অনুচ্ছেদের জন্য আইনে ঠিক করা অন্য কোনো এলাকা।",
+       "\"বিচারক\" — সুপ্রিম কোর্টের কোনো বিভাগের বিচারক। \"বিচার-কর্মবিভাগ\" — জেলা-বিচারক পদের নিচের বিচারবিভাগীয় পদে থাকা ব্যক্তিদের নিয়ে গড়া কর্মবিভাগ।",
+       "\"রাজধানী\" — ৫ অনুচ্ছেদে বলা রাজধানী।",
+       "\"রাজনৈতিক দল\" — এমন সংঘ বা ব্যক্তিসমষ্টি, যা সংসদের ভেতরে বা বাইরে আলাদা নামে কাজ করে এবং রাজনৈতিক মত প্রচার বা রাজনৈতিক তৎপরতার জন্য নিজেদের অন্য সংঘ থেকে আলাদা হিসেবে প্রকাশ করে।",
+       "\"রাষ্ট্র\" — সংসদ, সরকার ও সংবিধিবদ্ধ সরকারি কর্তৃপক্ষ।",
+       "\"রাষ্ট্রপতি\" — সংবিধান অনুযায়ী নির্বাচিত বাংলাদেশের রাষ্ট্রপতি, কিংবা সাময়িকভাবে ওই পদে কর্মরত যেকোনো ব্যক্তি।",
+       "\"শৃঙ্খলা-বাহিনী\" — স্থল, নৌ বা বিমান বাহিনী; পুলিশ বাহিনী; এবং আইনে শৃঙ্খলা-বাহিনী বলে ঘোষিত যেকোনো বাহিনী। \"শৃঙ্খলামূলক আইন\" — শৃঙ্খলা-বাহিনীর শৃঙ্খলা নিয়ন্ত্রণ করে এমন আইন।",
+       "\"সংবিধিবদ্ধ সরকারি কর্তৃপক্ষ\" — যেকোনো কর্তৃপক্ষ, সংস্থা বা প্রতিষ্ঠান, যার কাজ বা প্রধান কাজ কোনো আইন, অধ্যাদেশ, আদেশ বা আইনের শক্তিসম্পন্ন চুক্তিপত্র দিয়ে দেওয়া হয়েছে।",
+       "\"সংসদ\" — ৬৫ অনুচ্ছেদে গঠিত বাংলাদেশের সংসদ।",
+       "\"সম্পত্তি\" — সব স্থাবর-অস্থাবর, বস্তুগত-অবস্তুগত সম্পত্তি, বাণিজ্যিক ও শিল্প উদ্যোগ এবং এসবের সঙ্গে জড়িত যেকোনো স্বত্ব বা অংশ।",
+       "\"সরকারি কর্মচারী\" — প্রজাতন্ত্রের কর্মে বেতনভুক্ত পদে থাকা বা কর্মরত যেকোনো ব্যক্তি। \"সরকারি বিজ্ঞপ্তি\" — গেজেটে প্রকাশিত বিজ্ঞপ্তি।",
+       "\"সিকিউরিটি\" — স্টকও এর মধ্যে পড়ে।",
+       "\"স্পিকার\" — ৭৪ অনুচ্ছেদ অনুযায়ী সাময়িকভাবে স্পিকারের পদে থাকা ব্যক্তি।"
+      ]
+     ],
+     "১৮৯৭ সালের জেনারেল ক্লজেস অ্যাক্ট সংসদের আইনের ক্ষেত্রে যেভাবে খাটে, এই সংবিধানের ক্ষেত্রেও সেভাবে খাটবে। সংসদের আইনে বাতিল হওয়া আইনের ক্ষেত্রে যেভাবে খাটে, এই সংবিধানে বাতিল বা সংবিধানের কারণে বাতিল বা অকার্যকর হওয়া আইনের ক্ষেত্রেও সেভাবে খাটবে।"
+    ]
+   },
+   {
+    "n": "১৫৩",
+    "t": "প্রবর্তন, উল্লেখ ও নির্ভরযোগ্য পাঠ",
+    "d": "সংবিধানের নাম, চালুর দিন ও পাঠ:",
+    "pts": [
+     "এই সংবিধানকে \"গণপ্রজাতন্ত্রী বাংলাদেশের সংবিধান\" নামে উল্লেখ করা হবে এবং এটি ১৯৭২ সালের ১৬ ডিসেম্বর থেকে বলবৎ হবে। এই সংবিধানে সেই দিনকে \"সংবিধান-প্রবর্তন\" বলা হয়েছে।",
+     "বাংলায় সংবিধানের একটি নির্ভরযোগ্য পাঠ এবং ইংরেজিতে অনূদিত একটি নির্ভরযোগ্য অনুমোদিত পাঠ থাকবে। গণপরিষদের স্পিকার সনদ দিয়ে দুটিকেই নির্ভরযোগ্য বলে প্রত্যয়ন করবেন।",
+     "এই সনদযুক্ত পাঠ সংবিধানের বিধানের চূড়ান্ত প্রমাণ বলে গণ্য হবে। তবে বাংলা ও ইংরেজি পাঠের মধ্যে বিরোধ হলে বাংলা পাঠই প্রাধান্য পাবে।"
+    ]
+   }
+  ]
+ }
+];
+
+var S={known:{},best:{}},view="home",gid=0,mode="cards",queue=[],built=false,fl=false,T=null,artSearch="",artPart="ALL",artShowAll=false;
+var $app=document.getElementById("app");
+
+function load(){
+  try {
+    var d = JSON.parse(localStorage.getItem("cp2077_bd_const_v1"));
+    if(d && typeof d === "object"){
+      S.known = d.known || {};
+      S.best = d.best || {};
+    }
+  } catch(e){}
+}
+
+function save(){
+  try {
+    localStorage.setItem("cp2077_bd_const_v1", JSON.stringify(S));
+  } catch(e){}
+}
+
+function W(id){
+  if(!id || id === 0) return CARDS;
+  return CARDS.filter(function(c){ return c.mod === id; });
+}
+
+function kn(id){
+  return W(id).filter(function(c){ return !!S.known[c.id]; }).length;
+}
+
+function shuf(arr){
+  var a = arr.slice();
+  for(var i = a.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i];
+    a[i] = a[j];
+    a[j] = tmp;
+  }
+  return a;
+}
+
+function render(){
+  if(view === "articles") return articlesView();
+  if(view === "group"){
+    var modObj = MODULES.find(function(m){ return m.id === gid; });
+    var title = modObj ? modObj.title : "সম্পূর্ণ ডেক (সব ১৫টি কার্ড)";
+    var h = '<div class="top">'
+          + '<button class="cyber-btn outline" data-a="home">&lt; MODULES</button>'
+          + '<h2 class="top-title">' + title + '</h2>'
+          + '<div class="tabs" role="tablist">'
+          + '<button role="tab" aria-selected="' + (mode === "cards") + '" data-a="m-cards">FLASHCARDS</button>'
+          + '<button role="tab" aria-selected="' + (mode === "test") + '" data-a="m-test">DIAGNOSTIC TEST</button>'
+          + '</div></div><div id="body"></div>';
+    $app.innerHTML = h;
+    if(mode === "cards") cards();
+    else test();
+  }
+}
+
+function articlesView(){
+  var totalCount = PARTS_ARTICLES.reduce(function(acc, p){ return acc + p.items.length; }, 0);
+  var h='<div class="top"><h2 class="top-title">বাংলাদেশের সংবিধান : অনুচ্ছেদসমূহ (১ — ১৫৩)</h2>'
+       +'<span class="sub-header">মোট নিবন্ধিত ধারা: '+totalCount+'টি (১১টি ভাগ)</span></div>';
+
+  h+='<div class="art-controls">'
+    +'<input type="text" id="artSearchInput" class="art-search" placeholder="অনুচ্ছেদ নম্বর, শিরোনাম বা বিষয়বস্তু খুঁজুন (যেমন: ৭, 26, 7A, রিট, জরুরি)..." value="'+artSearch.replace(/"/g,'&quot;')+'">'
+    +'<select id="artPartSelect" class="part-filter">'
+    +'<option value="ALL"'+(artPart==="ALL"?' selected':'')+'>সকল ভাগ (১ম — ১১শ ভাগ)</option>';
+
+  PARTS_ARTICLES.forEach(function(p, idx){
+    h+='<option value="'+idx+'"'+(artPart===String(idx)?' selected':'')+'>'+p.part+'</option>';
+  });
+  h+='</select>'
+    +'<button class="cyber-btn cyan" id="toggleAllDetailsBtn" style="padding:10px 16px;">'+(artShowAll ? 'বিস্তারিত সংকুচিত করুন [-]' : 'সকল বিস্তারিত দেখুন [+]')+'</button>'
+    +'</div><div id="artResults"></div>';
+  $app.innerHTML=h;
+
+  renderArticleList();
+
+  var inp = document.getElementById("artSearchInput");
+  var sel = document.getElementById("artPartSelect");
+  var tgl = document.getElementById("toggleAllDetailsBtn");
+  if(inp){
+    inp.addEventListener("input", function(e){
+      artSearch = e.target.value;
+      renderArticleList();
+    });
+  }
+  if(sel){
+    sel.addEventListener("change", function(e){
+      artPart = e.target.value;
+      renderArticleList();
+    });
+  }
+  if(tgl){
+    tgl.addEventListener("click", function(){
+      artShowAll = !artShowAll;
+      tgl.textContent = artShowAll ? 'বিস্তারিত সংকুচিত করুন [-]' : 'সকল বিস্তারিত দেখুন [+]';
+      renderArticleList();
+    });
+  }
+}
+
+
+function ptsText(item){
+  var out=[];
+  (function walk(a){(a||[]).forEach(function(x){
+    if(typeof x==="string") out.push(x);
+    else if(Array.isArray(x)){ if(typeof x[0]==="string") out.push(x[0]); walk(x[1]); }
+  })})(item.pts);
+  return out.join(" ");
+}
+function listHtml(arr){
+  var h='<ul class="art-pts">';
+  arr.forEach(function(x){
+    if(typeof x==="string") h+='<li>'+x+'</li>';
+    else if(x[1] && x[1].length) h+='<li>'+x[0]+listHtml(x[1])+'</li>';
+    else h+='<li>'+x[0]+'</li>';
+  });
+  return h+'</ul>';
+}
+function detailHtml(item){
+  var h='';
+  if(item.d) h+='<p class="art-intro">'+item.d+'</p>';
+  if(item.pts && item.pts.length) h+=listHtml(item.pts);
+  return h;
+}
+function renderArticleList(){
+  var box = document.getElementById("artResults");
+  if(!box) return;
+  var q = artSearch.trim().toLowerCase();
+  // Accept English digits: 26 -> ২৬, 7a/7A -> ৭ক, 141b -> ১৪১খ
+  var bnD = "০১২৩৪৫৬৭৮৯", sfx = {a:"ক", b:"খ", c:"গ"};
+  var numMatch = q.replace(/[\s.\-]/g,"").match(/^([0-9০-৯]+)([a-cক-গ]?)$/);
+  var qNum = null;
+  if(numMatch){
+    var digits = numMatch[1].replace(/[0-9]/g,function(d){return bnD[+d]});
+    qNum = digits + (sfx[numMatch[2]] || numMatch[2]);
+  }
+  var html = "";
+  var foundAny = false;
+
+  PARTS_ARTICLES.forEach(function(p, idx){
+    if(artPart !== "ALL" && artPart !== String(idx)) return;
+    var filtered = p.items.filter(function(item){
+      if(!q) return true;
+      if(qNum !== null){
+        // number search: match the article number only (e.g. 7 -> ৭, ৭ক, ৭খ; not ১৭)
+        if(numMatch[2]) return item.n === qNum;
+        return item.n === qNum || (item.n.indexOf(qNum) === 0 && !/[০-৯]/.test(item.n.charAt(qNum.length)));
+      }
+      return item.n.toLowerCase().indexOf(q) !== -1 ||
+             item.t.toLowerCase().indexOf(q) !== -1 ||
+             ((item.d||'').toLowerCase().indexOf(q) !== -1) ||
+             (ptsText(item).toLowerCase().indexOf(q) !== -1) ||
+             p.part.toLowerCase().indexOf(q) !== -1;
+    });
+    if(!filtered.length) return;
+    foundAny = true;
+
+    html += '<div class="part-section">'
+          + '<div class="part-header">'
+          + '<div class="part-title">'+p.part+'</div>'
+          + '<div class="part-range">'+p.range+' ('+filtered.length+'টি অনুচ্ছেদ)</div>'
+          + '</div>'
+          + '<div class="art-list'+(artShowAll || q.length > 0 ? ' show-all' : '')+'">';
+
+    filtered.forEach(function(item){
+      var cls = "art-item" + (item.sub ? " sub-art" : "") + (item.rep ? " repealed" : "");
+      html += '<div class="'+cls+'" onclick="this.classList.toggle(\'expanded\')">'
+            + '<div class="art-row-top">'
+            + '<div class="art-title-wrap">'
+            + '<span class="art-num">'+item.n+'</span>'
+            + '<span class="art-name">'+item.t+'</span>'
+            + '</div>'
+            + '<span class="art-toggle-icon">INFO</span>'
+            + '</div>'
+            + '<div class="art-detail">'+detailHtml(item)+'</div>'
+            + '</div>';
+    });
+
+    html += '</div></div>';
+  });
+
+  if(!foundAny){
+    html = '<div class="cyber-box"><h2>// NO MATCH FOUND</h2><p style="color:var(--cp-muted);">আপনার অনুসন্ধানের সাথে কোনো অনুচ্ছেদ মেলেনি। অন্য শব্দ বা নম্বর দিয়ে চেষ্টা করুন।</p></div>';
+  }
+  box.innerHTML = html;
+}
+
+function cards(){
+  var gCards = W(gid);
+  if(!built){
+    var unk=gCards.filter(function(c){return !S.known[c.id]}).map(function(c){return c.id});
+    queue=unk.length?unk:gCards.map(function(c){return c.id});
+    built=true;fl=false;
+  }
+  var tot=gCards.length,k=kn(gid),$b=document.getElementById("body");
+  var pct=Math.round((k/tot)*100);
+  var bar='<div class="stat-bar"><span>MODULE_PROGRESS: '+k+' / '+tot+' MASTERED ('+pct+'%)</span><button data-a="rst" style="color:var(--cp-red);text-transform:uppercase;text-decoration:underline;min-height:36px;">[RESET PROGRESS]</button></div><div class="bar-container"><i style="width:'+pct+'%"></i></div>';
+  
+  if(!queue.length){
+    $b.innerHTML=bar+'<div class="cyber-box"><h2>// MODULE SYNCHRONIZED</h2><p style="color:var(--cp-muted);margin-bottom:20px;font-size:1.1rem;">অভিনন্দন! এই মডিউলের সবগুলো কার্ড সফলভাবে আয়ত্ত হয়েছে।</p><div class="act"><button class="cyber-btn outline" data-a="again">RE-STUDY ALL CARDS</button><button class="cyber-btn" data-a="m-test">START DIAGNOSTIC TEST &gt;</button></div></div>';
+    return;
+  }
+  
+  var currentCard = CARDS.find(function(c){return c.id===queue[0]});
+  $b.innerHTML=bar+'<div class="scene" id="cardScene" data-a="flip"><div class="card'+(fl?" fl":"")+'"><div class="face front"><div class="card-badge">'+currentCard.num+'</div><div class="term-bn">'+currentCard.q+'</div><div class="hint">[ TAP OR SPACE TO DECRYPT ANSWER ]</div></div><div class="face back-f"><div class="back-header"><span class="chip yellow">'+currentCard.num+'</span><span class="chip cyan">'+currentCard.tag+'</span></div><div class="ans-body">'+currentCard.aHtml+'</div><div class="row-note"><small>INFO:</small> '+currentCard.note+'</div></div></div></div><div class="act"><button class="cyber-btn red" data-a="no">&#10006; আবার পড়ুন (QUEUE: '+queue.length+')</button><button class="cyber-btn" data-a="yes">&#10004; আয়ত্ত হয়েছে (MARK KNOWN)</button></div><div class="kbd-hints"><span><span class="kbd">SPACE</span> FLIP</span><span><span class="kbd">&larr;</span> REVIEW</span><span><span class="kbd">&rarr;</span> KNOWN</span></div>';
+  bindTouchEvents();
+}
+
+function test(){
+  var gCards=W(gid),$b=document.getElementById("body"),b=S.best[gid];
+  if(!T){
+    var maxQ = gCards.length;
+    var opts = "";
+    if(maxQ >= 4) opts += '<option value="4">৪টি প্রশ্ন (কুইক স্ক্যান)</option>';
+    if(maxQ >= 8) opts += '<option value="8">৮টি প্রশ্ন (স্ট্যান্ডার্ড)</option>';
+    opts += '<option value="'+maxQ+'" selected>সবগুলো ('+maxQ+'টি প্রশ্ন)</option>';
+    $b.innerHTML='<div class="cyber-box"><h2>// CONSTITUTIONAL DIAGNOSTIC</h2><p style="color:var(--cp-muted);font-size:1.05rem;">নির্বাচিত মডিউলের ওপর এমসিকিউ (MCQ) পরীক্ষা শুরু করুন'+(b!==undefined?' // সর্বোচ্চ স্কোর: '+b+'%':'')+'</p><select id="len" aria-label="Number of questions">'+opts+'</select><br><button class="cyber-btn" data-a="go">EXECUTE TEST &gt;</button></div>';
+    return;
+  }
+  if(T.i>=T.qs.length){
+    var sc=T.qs.length-T.miss.length,p=Math.round(sc/T.qs.length*100);
+    if(S.best[gid]===undefined||p>S.best[gid]){S.best[gid]=p;save()}
+    var h='<div class="cyber-box"><h2>// DIAGNOSTIC COMPLETE: '+p+'%</h2><p style="color:var(--cp-cyan);font-family:var(--font-mono);margin-bottom:14px;">ACCURACY: '+sc+' / '+T.qs.length+' VERIFIED</p>';
+    if(T.miss.length){
+      h+='<h3 style="text-align:left;color:var(--cp-red);font-family:var(--font-mono);font-size:0.9rem;border-bottom:1px solid var(--cp-red);padding-bottom:6px;">[ যে প্রশ্নগুলো ভুল হয়েছে তা পর্যালোচনা করুন ]</h3><ul class="miss">';
+      T.miss.forEach(function(m){
+        h+='<li><b>'+m.num+': '+m.q+'</b><br><span style="color:var(--cp-cyan);">সঠিক উত্তর:</span> '+m.shortA+'</li>';
+      });
+      h+='</ul>';
+    } else {
+      h+='<p style="color:var(--cp-green);font-weight:bold;margin:18px 0;font-size:1.15rem;">&#10004; ১০০% নির্ভুল উত্তর! আপনার প্রস্তুতি চমৎকার।</p>';
+    }
+    $b.innerHTML=h+'<div class="act"><button class="cyber-btn outline" data-a="retest">RE-RUN DIAGNOSTIC</button><button class="cyber-btn" data-a="m-cards">RETURN TO CARDS</button></div></div>';
+    return;
+  }
+  var q=T.qs[T.i],pct=Math.round(T.i/T.qs.length*100);
+  var h='<div class="stat-bar"><span>QUERY '+(T.i+1)+' OF '+T.qs.length+'</span><span>'+pct+'% COMPLETED</span></div><div class="bar-container"><i style="width:'+pct+'%"></i></div><div class="cyber-box" style="text-align:left"><div class="q">// '+q.card.num+' ('+q.card.tag+')</div><div class="qw">'+q.card.q+'</div>';
+  q.o.forEach(function(o,idx){
+    var cls="opt";
+    if(T.pick!==null){
+      if(o===q.ok)cls+=" good";
+      else if(idx===T.pick)cls+=" bad";
+    }
+    h+='<button class="'+cls+'" data-o="'+idx+'"'+(T.pick!==null?' disabled':'')+'>'+o+'</button>';
+  });
+  if(T.pick!==null)h+='<div style="margin-top:16px;text-align:right"><button class="cyber-btn" data-a="next">'+(T.i+1===T.qs.length?"VIEW RESULTS":"NEXT QUERY")+' &gt;</button></div>';
+  $b.innerHTML=h+'</div>';
+}
+
+function mkTest(n){
+  var pool=shuf(W(gid)).slice(0,n);
+  var qs=pool.map(function(card){
+    var distractors=shuf(CARDS.filter(function(c){return c.id!==card.id})).slice(0,3).map(function(c){return c.shortA});
+    return {
+      card: card,
+      ok: card.shortA,
+      o: shuf([card.shortA].concat(distractors))
+    };
+  });
+  return {qs:qs,i:0,pick:null,miss:[]};
+}
+
+// Touch Swipe Gestures
+function bindTouchEvents(){
+  var scene=document.getElementById("cardScene");
+  if(!scene)return;
+  var startX=0,startY=0;
+  scene.addEventListener("touchstart",function(e){
+    startX=e.changedTouches[0].screenX;
+    startY=e.changedTouches[0].screenY;
+  },{passive:true});
+  scene.addEventListener("touchend",function(e){
+    var dx=e.changedTouches[0].screenX-startX;
+    var dy=e.changedTouches[0].screenY-startY;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){
+      if(dx<0 && queue.length){
+        var c=queue.shift();queue.push(c);fl=false;cards();
+      } else if(dx>0 && queue.length){
+        S.known[queue[0]]=1;save();queue.shift();fl=false;cards();
+      }
+    }
+  },{passive:true});
+}
+
+document.addEventListener("click",function(e){
+  var el=e.target.closest("[data-g],[data-a],[data-o]");if(!el)return;
+  if(navLinks && navLinks.classList.contains("open") && el.closest("#navLinks")){
+    navLinks.classList.remove("open");
+  }
+  if(el.dataset.g!==undefined){gid=+el.dataset.g;view="group";mode="cards";built=false;T=null;return render()}
+  var a=el.dataset.a;
+  if(a==="home"){view="articles";T=null;return render()}
+  if(a==="articles"){view="articles";T=null;return render()}
+  if(a==="all-cards"){gid=0;view="group";mode="cards";built=false;T=null;return render()}
+  if(a==="m-cards"){if(view!=="group"){gid=0;view="group";}mode="cards";built=false;T=null;return render()}
+  if(a==="m-test"){if(view!=="group"){gid=0;view="group";}mode="test";T=null;return render()}
+  if(a==="flip"){fl=!fl;var c=document.querySelector(".card");if(c)c.classList.toggle("fl",fl);return}
+  if(a==="yes"){if(!queue.length)return;S.known[queue[0]]=1;save();queue.shift();fl=false;return cards()}
+  if(a==="no"){if(!queue.length)return;var c=queue.shift();queue.push(c);fl=false;return cards()}
+  if(a==="again"){queue=W(gid).map(function(c){return c.id});fl=false;return cards()}
+  if(a==="rst"){W(gid).forEach(function(c){delete S.known[c.id]});save();built=false;return cards()}
+  if(a==="go"){var lenEl=document.getElementById("len");T=mkTest(lenEl?+lenEl.value:W(gid).length);return test()}
+  if(a==="retest"){T=null;return test()}
+  if(a==="next"){T.i++;T.pick=null;return test()}
+  if(el.dataset.o!==undefined&&T&&T.pick===null){T.pick=+el.dataset.o;var q=T.qs[T.i];if(q.o[T.pick]!==q.ok)T.miss.push(q.card);return test()}
+});
+
+document.addEventListener("keydown",function(e){
+  if(e.target && (e.target.tagName==="INPUT" || e.target.tagName==="SELECT"))return;
+  if(view!=="group"||mode!=="cards")return;
+  if(e.code==="Space"){e.preventDefault();fl=!fl;var c=document.querySelector(".card");if(c)c.classList.toggle("fl",fl)}
+  else if(e.code==="ArrowRight"&&queue.length){S.known[queue[0]]=1;save();queue.shift();fl=false;cards()}
+  else if(e.code==="ArrowLeft"&&queue.length){var c=queue.shift();queue.push(c);fl=false;cards()}
+});
+
+view="articles";load();view="articles";render();
+})();
+
+// Theme switcher (default: Soft Study)
+(function(){
+  var root=document.documentElement,sw=document.getElementById("themeSwitch"),
+      labels=document.querySelectorAll("#themeBar .tb-label");
+  function apply(t){
+    if(t==="classic")root.removeAttribute("data-theme");else root.setAttribute("data-theme","soft");
+    sw.setAttribute("aria-checked",String(t!=="classic"));
+    labels.forEach(function(l){l.classList.toggle("on",(l.dataset.side==="soft")===(t!=="classic"))});
+  }
+  var saved="soft";
+  try{saved=localStorage.getItem("bd-const-theme-v2")||"soft"}catch(e){}
+  apply(saved==="classic"?"classic":"soft");
+  sw.addEventListener("click",function(){
+    var next=sw.getAttribute("aria-checked")==="true"?"classic":"soft";
+    apply(next);
+    try{localStorage.setItem("bd-const-theme-v2",next)}catch(e){}
+  });
+  labels.forEach(function(l){l.style.cursor="pointer";l.addEventListener("click",function(){
+    var t=l.dataset.side;apply(t);try{localStorage.setItem("bd-const-theme-v2",t)}catch(e){}
+  })});
+})();
+</script>
+</body>
+</html>
