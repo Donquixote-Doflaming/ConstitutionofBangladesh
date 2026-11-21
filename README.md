@@ -2,6 +2,8 @@
 
 An interactive, single-file web application designed for reading, searching, and studying the Constitution of the People's Republic of Bangladesh (গণপ্রজাতন্ত্রী বাংলাদেশের সংবিধান) in plain, accessible Bengali.
 
+🌐 Live Demo: https://donquixote-doflaming.github.io/ConstitutionofBangladesh/
+
 ✨ Key Features
 
 Complete Article Explorer (অনুচ্ছেদ ১ — ১৫৩):
@@ -43,12 +45,12 @@ Run Locally
 
 Clone the repository:
 
-git clone https://github.com/your-username/bangladesh-constitution-app.git
+git clone https://github.com/donquixote-doflaming/ConstitutionofBangladesh.git
 
 
 Navigate into the project directory:
 
-cd bangladesh-constitution-app
+cd ConstitutionofBangladesh
 
 
 Open index.html directly in any modern web browser (Chrome, Firefox, Edge, Safari).
@@ -61,7 +63,7 @@ Go to Settings → Pages.
 
 Under Build and deployment, select Deploy from a branch, choose main (root /), and click Save.
 
-Your app will be live at https://your-username.github.io/bangladesh-constitution-app/.
+Your app will be live at https://donquixote-doflaming.github.io/ConstitutionofBangladesh/.
 
 🛠️ Built With
 
